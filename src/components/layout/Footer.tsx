@@ -33,29 +33,29 @@ const Footer = () => {
                         <h3 className="text-white font-bold text-xl mb-2">Quick Links</h3>
                         <div className="w-16 h-1 bg-[#0033ff] mb-8"></div>
                         <div className="flex flex-col gap-4">
-                            <Link to="/what-we-do" className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors group">
+                            <Link to="/#what-we-do" className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors group">
                                 <ChevronRight className="w-4 h-4 text-[#0033ff] group-hover:translate-x-1 transition-transform" />
                                 <span>What We Do</span>
                             </Link>
-                            <Link to="/process" className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors group">
+                            <Link to="/#process" className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors group">
                                 <ChevronRight className="w-4 h-4 text-[#0033ff] group-hover:translate-x-1 transition-transform" />
                                 <span>Process</span>
                             </Link>
-                            <Link to="/packages" className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors group">
+                            <Link to="/#packages" className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors group">
                                 <ChevronRight className="w-4 h-4 text-[#0033ff] group-hover:translate-x-1 transition-transform" />
                                 <span>Packages</span>
                             </Link>
-                            <Link to="/why-us" className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors group">
+                            <Link to="/#why-us" className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors group">
                                 <ChevronRight className="w-4 h-4 text-[#0033ff] group-hover:translate-x-1 transition-transform" />
                                 <span>Why Us</span>
                             </Link>
-                            <Link to="/blog" className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors group">
+                            <Link to="/partners" className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors group">
                                 <ChevronRight className="w-4 h-4 text-[#0033ff] group-hover:translate-x-1 transition-transform" />
-                                <span>Blog</span>
+                                <span>Partners</span>
                             </Link>
-                            <Link to="/courses" className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors group">
+                            <Link to="/#courses" className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors group">
                                 <ChevronRight className="w-4 h-4 text-[#0033ff] group-hover:translate-x-1 transition-transform" />
-                                <span>Courses</span>
+                                <span>Academy</span>
                             </Link>
                         </div>
                     </div>
@@ -65,29 +65,29 @@ const Footer = () => {
                         <h3 className="text-white font-bold text-xl mb-2">Our Services</h3>
                         <div className="w-16 h-1 bg-[#0033ff] mb-8"></div>
                         <div className="flex flex-col gap-4">
-                            <Link to="/services/24-hour" className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors group">
+                            <Link to="/services" className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors group">
                                 <ChevronRight className="w-4 h-4 text-[#0033ff] group-hover:translate-x-1 transition-transform" />
                                 <span>24 Hour Testing</span>
                             </Link>
-                            <Link to="/services/closed-beta" className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors group">
+                            <Link to="/services" className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors group">
                                 <ChevronRight className="w-4 h-4 text-[#0033ff] group-hover:translate-x-1 transition-transform" />
                                 <span>Closed Beta Testing</span>
                             </Link>
-                            <Link to="/services/basic" className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors group">
+                            <Link to="/#packages" className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors group">
                                 <ChevronRight className="w-4 h-4 text-[#0033ff] group-hover:translate-x-1 transition-transform" />
                                 <span>Basic Testing</span>
                             </Link>
-                            <Link to="/services/premium" className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors group">
+                            <Link to="/#packages" className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors group">
                                 <ChevronRight className="w-4 h-4 text-[#0033ff] group-hover:translate-x-1 transition-transform" />
                                 <span>Premium Testing</span>
                             </Link>
-                            <Link to="/services/vip" className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors group">
+                            <Link to="/#packages" className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors group">
                                 <ChevronRight className="w-4 h-4 text-[#0033ff] group-hover:translate-x-1 transition-transform" />
                                 <span>VIP Testing</span>
                             </Link>
-                            <Link to="/privacy" className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors group">
+                            <Link to="/get-in-touch" className="flex items-center gap-2 text-gray-300 hover:text-white transition-colors group">
                                 <ChevronRight className="w-4 h-4 text-[#0033ff] group-hover:translate-x-1 transition-transform" />
-                                <span>Privacy Policy</span>
+                                <span>Get In Touch</span>
                             </Link>
                         </div>
                     </div>
