@@ -120,7 +120,7 @@ const QAHonorsProgram = () => {
                         className="max-w-4xl mx-auto"
                     >
                         <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
-                            What is the <span className="text-[#0088ff]">GenofIT QA Honors Program</span>
+                            What is the <span className="text-[#0088ff]">QA Honors Program</span>
                         </h2>
 
                         <div className="space-y-6 text-lg text-white/80 leading-relaxed">
