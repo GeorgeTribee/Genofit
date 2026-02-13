@@ -24,7 +24,9 @@ const CourseDetails = () => {
         try {
             // Create checkout session
             const { url } = await createCheckoutSession({
-                courseId: courseId || '1', // Fallback to '1' since data is hardcoded
+                courseId: courseId || '1',
+                courseName: course.title,
+                courseDescription: course.description,
                 customerEmail: email,
                 customerFirstName: firstName,
                 customerLastName: lastName,

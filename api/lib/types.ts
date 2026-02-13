@@ -27,6 +27,8 @@ export interface Order {
 
 export interface CreateCheckoutRequest {
   courseId: string;
+  courseName?: string;
+  courseDescription?: string;
   customerEmail: string;
   customerFirstName?: string;
   customerLastName?: string;

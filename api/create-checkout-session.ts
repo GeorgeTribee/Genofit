@@ -13,7 +13,7 @@ export default async function handler(
   }
 
   try {
-    const { courseId, customerEmail, customerFirstName, customerLastName, customerPhone, customAmount }: CreateCheckoutRequest = req.body;
+    const { courseId, courseName, courseDescription, customerEmail, customerFirstName, customerLastName, customerPhone, customAmount }: CreateCheckoutRequest = req.body;
     const customerName = [customerFirstName, customerLastName].filter(Boolean).join(' ');
 
     // Validate input
@@ -32,22 +32,23 @@ export default async function handler(
       return res.status(400).json({ error: 'Invalid email format' });
     }
 
-    // Get course from database
-    const { data: course, error: courseError } = await supabase
+    // Try to get course from database; fall back to frontend-provided values
+    let resolvedCourseName = courseName || 'Course';
+    let resolvedCourseDescription = courseDescription || '';
+
+    const { data: course } = await supabase
       .from('courses')
       .select('*')
       .eq('id', courseId)
       .single();
 
-    if (courseError || !course) {
-      return res.status(404).json({ error: 'Course not found' });
-    }
-
-    const typedCourse = course as Course;
-
-    // Check if course has ended
-    if (typedCourse.is_ended) {
-      return res.status(400).json({ error: 'This course has ended and is no longer available' });
+    if (course) {
+      const typedCourse = course as Course;
+      if (typedCourse.is_ended) {
+        return res.status(400).json({ error: 'This course has ended and is no longer available' });
+      }
+      resolvedCourseName = typedCourse.title;
+      resolvedCourseDescription = typedCourse.description;
     }
 
     // Create Stripe Checkout Session
@@ -60,8 +61,8 @@ export default async function handler(
             currency: 'usd',
             unit_amount: Math.round(customAmount! * 100), // Convert to cents
             product_data: {
-              name: typedCourse.title,
-              description: typedCourse.description,
+              name: resolvedCourseName,
+              description: resolvedCourseDescription || undefined,
             },
           },
           quantity: 1,

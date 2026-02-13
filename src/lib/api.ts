@@ -1,5 +1,7 @@
 interface CreateCheckoutRequest {
   courseId: string;
+  courseName?: string;
+  courseDescription?: string;
   customerEmail: string;
   customerFirstName?: string;
   customerLastName?: string;
@@ -24,12 +26,14 @@ export async function createCheckoutSession(
   });
 
   if (!response.ok) {
+    let errorMessage = 'Failed to create checkout session';
     try {
       const error = await response.json();
-      throw new Error(error.error || 'Failed to create checkout session');
+      errorMessage = error.error || errorMessage;
     } catch {
-      throw new Error('Server error. Please try again.');
+      // Could not parse JSON error response
     }
+    throw new Error(errorMessage);
   }
 
   return response.json();
