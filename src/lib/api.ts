@@ -30,6 +30,7 @@ export async function createCheckoutSession(
     try {
       const error = await response.json();
       errorMessage = error.error || errorMessage;
+    if (error.details) errorMessage += ` (${error.details})`;
     } catch {
       // Could not parse JSON error response
     }

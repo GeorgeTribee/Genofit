@@ -69,8 +69,8 @@ export default async function handler(
         },
       ],
       customer_email: customerEmail,
-      success_url: `${process.env.VITE_APP_URL}/purchase/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${process.env.VITE_APP_URL}/purchase/cancelled`,
+      success_url: `${process.env.VITE_APP_URL || process.env.APP_URL || 'https://genofit.tech'}/purchase/success?session_id={CHECKOUT_SESSION_ID}`,
+      cancel_url: `${process.env.VITE_APP_URL || process.env.APP_URL || 'https://genofit.tech'}/purchase/cancelled`,
       metadata: {
         courseId: courseId,
         customerName: customerName || '',
