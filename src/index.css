@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,12 +7,12 @@
 @layer base {
   :root {
     --background: 207 59% 15%;
-    /* #10293E */
+    /* #10293E - Main brand color */
     --foreground: 0 0% 100%;
     /* #FFFFFF */
 
     --card: 207 59% 18%;
-    /* Slightly lighter than bg */
+    /* Slightly lighter card background */
     --card-foreground: 0 0% 100%;
 
     --popover: 207 59% 15%;
@@ -88,5 +90,22 @@
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+}
+
+@layer utilities {
+  @keyframes gradient {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 15s ease infinite;
   }
 }
