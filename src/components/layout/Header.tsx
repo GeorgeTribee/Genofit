@@ -31,7 +31,7 @@ const Header = () => {
         // If we're on a different page, let the Link navigate normally
     };
 
-    const navLinks = [
+    const navLinks: { name: string; href: string; badge?: boolean; dropdown?: { name: string; href: string }[] }[] = [
         { name: "What We Do", href: "/#what-we-do" },
         {
             name: "Services", href: "/services",
@@ -44,7 +44,7 @@ const Header = () => {
         { name: "Why Us", href: "/#why-us" },
         { name: "Academy", href: "/#courses" },
         { name: "About Us", href: "/#about" },
-        { name: "QA Honors Program", href: "/qa-honors-program" },
+        { name: "QA Honors Program", href: "/qa-honors-program", badge: true },
     ];
 
     return (
@@ -114,6 +114,12 @@ const Header = () => {
                                         className="relative text-sm font-medium text-white/80 hover:text-white transition-all duration-300 group"
                                     >
                                         {link.name}
+                                        {link.badge && (
+                                            <span className="absolute -top-1 -right-2.5 flex h-2 w-2">
+                                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                                            </span>
+                                        )}
                                         <span className="absolute left-1/4 -bottom-1 w-0 h-0.5 bg-[#0033ff] group-hover:w-1/2 transition-all duration-300"></span>
                                     </Link>
                                 )}
@@ -160,7 +166,15 @@ const Header = () => {
                                             onClick={(e) => handleNavClick(e, link.href)}
                                             className="block py-3 px-4 text-lg font-medium hover:bg-white/5 rounded-lg transition-all duration-300"
                                         >
-                                            {link.name}
+                                            <span className="relative inline-flex items-center gap-2">
+                                                {link.name}
+                                                {link.badge && (
+                                                    <span className="flex h-2 w-2">
+                                                        <span className="animate-ping absolute inline-flex h-2 w-2 rounded-full bg-green-400 opacity-75"></span>
+                                                        <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                                                    </span>
+                                                )}
+                                            </span>
                                         </Link>
                                         {link.dropdown && (
                                             <div className="ml-4 flex flex-col gap-1">
