@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUp } from "lucide-react";
@@ -6,7 +6,12 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 const Layout = () => {
+    const { pathname } = useLocation();
     const [showScrollTop, setShowScrollTop] = useState(false);
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [pathname]);
 
     useEffect(() => {
         const handleScroll = () => {
