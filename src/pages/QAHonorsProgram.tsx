@@ -163,7 +163,7 @@ const QAHonorsProgram = () => {
                     </motion.div>
 
                     <div className="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                        {/* Card 1: Selection */}
+                        {/* Card 1: Admission Process */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -175,38 +175,75 @@ const QAHonorsProgram = () => {
                                 <div className="w-12 h-12 rounded-full bg-[#0033ff] flex items-center justify-center">
                                     <Users className="w-6 h-6" />
                                 </div>
-                                <h3 className="text-2xl font-bold">Selection</h3>
+                                <h3 className="text-2xl font-bold">Admission Process</h3>
                             </div>
 
-                            <p className="text-[#0088ff] font-semibold mb-4">
-                                📅 March 20 – March 31<br />
-                                Two-stage selection process
+                            <p className="text-[#0088ff] font-semibold mb-6">
+                                3 Stages
                             </p>
 
-                            <div className="space-y-4">
+                            <div className="space-y-6">
                                 <div>
-                                    <h4 className="text-lg font-semibold mb-2">Stage 1: Pre-Registration</h4>
+                                    <h4 className="text-lg font-semibold mb-1">Stage 1 – Initial Application</h4>
+                                    <p className="text-white/50 text-sm mb-3">March 20 – March 31</p>
+                                    <p className="text-white/70 mb-2">Candidates complete a short online application form including:</p>
                                     <ul className="space-y-2 text-white/70">
                                         <li className="flex items-start gap-2">
                                             <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
-                                            <span>Simple registration (5–10 minutes)</span>
+                                            <span>Basic personal information</span>
                                         </li>
                                         <li className="flex items-start gap-2">
                                             <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
-                                            <span>Basic information: name, age, contact details</span>
+                                            <span>Technical readiness confirmation</span>
                                         </li>
                                         <li className="flex items-start gap-2">
                                             <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
-                                            <span>Deadline: April 5, 23:59</span>
+                                            <span>Availability and commitment assessment</span>
                                         </li>
                                     </ul>
+                                    <p className="text-white/50 text-sm mt-3">Applications close on March 31 at 21:00 (UTC+4).</p>
                                 </div>
 
                                 <div>
-                                    <h4 className="text-lg font-semibold mb-2">Stage 2: Assessment</h4>
-                                    <p className="text-white/70">
-                                        Pre-registered candidates will receive detailed instructions by email regarding the assessment stage.
-                                    </p>
+                                    <h4 className="text-lg font-semibold mb-2">Stage 2 – Application Review & Qualification</h4>
+                                    <p className="text-white/70 mb-2">All submitted applications undergo structured evaluation based on:</p>
+                                    <ul className="space-y-2 text-white/70 mb-3">
+                                        <li className="flex items-start gap-2">
+                                            <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
+                                            <span>Readiness</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
+                                            <span>Availability</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
+                                            <span>Commitment level</span>
+                                        </li>
+                                    </ul>
+                                    <p className="text-white/70">Every applicant receives an official email notification regarding their status. Shortlisted candidates will receive further instructions to proceed.</p>
+                                </div>
+
+                                <div>
+                                    <h4 className="text-lg font-semibold mb-2">Stage 3 – Final Assessment</h4>
+                                    <ul className="space-y-2 text-white/70">
+                                        <li className="flex items-start gap-2">
+                                            <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
+                                            <span>Shortlisted candidates proceed to the final evaluation stage.</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
+                                            <span>This stage is designed to assess overall suitability for the program.</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
+                                            <span>Final admission decisions are made after internal review.</span>
+                                        </li>
+                                        <li className="flex items-start gap-2">
+                                            <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
+                                            <span>Selected participants receive official confirmation.</span>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </motion.div>
@@ -223,16 +260,18 @@ const QAHonorsProgram = () => {
                                 <div className="w-12 h-12 rounded-full bg-[#0033ff] flex items-center justify-center">
                                     <Target className="w-6 h-6" />
                                 </div>
-                                <h3 className="text-2xl font-bold">Training</h3>
+                                <h3 className="text-2xl font-bold">Program Structure</h3>
                             </div>
 
-                            <p className="text-[#0088ff] font-semibold mb-4">
-                                📅 April 20 – July 15 (7 weeks)
-                            </p>
+                            <div className="flex gap-4 mb-6">
+                                <span className="text-[#0088ff] font-semibold"> Start Date: April 27</span>
+                                <span className="text-white/40">|</span>
+                                <span className="text-[#0088ff] font-semibold">⏱ Duration: 10 weeks</span>
+                            </div>
 
-                            <div className="space-y-4">
+                            <div className="space-y-6">
                                 <div>
-                                    <p className="mb-3 text-white/80">Intensive QA Fundamentals training covering:</p>
+                                    <p className="mb-3 text-white/80">Intensive QA training built on industry standards:</p>
                                     <ul className="space-y-2 text-white/70">
                                         <li className="flex items-start gap-2">
                                             <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
@@ -244,21 +283,21 @@ const QAHonorsProgram = () => {
                                         </li>
                                         <li className="flex items-start gap-2">
                                             <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
-                                            <span>Agile / Scrum Practices</span>
+                                            <span>Agile & Scrum Practices</span>
                                         </li>
                                         <li className="flex items-start gap-2">
                                             <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
-                                            <span>Industry-standard tools</span>
+                                            <span>Industry-standard tools & workflows</span>
                                         </li>
                                     </ul>
                                 </div>
 
                                 <div>
-                                    <h4 className="text-lg font-semibold mb-2">Format:</h4>
+                                    <h4 className="text-lg font-semibold mb-3">Format</h4>
                                     <ul className="space-y-2 text-white/70">
                                         <li className="flex items-start gap-2">
                                             <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
-                                            <span>Live sessions 2–3 times per week (evenings, 20:00 Georgian time)</span>
+                                            <span>Live sessions 2–3 times per week (20:00 Georgian time)</span>
                                         </li>
                                         <li className="flex items-start gap-2">
                                             <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
@@ -266,22 +305,26 @@ const QAHonorsProgram = () => {
                                         </li>
                                         <li className="flex items-start gap-2">
                                             <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
-                                            <span>Weekly practical assignments</span>
+                                            <span>Weekly hands-on assignments</span>
                                         </li>
                                         <li className="flex items-start gap-2">
                                             <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
-                                            <span>Detailed feedback from experienced QA professionals (within 48 hours)</span>
+                                            <span>Structured feedback from QA professionals (within 48 hours)</span>
                                         </li>
                                         <li className="flex items-start gap-2">
                                             <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
-                                            <span>Two major assessments: Mid-term (Week 7) and Final Project</span>
+                                            <span>Two major evaluations: Mid-term and Final Project</span>
                                         </li>
                                     </ul>
                                 </div>
+
+                                <p className="text-white/50 text-sm italic">
+                                    This program is designed to simulate real QA environments and professional expectations.
+                                </p>
                             </div>
                         </motion.div>
 
-                        {/* Card 3: Final Project */}
+                        {/* Card 3: Capstone Assessment */}
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -293,16 +336,27 @@ const QAHonorsProgram = () => {
                                 <div className="w-12 h-12 rounded-full bg-[#0033ff] flex items-center justify-center">
                                     <Calendar className="w-6 h-6" />
                                 </div>
-                                <h3 className="text-2xl font-bold">Final Project</h3>
+                                <h3 className="text-2xl font-bold">Capstone Assessment</h3>
                             </div>
 
-                            <p className="text-[#0088ff] font-semibold mb-4">
-                                📅 Weeks 6–7
+                            <p className="text-[#0088ff] font-semibold mb-6">
+                                Weeks 9–10 · Final Practical Assessment
                             </p>
 
-                            <p className="text-white/70 leading-relaxed">
-                                A capstone project where students apply everything they have learned. Detailed instructions and continuous support are provided throughout the project phase.
-                            </p>
+                            <div className="space-y-4 text-white/70 leading-relaxed">
+                                <p>
+                                    Throughout the program, students continuously work on hands-on assignments and training tasks based on real industry scenarios. They progressively apply the skills learned during the course, including test planning, test case creation, bug reporting, test documentation, and collaboration within an Agile workflow.
+                                </p>
+                                <p>
+                                    Weeks 9–10 represent the Final Project, where students consolidate their knowledge and complete a full testing cycle within a comprehensive practical assignment.
+                                </p>
+                                <p>
+                                    The learning environment is designed to closely reflect professional QA processes, with defined timelines, responsibilities, and evaluation criteria aligned with industry practices.
+                                </p>
+                                <p>
+                                    During the project, students receive regular feedback from QA professionals and follow workflows commonly used in modern development teams.
+                                </p>
+                            </div>
                         </motion.div>
 
                         {/* Card 4: Graduation */}
@@ -320,13 +374,13 @@ const QAHonorsProgram = () => {
                                 <h3 className="text-2xl font-bold">Graduation</h3>
                             </div>
 
-                            <p className="text-[#0088ff] font-semibold mb-4">
-                                📅 July 15
+                            <p className="text-[#0088ff] font-semibold mb-6">
+                                Certificate of Completion & Program Graduation
                             </p>
 
-                            <div className="space-y-4">
+                            <div className="space-y-6">
                                 <div>
-                                    <h4 className="text-lg font-semibold mb-2">Successful graduates:</h4>
+                                    <h4 className="text-lg font-semibold mb-3">Successful graduates will:</h4>
                                     <ul className="space-y-2 text-white/70">
                                         <li className="flex items-start gap-2">
                                             <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
@@ -334,35 +388,35 @@ const QAHonorsProgram = () => {
                                         </li>
                                         <li className="flex items-start gap-2">
                                             <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
-                                            <span>Join the Alumni Network with ongoing support and mentorship</span>
+                                            <span>Join the GenofIT Alumni Network with ongoing mentorship and career guidance</span>
                                         </li>
                                     </ul>
                                 </div>
 
                                 <div>
-                                    <h4 className="text-lg font-semibold mb-2">Graduation Requirements:</h4>
+                                    <h4 className="text-lg font-semibold mb-3">Graduation Requirements:</h4>
                                     <ul className="space-y-2 text-white/70">
                                         <li className="flex items-start gap-2">
                                             <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
-                                            <span>90%+ attendance</span>
+                                            <span>Minimum 90% attendance</span>
                                         </li>
                                         <li className="flex items-start gap-2">
                                             <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
-                                            <span>All assignments completed (75+ score)</span>
+                                            <span>All assignments completed (75%+ score)</span>
                                         </li>
                                         <li className="flex items-start gap-2">
                                             <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
-                                            <span>Mid-term assessment passed (75+)</span>
+                                            <span>Mid-term assessment passed (75%+)</span>
                                         </li>
                                         <li className="flex items-start gap-2">
                                             <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
-                                            <span>Final project successfully completed (85+)</span>
+                                            <span>Final project successfully completed (85%+)</span>
                                         </li>
                                     </ul>
                                 </div>
 
-                                <p className="text-[#0088ff] font-semibold italic mt-4">
-                                    This is an achievement you can be proud of.
+                                <p className="text-white/50 text-sm italic">
+                                    After completing the program, students will be able to participate in QA processes, perform testing tasks with mentor or team support, and engage in industry-standard workflows.
                                 </p>
                             </div>
                         </motion.div>
@@ -381,7 +435,7 @@ const QAHonorsProgram = () => {
                         className="text-center max-w-3xl mx-auto"
                     >
                         <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-                            Start Your <span className="text-[#0088ff]">Journey</span>
+                            Start Your <span className="text-[#0088ff]">QA Career</span>
                         </h2>
 
                         <p className="text-xl text-white/80 leading-relaxed mb-8">
@@ -390,9 +444,9 @@ const QAHonorsProgram = () => {
 
                         <div className="bg-[#1a2332] border border-white/10 rounded-2xl p-8 mb-10">
                             <div className="space-y-2 text-lg">
-                                <p className="text-[#0088ff] font-bold">📅 March 20, 2026</p>
-                                <p className="text-white/80">🕐 09:00 AM (EST / Georgian Time)</p>
-                                <p className="text-white/60">Deadline: April 5, 2026, 23:59</p>
+                                <p className="text-[#0088ff] font-bold"> March 20, 2026</p>
+                                <p className="text-white/80">🕐 09:00 AM (UTC+4)</p>
+                                <p className="text-white/60">Deadline: March 31, 2026, 21:00</p>
                             </div>
                         </div>
 
@@ -419,7 +473,7 @@ const QAHonorsProgram = () => {
                         <div className="text-white/70 mb-6 space-y-3">
                             <p className="text-[#0088ff] font-semibold">GenofIT QA Honors Program | Spring 2026</p>
                             <p>Applications for the program will open on:</p>
-                            <p className="text-white font-semibold">March 20, 2026 — 09:00 AM (Georgian Time)</p>
+                            <p className="text-white font-semibold">March 20, 2026 — 09:00 AM (UTC+4)</p>
                             <p>To make sure you don't miss the opening, leave your email below and we'll notify you as soon as applications go live.</p>
                         </div>
                         {submitSuccess ? (
