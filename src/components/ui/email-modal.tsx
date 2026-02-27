@@ -193,6 +193,11 @@ export function EmailModal({
                   required
                 />
               </div>
+              {amount && !isNaN(parseFloat(amount)) && parseFloat(amount) > 0 && (
+                <p className="text-white/40 text-xs mt-1">
+                  ≈ ₾{(parseFloat(amount) * 2.75).toFixed(0)} GEL
+                </p>
+              )}
               {amountError && (
                 <p className="text-red-400 text-sm mt-1">{amountError}</p>
               )}

@@ -179,7 +179,7 @@ const QAHonorsProgram = () => {
                             </div>
 
                             <p className="text-[#0088ff] font-semibold mb-4">
-                                📅 March 15 – April 5<br />
+                                📅 March 20 – March 31<br />
                                 Two-stage selection process
                             </p>
 
@@ -390,7 +390,7 @@ const QAHonorsProgram = () => {
 
                         <div className="bg-[#1a2332] border border-white/10 rounded-2xl p-8 mb-10">
                             <div className="space-y-2 text-lg">
-                                <p className="text-[#0088ff] font-bold">📅 March 15, 2026</p>
+                                <p className="text-[#0088ff] font-bold">📅 March 20, 2026</p>
                                 <p className="text-white/80">🕐 09:00 AM (EST / Georgian Time)</p>
                                 <p className="text-white/60">Deadline: April 5, 2026, 23:59</p>
                             </div>
@@ -419,7 +419,7 @@ const QAHonorsProgram = () => {
                         <div className="text-white/70 mb-6 space-y-3">
                             <p className="text-[#0088ff] font-semibold">GenofIT QA Honors Program | Spring 2026</p>
                             <p>Applications for the program will open on:</p>
-                            <p className="text-white font-semibold">March 15, 2026 — 09:00 AM (Georgian Time)</p>
+                            <p className="text-white font-semibold">March 20, 2026 — 09:00 AM (Georgian Time)</p>
                             <p>To make sure you don't miss the opening, leave your email below and we'll notify you as soon as applications go live.</p>
                         </div>
                         {submitSuccess ? (
