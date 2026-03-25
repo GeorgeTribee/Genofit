@@ -7,21 +7,68 @@ import { supabase } from "@/lib/supabase";
 
 const QAHonorsProgram = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const [email, setEmail] = useState('');
+    const [formData, setFormData] = useState({
+        fullName: '',
+        email: '',
+        mobileNumber: '',
+        country: '',
+        age: '',
+        timeAvailability: '',
+        computerAccess: ''
+    });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitSuccess, setSubmitSuccess] = useState(false);
     const [submitError, setSubmitError] = useState('');
 
     const handleNotifySubmit = async () => {
-        if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        const { fullName, email, mobileNumber, country, age, timeAvailability, computerAccess } = formData;
+
+        // Check if all fields are filled
+        if (!fullName || !email || !mobileNumber || !country || !age || !timeAvailability || !computerAccess) {
+            setSubmitError('Please fill in all required fields.');
+            return;
+        }
+
+        // Full Name validation
+        const nameWords = fullName.trim().split(/\s+/);
+        if (nameWords.length < 2) {
+            setSubmitError('Please enter both first name and last name.');
+            return;
+        }
+
+        // Email validation
+        if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
             setSubmitError('Please enter a valid email address.');
             return;
         }
+
+        // Mobile Number validation
+        if (!/^\d{9,12}$/.test(mobileNumber)) {
+            setSubmitError('Please enter a valid phone number.');
+            return;
+        }
+
+        // Age validation
+        if (!/^\d{2}$/.test(age) || parseInt(age) < 10 || parseInt(age) > 99) {
+            setSubmitError('Age must be entered using numbers only.');
+            return;
+        }
+
         setIsSubmitting(true);
         setSubmitError('');
+
         const { error } = await supabase
-            .from('qa_honors_waitlist')
-            .insert({ email });
+            .from('qa_honors_applications')
+            .insert({
+                full_name: fullName,
+                email,
+                phone_number: mobileNumber,
+                country,
+                age: parseInt(age),
+                time_availability: timeAvailability,
+                computer_access: computerAccess === 'yes'
+            });
+
         setIsSubmitting(false);
         if (error) {
             if (error.code === '23505') {
@@ -466,25 +513,24 @@ const QAHonorsProgram = () => {
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        className="bg-[#1a2332] border border-white/10 rounded-2xl p-8 max-w-md w-full"
+                        className="bg-[#1a2332] border border-white/10 rounded-2xl p-8 max-w-lg w-full max-h-[90vh] overflow-y-auto"
                         onClick={(e) => e.stopPropagation()}
                     >
-                        <h3 className="text-2xl font-bold mb-6">Apply Opens Soon</h3>
+                        <h3 className="text-2xl font-bold mb-6">QA Honors Program – Initial Application</h3>
                         <div className="text-white/70 mb-6 space-y-3">
-                            <p className="text-[#0088ff] font-semibold">GenofIT QA Honors Program | Spring 2026</p>
-                            <p>Applications for the program will open on:</p>
-                            <p className="text-white font-semibold">March 20, 2026 — 09:00 AM (UTC+4)</p>
-                            <p>To make sure you don't miss the opening, leave your email below and we'll notify you as soon as applications go live.</p>
+                            <p>Please answer the questions below.</p>
+                            <p>The provided information will be used for the initial evaluation process of the program.</p>
+                            <p className="text-[#0088ff] font-semibold">All fields below are mandatory.</p>
                         </div>
                         {submitSuccess ? (
                             <div className="text-center py-4">
                                 <div className="w-12 h-12 rounded-full bg-[#0033ff]/20 flex items-center justify-center mx-auto mb-4">
                                     <CheckCircle className="w-6 h-6 text-[#0088ff]" />
                                 </div>
-                                <p className="text-white font-semibold mb-1">You're on the list!</p>
-                                <p className="text-white/60 text-sm mb-6">We'll notify you at <span className="text-[#0088ff]">{email}</span> when applications open.</p>
+                                <p className="text-white font-semibold mb-1">Your application has been received.</p>
+                                <p className="text-white/60 text-sm mb-6">Further information will be sent to your email.</p>
                                 <button
-                                    onClick={() => { setIsModalOpen(false); setSubmitSuccess(false); setEmail(''); }}
+                                    onClick={() => { setIsModalOpen(false); setSubmitSuccess(false); setFormData({ fullName: '', email: '', mobileNumber: '', country: '', age: '', timeAvailability: '', computerAccess: '' }); }}
                                     className="text-white/50 hover:text-white text-sm transition-colors"
                                 >
                                     ✕ Close
@@ -492,26 +538,106 @@ const QAHonorsProgram = () => {
                             </div>
                         ) : (
                             <>
-                                <div className="mb-6">
-                                    <label className="block text-sm font-medium text-white/80 mb-2">Email Address</label>
-                                    <input
-                                        type="email"
-                                        value={email}
-                                        onChange={(e) => { setEmail(e.target.value); setSubmitError(''); }}
-                                        placeholder="you@example.com"
-                                        className="w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#0033ff] transition-colors"
-                                    />
-                                    {submitError && (
-                                        <p className="text-red-400 text-sm mt-2">{submitError}</p>
-                                    )}
+                                <div className="space-y-4 mb-6">
+                                    <div>
+                                        <label className="block text-sm font-medium text-white/80 mb-2">Full Name</label>
+                                        <input
+                                            type="text"
+                                            value={formData.fullName}
+                                            onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                                            placeholder="Your full name"
+                                            className="w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#0033ff] transition-colors"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="block text-sm font-medium text-white/80 mb-2">Email Address</label>
+                                        <input
+                                            type="email"
+                                            value={formData.email}
+                                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                            placeholder="you@example.com"
+                                            className="w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#0033ff] transition-colors"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="block text-sm font-medium text-white/80 mb-2">Mobile Number</label>
+                                        <input
+                                            type="tel"
+                                            value={formData.mobileNumber}
+                                            onChange={(e) => setFormData({ ...formData, mobileNumber: e.target.value })}
+                                            placeholder="123456789"
+                                            className="w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#0033ff] transition-colors"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="block text-sm font-medium text-white/80 mb-2">Country</label>
+                                        <input
+                                            type="text"
+                                            value={formData.country}
+                                            onChange={(e) => setFormData({ ...formData, country: e.target.value })}
+                                            placeholder="Your country"
+                                            className="w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#0033ff] transition-colors"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="block text-sm font-medium text-white/80 mb-2">How old are you?</label>
+                                        <p className="text-white/60 text-sm mb-2">Please enter your age in numbers (for example: 18)</p>
+                                        <input
+                                            type="text"
+                                            value={formData.age}
+                                            onChange={(e) => setFormData({ ...formData, age: e.target.value })}
+                                            placeholder="18"
+                                            maxLength={2}
+                                            className="w-full bg-white/5 border border-white/20 rounded-lg px-4 py-3 text-white placeholder-white/30 focus:outline-none focus:border-[#0033ff] transition-colors"
+                                        />
+                                    </div>
+                                    <div>
+                                        <label className="block text-sm font-medium text-white/80 mb-3">On average, how many hours per week can you dedicate to the QA Honors Program (lectures + assignments)?</label>
+                                        <div className="space-y-2">
+                                            {['3 – 5 hours', '6 – 8 hours', '9 – 11 hours', '12+ hours'].map((option) => (
+                                                <label key={option} className="flex items-center space-x-3 cursor-pointer">
+                                                    <input
+                                                        type="radio"
+                                                        name="timeAvailability"
+                                                        value={option}
+                                                        checked={formData.timeAvailability === option}
+                                                        onChange={(e) => setFormData({ ...formData, timeAvailability: e.target.value })}
+                                                        className="w-4 h-4 text-[#0033ff] bg-white/5 border-white/20 focus:ring-[#0033ff] focus:ring-2"
+                                                    />
+                                                    <span className="text-white/80">{option}</span>
+                                                </label>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label className="block text-sm font-medium text-white/80 mb-3">During the learning period, will you have daily access to a personal computer or laptop for at least 2 hours?</label>
+                                        <div className="space-y-2">
+                                            {['Yes', 'No'].map((option) => (
+                                                <label key={option} className="flex items-center space-x-3 cursor-pointer">
+                                                    <input
+                                                        type="radio"
+                                                        name="computerAccess"
+                                                        value={option.toLowerCase()}
+                                                        checked={formData.computerAccess === option.toLowerCase()}
+                                                        onChange={(e) => setFormData({ ...formData, computerAccess: e.target.value })}
+                                                        className="w-4 h-4 text-[#0033ff] bg-white/5 border-white/20 focus:ring-[#0033ff] focus:ring-2"
+                                                    />
+                                                    <span className="text-white/80">{option}</span>
+                                                </label>
+                                            ))}
+                                        </div>
+                                    </div>
                                 </div>
+                                {submitError && (
+                                    <p className="text-red-400 text-sm mb-4">{submitError}</p>
+                                )}
                                 <div className="flex flex-col gap-3">
                                     <Button
                                         onClick={handleNotifySubmit}
                                         disabled={isSubmitting}
                                         className="w-full bg-[#0033ff] hover:bg-[#0044ff] text-white font-semibold py-3 rounded-lg"
                                     >
-                                        {isSubmitting ? 'Saving...' : 'Notify Me When Apply Opens'}
+                                        {isSubmitting ? 'Submitting...' : 'Submit Application'}
                                     </Button>
                                     <button
                                         onClick={() => setIsModalOpen(false)}
