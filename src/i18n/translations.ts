@@ -18,90 +18,76 @@ const en: Dict = {
     'nav.cta': 'Get in Touch',
 
     // Hero
-    'hero.badge': 'QA & IT Academy · NY',
-    'hero.title': 'Software Quality Operations + Practical QA Career Training.',
-    'hero.subtitle': 'New York-based QA firm and academy. Learn manual, mobile, and accessibility testing — and build a portfolio that gets you hired.',
+    'hero.badge': 'QA · New York',
+    'hero.title': 'QA Services and Career Academy.',
+    'hero.subtitle': 'A New York studio for software quality. Learn, build a portfolio, get hired.',
     'hero.cta_primary': 'Browse Courses',
-    'hero.cta_secondary': 'B2B Services',
-
-    // Stats
-    'stats.title': 'Built on Operational Practice',
-    'stats.students': 'Students Trained',
-    'stats.placement': 'Job Placement Rate',
-    'stats.partners': 'Partner Companies',
-    'stats.years': 'Years of Operations',
+    'hero.cta_secondary': 'Services',
 
     // Featured Courses
-    'courses.title': 'Featured Courses',
-    'courses.subtitle': 'Practice-first programs. Real tooling. Portfolio-grade outputs.',
-    'courses.duration': 'Duration',
-    'courses.format': 'Format',
-    'courses.price': 'Price',
-    'courses.online': 'Online',
-    'courses.view': 'View course',
-    'courses.ended': 'Cohort ended',
+    'courses.eyebrow': 'Courses',
+    'courses.title': 'Practice‑first programs',
+    'courses.subtitle': 'Real tools. Portfolio outcomes. International standards.',
 
     // Why Us
-    'whyus.title': 'Why Genofit',
-    'whyus.subtitle': 'A QA training program built by people who do QA every day.',
-    'whyus.f1.title': 'Practice over Theory',
-    'whyus.f1.desc': 'Real bug reports, real test plans, real Jira tickets — from day one.',
-    'whyus.f2.title': 'Industry-Standard Tools',
-    'whyus.f2.desc': 'Jira, Postman, SQL, GitHub, Qase. The same stack your future employer uses.',
-    'whyus.f3.title': 'International Curriculum',
-    'whyus.f3.desc': 'Built around US/EU QA standards. English-ready career path.',
-    'whyus.f4.title': 'Career Support',
-    'whyus.f4.desc': 'Portfolio reviews, interview prep, and direct intros to our partner companies.',
+    'whyus.eyebrow': 'Approach',
+    'whyus.title': 'Why GenofIT',
+    'whyus.subtitle': 'Built by people who do QA every day.',
+    'whyus.f1.title': 'Practice over theory',
+    'whyus.f1.desc': 'Real bug reports and test plans from day one.',
+    'whyus.f2.title': 'Industry tools',
+    'whyus.f2.desc': 'Jira, Postman, SQL, GitHub, Qase.',
+    'whyus.f3.title': 'International curriculum',
+    'whyus.f3.desc': 'Built around US and EU QA standards.',
+    'whyus.f4.title': 'Career support',
+    'whyus.f4.desc': 'Portfolio reviews, interview prep, partner intros.',
 
-    // Bundles
-    'bundles.title': 'Choose a Career Track',
-    'bundles.subtitle': 'Save more by combining courses into a complete career path.',
-    'bundles.popular': 'Most Popular',
-    'bundles.from': 'from',
-    'bundles.includes': 'Includes',
-
-    // Testimonials
-    'testimonials.title': 'Graduates Working Globally',
-    'testimonials.subtitle': '70% of our graduates work at leading tech companies.',
-
-    // Graduates Section (success stories)
-    'graduates.eyebrow': 'Success Stories',
-    'graduates.title': 'Join Our Successful Graduates',
-    'graduates.subtitle': 'Real students, real careers. Watch them grow into international roles.',
-    'graduates.read_story': 'Read story',
+    // Graduates Section
+    'graduates.eyebrow': 'Stories',
+    'graduates.title': 'Graduates',
+    'graduates.subtitle': 'Real students. Real careers.',
+    'graduates.placeholder': 'Story coming soon.',
 
     // Lecturers Section
-    'lecturers.eyebrow': 'Our Team',
-    'lecturers.title': 'Learn from Industry Practitioners',
-    'lecturers.subtitle': 'QA leaders from US/EU companies, teaching what they actually do every day.',
-    'lecturers.placeholder_role': 'Senior QA Engineer',
+    'lecturers.eyebrow': 'Team',
+    'lecturers.title': 'Lecturers',
+    'lecturers.subtitle': 'QA practitioners from international companies.',
+    'lecturers.placeholder_name': 'Profile coming soon.',
+    'lecturers.placeholder_role': 'Lecturer',
 
     // Partners
-    'partners.title': 'Trusted by Teams Worldwide',
-    'partners.subtitle': 'Companies our graduates work for and we partner with.',
+    'partners.eyebrow': 'Partners',
+    'partners.title': 'Companies we work with',
+    'partners.subtitle': 'Where our graduates work and our partners ship.',
+
+    // Community Photo Strip
+    'community.eyebrow': 'Community',
+    'community.title': 'GenofIT in motion',
+    'community.subtitle': 'Students, instructors, partner teams.',
 
     // B2B Teaser
-    'b2b.eyebrow': 'For Product Teams',
-    'b2b.title': 'Need QA for Your Product? We Do That Too.',
-    'b2b.subtitle': 'Manual, mobile, and accessibility testing for global startups. Distributed coverage US/EU/GE.',
-    'b2b.s1.title': 'Manual & Regression',
+    'b2b.eyebrow': 'For product teams',
+    'b2b.title': 'Need QA for your product?',
+    'b2b.subtitle': 'Manual, mobile, and accessibility testing for global startups.',
+    'b2b.s1.title': 'Manual & regression',
     'b2b.s1.desc': 'Risk mitigation across web and mobile.',
-    'b2b.s2.title': 'Mobile / Real-Device',
+    'b2b.s2.title': 'Mobile / real device',
     'b2b.s2.desc': 'Hardware-specific testing on real devices.',
     'b2b.s3.title': 'Accessibility',
     'b2b.s3.desc': 'WCAG-aligned inclusive product standards.',
-    'b2b.cta': 'Explore Services',
+    'b2b.cta': 'Explore services',
 
     // Final CTA
-    'cta.title': 'Ready to Start Your QA Career?',
-    'cta.subtitle': 'Join the next cohort and build your professional portfolio in under 4 months.',
-    'cta.primary': 'Apply Now',
-    'cta.secondary': 'Talk to an Advisor',
+    'cta.eyebrow': 'Start',
+    'cta.title': 'Ready to begin?',
+    'cta.subtitle': 'Join the next cohort and build a professional portfolio.',
+    'cta.primary': 'Apply',
+    'cta.secondary': 'Talk to us',
 
     // Footer
     'footer.tagline': 'Software Quality Operations · New York',
-    'footer.description': 'Manual, mobile, and accessibility testing for global startups. Practical career preparation through QA Manual Pro.',
-    'footer.quick_links': 'Quick Links',
+    'footer.description': 'Manual, mobile, and accessibility testing for global startups. Practical career preparation.',
+    'footer.quick_links': 'Navigate',
     'footer.our_services': 'Operations',
     'footer.contact_us': 'Contact',
     'footer.location_label': 'Location',
@@ -122,90 +108,76 @@ const ka: Dict = {
     'nav.cta': 'დაგვიკავშირდი',
 
     // Hero
-    'hero.badge': 'QA & IT აკადემია · ნიუ-იორკი',
-    'hero.title': 'პროგრამული უზრუნველყოფის ხარისხი + პრაქტიკული QA კარიერული მომზადება.',
-    'hero.subtitle': 'ნიუ-იორკში დაფუძნებული QA კომპანია და აკადემია. ისწავლე მანუალური, მობილური და accessibility ტესტირება — და ააწყვე პორტფოლიო, რომელიც სამსახურს მოგიტანს.',
+    'hero.badge': 'QA · ნიუ-იორკი',
+    'hero.title': 'QA სერვისები და კარიერული აკადემია.',
+    'hero.subtitle': 'ნიუ-იორკული QA სტუდია. ისწავლე, ააწყვე პორტფოლიო, დასაქმდი.',
     'hero.cta_primary': 'კურსების ნახვა',
-    'hero.cta_secondary': 'B2B სერვისები',
-
-    // Stats
-    'stats.title': 'აშენებულია ოპერაციულ პრაქტიკაზე',
-    'stats.students': 'მომზადებული სტუდენტი',
-    'stats.placement': 'დასაქმების მაჩვენებელი',
-    'stats.partners': 'პარტნიორი კომპანია',
-    'stats.years': 'წელი ოპერაციებში',
+    'hero.cta_secondary': 'სერვისები',
 
     // Featured Courses
-    'courses.title': 'რჩეული კურსები',
-    'courses.subtitle': 'პრაქტიკაზე ორიენტირებული პროგრამები. რეალური ხელსაწყოები. პორტფოლიო-დონის შედეგები.',
-    'courses.duration': 'ხანგრძლივობა',
-    'courses.format': 'ფორმატი',
-    'courses.price': 'ფასი',
-    'courses.online': 'ონლაინ',
-    'courses.view': 'კურსის ნახვა',
-    'courses.ended': 'ნაკადი დასრულდა',
+    'courses.eyebrow': 'კურსები',
+    'courses.title': 'პრაქტიკული პროგრამები',
+    'courses.subtitle': 'რეალური ხელსაწყოები. პორტფოლიო შედეგად.',
 
     // Why Us
-    'whyus.title': 'რატომ Genofit',
-    'whyus.subtitle': 'QA ტრენინგ-პროგრამა, რომელიც აშენდა იმ ადამიანების მიერ, რომლებიც ყოველდღე QA-ს აკეთებენ.',
-    'whyus.f1.title': 'პრაქტიკა — ნაცვლად თეორიისა',
-    'whyus.f1.desc': 'რეალური bug report-ები, ტესტ-გეგმები და Jira ticket-ები — პირველივე დღიდან.',
+    'whyus.eyebrow': 'მიდგომა',
+    'whyus.title': 'რატომ GenofIT',
+    'whyus.subtitle': 'შექმნილი იმათ მიერ, ვინც ყოველდღე აკეთებს QA-ს.',
+    'whyus.f1.title': 'პრაქტიკა, არა თეორია',
+    'whyus.f1.desc': 'რეალური ბაგ რეპორტები და ტესტ გეგმები პირველივე დღიდან.',
     'whyus.f2.title': 'ინდუსტრიული ხელსაწყოები',
-    'whyus.f2.desc': 'Jira, Postman, SQL, GitHub, Qase — იგივე stack, რომელიც შენს მომავალ დამსაქმებელს აქვს.',
+    'whyus.f2.desc': 'Jira, Postman, SQL, GitHub, Qase.',
     'whyus.f3.title': 'საერთაშორისო კურიკულუმი',
-    'whyus.f3.desc': 'აშენებულია აშშ/ევროპის QA სტანდარტებზე. ინგლისური-ready კარიერა.',
+    'whyus.f3.desc': 'აშშ-ისა და ევროპის QA სტანდარტებზე.',
     'whyus.f4.title': 'კარიერული მხარდაჭერა',
-    'whyus.f4.desc': 'პორტფოლიოს განხილვა, ინტერვიუს მომზადება, პირდაპირი კავშირები პარტნიორ კომპანიებთან.',
+    'whyus.f4.desc': 'პორტფოლიოს განხილვა, ინტერვიუს მომზადება, პარტნიორული კავშირი.',
 
-    // Bundles
-    'bundles.title': 'აირჩიე კარიერული ტრეკი',
-    'bundles.subtitle': 'დაზოგე მეტი — გააერთიანე კურსები სრულ კარიერულ გზად.',
-    'bundles.popular': 'ყველაზე პოპულარული',
-    'bundles.from': '-დან',
-    'bundles.includes': 'შეიცავს',
-
-    // Testimonials
-    'testimonials.title': 'კურსდამთავრებულები გლობალურად მუშაობენ',
-    'testimonials.subtitle': 'ჩვენი კურსდამთავრებულების 70% წამყვან ტექნოლოგიურ კომპანიებში მუშაობს.',
-
-    // Graduates Section (success stories)
-    'graduates.eyebrow': 'წარმატების ისტორიები',
-    'graduates.title': 'შემოუერთდი ჩვენს წარმატებულ კურსდამთავრებულებს',
-    'graduates.subtitle': 'რეალური სტუდენტები, რეალური კარიერები. ნახე როგორ გადაიზარდნენ ისინი საერთაშორისო პოზიციებში.',
-    'graduates.read_story': 'ისტორიის ნახვა',
+    // Graduates Section
+    'graduates.eyebrow': 'ისტორიები',
+    'graduates.title': 'კურსდამთავრებულები',
+    'graduates.subtitle': 'რეალური სტუდენტები. რეალური კარიერები.',
+    'graduates.placeholder': 'ისტორია მალე დაემატება.',
 
     // Lecturers Section
-    'lecturers.eyebrow': 'ჩვენი გუნდი',
-    'lecturers.title': 'ისწავლე ინდუსტრიის პრაქტიკოსებისგან',
-    'lecturers.subtitle': 'QA ლიდერები აშშ/ევროპის კომპანიებიდან — გასწავლიან იმას, რასაც ყოველდღე აკეთებენ.',
-    'lecturers.placeholder_role': 'სენიორ QA ინჟინერი',
+    'lecturers.eyebrow': 'გუნდი',
+    'lecturers.title': 'ლექტორები',
+    'lecturers.subtitle': 'QA პრაქტიკოსები საერთაშორისო კომპანიებიდან.',
+    'lecturers.placeholder_name': 'პროფილი მალე დაემატება.',
+    'lecturers.placeholder_role': 'ლექტორი',
 
     // Partners
-    'partners.title': 'გვენდობიან მსოფლიოს გუნდები',
-    'partners.subtitle': 'კომპანიები, სადაც ჩვენი კურსდამთავრებულები მუშაობენ და ვისთანაც ვთანამშრომლობთ.',
+    'partners.eyebrow': 'პარტნიორები',
+    'partners.title': 'კომპანიები ჩვენთან',
+    'partners.subtitle': 'სადაც ჩვენი კურსდამთავრებულები მუშაობენ.',
+
+    // Community Photo Strip
+    'community.eyebrow': 'საზოგადოება',
+    'community.title': 'GenofIT მოძრაობაში',
+    'community.subtitle': 'სტუდენტები, ლექტორები, პარტნიორი გუნდები.',
 
     // B2B Teaser
     'b2b.eyebrow': 'პროდუქტის გუნდებისთვის',
-    'b2b.title': 'შენს პროდუქტს QA სჭირდება? ჩვენ ამასაც ვაკეთებთ.',
-    'b2b.subtitle': 'მანუალური, მობილური და accessibility ტესტირება გლობალური სტარტაპებისთვის. დისტრიბუცია აშშ/ევროპა/საქართველო.',
+    'b2b.title': 'შენს პროდუქტს QA სჭირდება?',
+    'b2b.subtitle': 'მანუალური, მობილური და accessibility ტესტირება გლობალური სტარტაპებისთვის.',
     'b2b.s1.title': 'მანუალური და რეგრესიული',
     'b2b.s1.desc': 'რისკის შემცირება ვებსა და მობილურზე.',
-    'b2b.s2.title': 'მობილური / რეალური მოწყობილობა',
-    'b2b.s2.desc': 'ჰარდვერ-სპეციფიკური ტესტირება რეალურ მოწყობილობებზე.',
+    'b2b.s2.title': 'მობილური და რეალური მოწყობილობა',
+    'b2b.s2.desc': 'ჰარდვერ-სპეციფიკური ტესტირება.',
     'b2b.s3.title': 'Accessibility',
-    'b2b.s3.desc': 'WCAG-ის სტანდარტები ინკლუზიური პროდუქტისთვის.',
+    'b2b.s3.desc': 'WCAG სტანდარტები ინკლუზიური პროდუქტისთვის.',
     'b2b.cta': 'სერვისების ნახვა',
 
     // Final CTA
-    'cta.title': 'მზად ხარ შენი QA კარიერა დაიწყო?',
-    'cta.subtitle': 'შემოუერთდი შემდეგ ნაკადს და ააწყვე პროფესიული პორტფოლიო 4 თვეში.',
+    'cta.eyebrow': 'დაწყება',
+    'cta.title': 'მზად ხარ დაიწყო?',
+    'cta.subtitle': 'შემოუერთდი შემდეგ ნაკადს და ააწყვე პროფესიული პორტფოლიო.',
     'cta.primary': 'რეგისტრაცია',
     'cta.secondary': 'კონსულტაცია',
 
     // Footer
     'footer.tagline': 'Software Quality Operations · ნიუ-იორკი',
-    'footer.description': 'მანუალური, მობილური და accessibility ტესტირება გლობალური სტარტაპებისთვის. პროფესიული მომზადება QA Manual Pro-ით.',
-    'footer.quick_links': 'სწრაფი ლინკები',
+    'footer.description': 'მანუალური, მობილური და accessibility ტესტირება გლობალური სტარტაპებისთვის. პრაქტიკული მომზადება.',
+    'footer.quick_links': 'ნავიგაცია',
     'footer.our_services': 'ოპერაციები',
     'footer.contact_us': 'კონტაქტი',
     'footer.location_label': 'მდებარეობა',

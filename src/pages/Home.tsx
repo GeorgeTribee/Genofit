@@ -1,9 +1,17 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2, Wrench, Globe, GraduationCap, Code, Smartphone, Accessibility, Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, CheckCircle2, Wrench, Globe, GraduationCap, Code, Smartphone, Accessibility, ChevronLeft, ChevronRight, User, Camera } from "lucide-react";
 import CourseCard from "@/components/courses/CourseCard";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useT } from "@/i18n/LanguageContext";
+
+// Refined section eyebrow — small, soft, no UPPERCASE. Designer-style label.
+const Eyebrow = ({ children, color = '#3FC4E2' }: { children: React.ReactNode; color?: string }) => (
+    <div className="inline-flex items-center gap-2 text-xs font-medium text-white/55 mb-4">
+        <span className="w-6 h-px" style={{ backgroundColor: color }} />
+        <span style={{ color }}>{children}</span>
+    </div>
+);
 
 const Home = () => {
     const location = useLocation();
@@ -27,8 +35,8 @@ const Home = () => {
             index: ".01",
             category: "QA",
             description: locale === 'ka'
-                ? "გახდი პროფესიონალი QA ინჟინერი. ისწავლე test plan-ები, bug report-ები, რეგრესია, Jira-ით სამუშაო ნაკადი."
-                : "Master manual QA testing — test plans, bug reports, regression, and a Jira-driven workflow that real teams use.",
+                ? "მანუალური QA: ტესტ გეგმები, ბაგ რეპორტები, რეგრესია, Jira."
+                : "Manual QA: test plans, bug reports, regression, and Jira workflow.",
             instructor: { name: "", role: "", image: "" },
         },
         {
@@ -37,8 +45,8 @@ const Home = () => {
             index: ".02",
             category: "QA",
             description: locale === 'ka'
-                ? "ააწყვე ავტომატური ტესტ-სუიტები. ინდუსტრიული ხელსაწყოები, ჩარჩოები და CI/CD ინტეგრაცია."
-                : "Build automated test suites with industry-standard tools, frameworks, and CI/CD integration.",
+                ? "ავტომატური ტესტ სუიტები, ჩარჩოები და CI/CD ინტეგრაცია."
+                : "Automated test suites, frameworks, and CI/CD integration.",
             instructor: { name: "", role: "", image: "" },
             isEnded: true,
         },
@@ -48,17 +56,10 @@ const Home = () => {
             index: ".03",
             category: "QA",
             description: locale === 'ka'
-                ? "ტესტირების საფუძვლები. ლექსიკონი, მეთოდოლოგიები, თეორია — ყველაფერი ერთ ადგილას."
-                : "Testing fundamentals: vocabulary, methodologies, and core theory — all in one foundation course.",
+                ? "ტესტირების ლექსიკონი, მეთოდოლოგიები, თეორიის საფუძვლები."
+                : "Testing vocabulary, methodologies, and core foundations.",
             instructor: { name: "", role: "", image: "" },
         },
-    ];
-
-    const stats = [
-        { value: "300+", labelKey: "stats.students" },
-        { value: "70%", labelKey: "stats.placement" },
-        { value: "20+", labelKey: "stats.partners" },
-        { value: "5+", labelKey: "stats.years" },
     ];
 
     const whyUs = [
@@ -74,104 +75,41 @@ const Home = () => {
         { icon: Accessibility, key: "s3" },
     ];
 
-    // Successful graduates — TODO: replace with real photos & stories from user
-    const graduates = [
-        {
-            initial: 'ნ',
-            name: locale === 'ka' ? 'ნინო მელაძე' : 'Nino Meladze',
-            role: 'QA Engineer · Storia',
-            course: 'QA Manual Pro',
-            story: locale === 'ka'
-                ? '4 თვეში გავიარე QA Manual Pro და უკვე საერთაშორისო კომპანიაში ვმუშაობ. პორტფოლიო-ცენტრული მიდგომა გადამწყვეტი იყო — დასაქმდი არა "ცარიელი CV-ით", არამედ რეალური bug report-ებით და test plan-ებით.'
-                : 'I finished QA Manual Pro in 4 months and already work at an international company. The portfolio-first approach was the difference — I got hired not with an empty CV, but with real bug reports and test plans.',
-        },
-        {
-            initial: 'გ',
-            name: locale === 'ka' ? 'გიორგი კობახიძე' : 'Giorgi Kobakhidze',
-            role: 'QA Lead · Awork',
-            course: 'QA Manual Pro + Automation',
-            story: locale === 'ka'
-                ? 'Genofit-ის გუნდი რეალურ პროექტებზე გვაშუალებდა. ეს არ არის თეორიული კურსი — პირდაპირ live ბაგებზე ვიწყებთ მუშაობას. წელიწადში QA Lead გავხდი.'
-                : 'The Genofit team puts you on real projects. This is not a theoretical course — you work with live bugs from day one. I became a QA Lead within a year.',
-        },
-        {
-            initial: 'თ',
-            name: locale === 'ka' ? 'თამარ ხატიაშვილი' : 'Tamar Khatiashvili',
-            role: 'Manual Tester · Biznetix',
-            course: 'QA Manual Pro',
-            story: locale === 'ka'
-                ? 'ინგლისური + Jira + რეალური bug report-ები — ეს ყველაფერი ერთ პროგრამაში მქონდა. სოც.მედია მენეჯერიდან QA-ზე გადავედი.'
-                : 'English + Jira + real bug reports — all in one program. I switched from social media manager to QA professional.',
-        },
-    ];
-
-    // Lecturers — TODO: replace with real photos & bios from user
-    const lecturers = [
-        {
-            initial: 'A',
-            nameKa: 'ალექსანდრე ნ.',
-            nameEn: 'Alexander N.',
-            role: 'Senior QA · NY Startups',
-            specialty: locale === 'ka' ? 'მანუალური + მობილური' : 'Manual + Mobile',
-        },
-        {
-            initial: 'M',
-            nameKa: 'მარიამ ლ.',
-            nameEn: 'Mariam L.',
-            role: 'QA Lead · International Tech',
-            specialty: locale === 'ka' ? 'ავტომატიზაცია + CI/CD' : 'Automation + CI/CD',
-        },
-        {
-            initial: 'D',
-            nameKa: 'დავით ც.',
-            nameEn: 'David Ts.',
-            role: 'Accessibility QA · EU Startups',
-            specialty: locale === 'ka' ? 'WCAG + Inclusive design' : 'WCAG + Inclusive design',
-        },
-        {
-            initial: 'L',
-            nameKa: 'ლევან ბ.',
-            nameEn: 'Levan B.',
-            role: 'Test Architect · Fortune 500',
-            specialty: locale === 'ka' ? 'სტრატეგია + Test Architecture' : 'Strategy + Test Architecture',
-        },
-    ];
-
+    const graduates = [{ empty: true }, { empty: true }, { empty: true }];
+    const lecturers = [{ empty: true }, { empty: true }, { empty: true }, { empty: true }];
+    const communitySlots = Array.from({ length: 10 }, (_, i) => ({ id: i }));
     const partners = ['Storia', 'Awork', 'Biznetix', 'Gorgia', 'Genof_IT', 'International Tech', 'NY Startups', 'EU Partners'];
 
     const goPrev = () => setGraduateIndex((i) => (i - 1 + graduates.length) % graduates.length);
     const goNext = () => setGraduateIndex((i) => (i + 1) % graduates.length);
-    const currentGrad = graduates[graduateIndex];
 
     return (
         <div className="bg-[#00263E] min-h-screen text-white">
 
-            {/* HERO — cover photo on top, text below */}
-            <section className="relative pt-24 pb-16 lg:pt-28 border-b border-white/5 overflow-hidden">
+            {/* HERO */}
+            <section className="relative pt-24 pb-20 lg:pt-28 lg:pb-24 border-b border-white/[0.06] overflow-hidden">
                 <div className="container mx-auto px-6">
                     <div className="max-w-6xl mx-auto">
 
-                        {/* Cover image — full-width banner at top */}
-                        <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40 mb-12">
+                        <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40 mb-14">
                             <img
                                 src="/hero-cover.jpg"
-                                alt="GenofIT — Software Testing · Services · Academy"
+                                alt="GenofIT"
                                 className="w-full h-auto block"
                             />
                         </div>
 
-                        {/* Text below cover */}
-                        <div className="text-center max-w-3xl mx-auto">
-                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/15 bg-white/5 text-xs font-medium uppercase tracking-wider text-white/70 mb-6">
+                        <div className="text-center max-w-2xl mx-auto">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-white/10 bg-white/[0.03] text-xs font-medium text-white/65 mb-7">
                                 <span className="w-1.5 h-1.5 rounded-full bg-[#3FC4E2]" />
                                 {t('hero.badge')}
                             </div>
 
-                            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.15] tracking-tight mb-5">
+                            <h1 className="text-3xl md:text-[40px] lg:text-5xl font-semibold leading-[1.15] tracking-tight mb-5">
                                 {t('hero.title')}
                             </h1>
 
-                            <p className="text-base md:text-lg text-white/65 leading-relaxed mb-8">
+                            <p className="text-base md:text-lg text-white/55 leading-relaxed mb-10">
                                 {t('hero.subtitle')}
                             </p>
 
@@ -181,13 +119,13 @@ const Home = () => {
                                         const el = document.getElementById('courses');
                                         if (el) el.scrollIntoView({ behavior: 'smooth' });
                                     }}
-                                    className="bg-[#3B7DBF] hover:bg-[#2D6090] text-white font-medium px-7 py-6 rounded-md text-base transition-colors"
+                                    className="bg-[#3B7DBF] hover:bg-[#2D6090] text-white font-medium px-7 py-5 rounded-md text-sm transition-colors"
                                 >
                                     {t('hero.cta_primary')}
                                     <ArrowRight className="ml-2 w-4 h-4" />
                                 </Button>
                                 <Link to="/services">
-                                    <Button className="bg-transparent border border-white/20 text-white hover:bg-white/5 font-medium px-7 py-6 rounded-md text-base transition-colors w-full">
+                                    <Button className="bg-transparent border border-white/15 text-white hover:bg-white/5 font-medium px-7 py-5 rounded-md text-sm transition-colors w-full">
                                         {t('hero.cta_secondary')}
                                     </Button>
                                 </Link>
@@ -197,29 +135,13 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* STATS STRIP */}
-            <section className="py-16 border-b border-white/5">
-                <div className="container mx-auto px-6">
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-                        {stats.map((s) => (
-                            <div key={s.labelKey} className="text-center">
-                                <div className="text-3xl md:text-4xl font-bold text-white mb-2">{s.value}</div>
-                                <div className="text-xs md:text-sm text-white/50 uppercase tracking-wider">{t(s.labelKey)}</div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
             {/* FEATURED COURSES */}
-            <section id="courses" className="py-24 border-b border-white/5">
+            <section id="courses" className="py-24 lg:py-28 border-b border-white/[0.06]">
                 <div className="container mx-auto px-6">
-                    <div className="text-center max-w-2xl mx-auto mb-14">
-                        <div className="text-xs font-medium uppercase tracking-[0.2em] text-[#3FC4E2] mb-3">
-                            {t('nav.courses')}
-                        </div>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('courses.title')}</h2>
-                        <p className="text-white/60">{t('courses.subtitle')}</p>
+                    <div className="max-w-2xl mx-auto mb-16 text-center">
+                        <Eyebrow>{t('courses.eyebrow')}</Eyebrow>
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight mb-4">{t('courses.title')}</h2>
+                        <p className="text-white/55 text-base">{t('courses.subtitle')}</p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -231,23 +153,24 @@ const Home = () => {
             </section>
 
             {/* WHY US */}
-            <section className="py-24 border-b border-white/5">
+            <section className="py-24 lg:py-28 border-b border-white/[0.06]">
                 <div className="container mx-auto px-6">
-                    <div className="text-center max-w-2xl mx-auto mb-14">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('whyus.title')}</h2>
-                        <p className="text-white/60">{t('whyus.subtitle')}</p>
+                    <div className="max-w-2xl mx-auto mb-16 text-center">
+                        <Eyebrow>{t('whyus.eyebrow')}</Eyebrow>
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight mb-4">{t('whyus.title')}</h2>
+                        <p className="text-white/55 text-base">{t('whyus.subtitle')}</p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 max-w-6xl mx-auto">
                         {whyUs.map((f) => {
                             const Icon = f.icon;
                             return (
-                                <div key={f.key} className="p-6 rounded-lg border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] transition-colors">
-                                    <div className="w-10 h-10 rounded-md bg-[#3B7DBF]/15 flex items-center justify-center mb-5">
-                                        <Icon className="w-5 h-5 text-[#3FC4E2]" />
+                                <div key={f.key} className="p-7 rounded-xl border border-white/[0.08] bg-white/[0.015] hover:bg-white/[0.03] transition-colors">
+                                    <div className="w-9 h-9 rounded-lg bg-[#3B7DBF]/10 flex items-center justify-center mb-5">
+                                        <Icon className="w-4 h-4 text-[#3FC4E2]" strokeWidth={2} />
                                     </div>
-                                    <h3 className="text-lg font-semibold mb-2">{t(`whyus.${f.key}.title`)}</h3>
-                                    <p className="text-sm text-white/55 leading-relaxed">{t(`whyus.${f.key}.desc`)}</p>
+                                    <h3 className="text-base font-semibold mb-2 tracking-tight">{t(`whyus.${f.key}.title`)}</h3>
+                                    <p className="text-sm text-white/50 leading-relaxed">{t(`whyus.${f.key}.desc`)}</p>
                                 </div>
                             );
                         })}
@@ -255,117 +178,97 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* GRADUATES SUCCESS STORIES — featured carousel */}
-            <section className="py-24 border-b border-white/5">
+            {/* GRADUATES — empty placeholder carousel */}
+            <section className="py-24 lg:py-28 border-b border-white/[0.06]">
                 <div className="container mx-auto px-6">
-                    <div className="text-center max-w-2xl mx-auto mb-14">
-                        <div className="text-xs font-medium uppercase tracking-[0.2em] text-[#F05A26] mb-3">
-                            {t('graduates.eyebrow')}
-                        </div>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('graduates.title')}</h2>
-                        <p className="text-white/60">{t('graduates.subtitle')}</p>
+                    <div className="max-w-2xl mx-auto mb-16 text-center">
+                        <Eyebrow color="#F05A26">{t('graduates.eyebrow')}</Eyebrow>
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight mb-4">{t('graduates.title')}</h2>
+                        <p className="text-white/55 text-base">{t('graduates.subtitle')}</p>
                     </div>
 
                     <div className="max-w-5xl mx-auto">
-                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-gradient-to-br from-[#0F2E4A] to-[#00263E] border border-white/10 rounded-2xl p-8 lg:p-12">
-                            {/* Photo placeholder */}
+                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center bg-[#0B2A45] border border-white/[0.06] rounded-2xl p-10 lg:p-14 min-h-[340px]">
                             <div className="lg:col-span-4 flex justify-center">
-                                <div className="w-48 h-48 lg:w-56 lg:h-56 rounded-full bg-gradient-to-br from-[#3B7DBF] to-[#3FC4E2] flex items-center justify-center text-white font-bold text-7xl shadow-2xl shadow-black/30">
-                                    {currentGrad.initial}
+                                <div className="w-44 h-44 lg:w-52 lg:h-52 rounded-full border border-dashed border-white/10 bg-white/[0.015] flex items-center justify-center">
+                                    <Camera className="w-10 h-10 text-white/15" strokeWidth={1.25} />
                                 </div>
                             </div>
 
-                            {/* Story */}
                             <div className="lg:col-span-8">
-                                <div className="flex gap-1 mb-4">
-                                    {[...Array(5)].map((_, idx) => (
-                                        <Star key={idx} className="w-4 h-4 fill-[#F05A26] text-[#F05A26]" />
-                                    ))}
+                                <div className="space-y-3 mb-8">
+                                    <div className="h-3 bg-white/[0.04] rounded-sm w-full" />
+                                    <div className="h-3 bg-white/[0.04] rounded-sm w-11/12" />
+                                    <div className="h-3 bg-white/[0.04] rounded-sm w-3/4" />
                                 </div>
-                                <p className="text-base lg:text-lg text-white/80 leading-relaxed mb-6 italic">
-                                    "{currentGrad.story}"
-                                </p>
-                                <div className="border-t border-white/10 pt-5">
-                                    <div className="font-bold text-lg">{currentGrad.name}</div>
-                                    <div className="text-sm text-white/60 mt-1">{currentGrad.role}</div>
-                                    <div className="inline-block mt-2 px-2 py-1 rounded text-xs bg-[#3B7DBF]/15 text-[#3FC4E2]">
-                                        {currentGrad.course}
-                                    </div>
-                                </div>
+                                <div className="text-xs text-white/30">{t('graduates.placeholder')}</div>
                             </div>
                         </div>
 
-                        {/* Carousel controls */}
-                        <div className="flex items-center justify-center gap-4 mt-8">
+                        <div className="flex items-center justify-center gap-3 mt-8">
                             <button
                                 onClick={goPrev}
-                                aria-label="Previous graduate"
-                                className="w-10 h-10 rounded-full border border-white/15 hover:border-white/30 hover:bg-white/5 transition-colors flex items-center justify-center"
+                                aria-label="Previous"
+                                className="w-9 h-9 rounded-full border border-white/10 hover:border-white/25 hover:bg-white/[0.03] transition-colors flex items-center justify-center text-white/60"
                             >
-                                <ChevronLeft className="w-5 h-5" />
+                                <ChevronLeft className="w-4 h-4" />
                             </button>
-                            <div className="flex gap-2">
+                            <div className="flex gap-1.5">
                                 {graduates.map((_, i) => (
                                     <button
                                         key={i}
                                         onClick={() => setGraduateIndex(i)}
-                                        aria-label={`Go to graduate ${i + 1}`}
-                                        className={`w-2 h-2 rounded-full transition-all ${
-                                            i === graduateIndex ? 'bg-[#F05A26] w-6' : 'bg-white/20 hover:bg-white/40'
+                                        aria-label={`${i + 1}`}
+                                        className={`h-1.5 rounded-full transition-all ${
+                                            i === graduateIndex ? 'bg-[#F05A26] w-6' : 'bg-white/15 hover:bg-white/30 w-1.5'
                                         }`}
                                     />
                                 ))}
                             </div>
                             <button
                                 onClick={goNext}
-                                aria-label="Next graduate"
-                                className="w-10 h-10 rounded-full border border-white/15 hover:border-white/30 hover:bg-white/5 transition-colors flex items-center justify-center"
+                                aria-label="Next"
+                                className="w-9 h-9 rounded-full border border-white/10 hover:border-white/25 hover:bg-white/[0.03] transition-colors flex items-center justify-center text-white/60"
                             >
-                                <ChevronRight className="w-5 h-5" />
+                                <ChevronRight className="w-4 h-4" />
                             </button>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* LECTURERS */}
-            <section className="py-24 border-b border-white/5">
+            {/* LECTURERS — empty placeholders */}
+            <section className="py-24 lg:py-28 border-b border-white/[0.06]">
                 <div className="container mx-auto px-6">
-                    <div className="text-center max-w-2xl mx-auto mb-14">
-                        <div className="text-xs font-medium uppercase tracking-[0.2em] text-[#3FC4E2] mb-3">
-                            {t('lecturers.eyebrow')}
-                        </div>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('lecturers.title')}</h2>
-                        <p className="text-white/60">{t('lecturers.subtitle')}</p>
+                    <div className="max-w-2xl mx-auto mb-16 text-center">
+                        <Eyebrow>{t('lecturers.eyebrow')}</Eyebrow>
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight mb-4">{t('lecturers.title')}</h2>
+                        <p className="text-white/55 text-base">{t('lecturers.subtitle')}</p>
                     </div>
 
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
-                        {lecturers.map((l, i) => (
+                        {lecturers.map((_, i) => (
                             <div key={i} className="text-center group">
-                                <div className="aspect-square rounded-2xl bg-gradient-to-br from-[#0F2E4A] to-[#00263E] border border-white/10 group-hover:border-[#3FC4E2]/30 transition-colors flex items-center justify-center mb-4 overflow-hidden">
-                                    <div className="text-6xl lg:text-7xl font-bold bg-gradient-to-br from-[#3B7DBF] to-[#3FC4E2] bg-clip-text text-transparent">
-                                        {l.initial}
-                                    </div>
+                                <div className="aspect-square rounded-xl bg-[#0B2A45] border border-white/[0.06] group-hover:border-white/15 transition-colors flex items-center justify-center mb-4">
+                                    <User className="w-10 h-10 text-white/15" strokeWidth={1.25} />
                                 </div>
-                                <div className="font-semibold text-base">{locale === 'ka' ? l.nameKa : l.nameEn}</div>
-                                <div className="text-xs text-white/50 mt-1">{l.role}</div>
-                                <div className="inline-block mt-2 px-2 py-0.5 rounded text-[10px] bg-white/5 text-white/60 uppercase tracking-wider">
-                                    {l.specialty}
+                                <div className="space-y-2 px-2">
+                                    <div className="h-2.5 bg-white/[0.04] rounded-sm w-3/4 mx-auto" />
+                                    <div className="h-2 bg-white/[0.03] rounded-sm w-1/2 mx-auto" />
                                 </div>
+                                <div className="text-[10px] text-white/30 mt-3">{t('lecturers.placeholder_name')}</div>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* PARTNERS — auto-scrolling marquee */}
-            <section className="py-20 border-b border-white/5 overflow-hidden">
-                <div className="container mx-auto px-6 mb-10">
-                    <div className="text-center max-w-2xl mx-auto">
-                        <div className="text-xs font-medium uppercase tracking-[0.2em] text-white/40 mb-3">
-                            {t('partners.title')}
-                        </div>
-                        <p className="text-white/60 text-sm">{t('partners.subtitle')}</p>
+            {/* PARTNERS marquee */}
+            <section className="py-20 border-b border-white/[0.06] overflow-hidden">
+                <div className="container mx-auto px-6 mb-12">
+                    <div className="max-w-2xl mx-auto text-center">
+                        <Eyebrow color="rgba(255,255,255,0.4)">{t('partners.eyebrow')}</Eyebrow>
+                        <p className="text-white/55 text-sm">{t('partners.subtitle')}</p>
                     </div>
                 </div>
 
@@ -375,7 +278,7 @@ const Home = () => {
 
                     <div className="flex gap-16 animate-marquee-slow w-max items-center">
                         {[...partners, ...partners].map((name, i) => (
-                            <div key={i} className="flex-shrink-0 text-white/35 hover:text-white/70 transition-colors font-medium tracking-wider text-xl whitespace-nowrap">
+                            <div key={i} className="flex-shrink-0 text-white/30 hover:text-white/60 transition-colors font-medium tracking-wide text-lg whitespace-nowrap">
                                 {name}
                             </div>
                         ))}
@@ -383,37 +286,37 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* B2B SERVICES TEASER */}
-            <section className="py-24 border-b border-white/5">
+            {/* B2B TEASER */}
+            <section className="py-24 lg:py-28 border-b border-white/[0.06]">
                 <div className="container mx-auto px-6">
-                    <div className="max-w-5xl mx-auto rounded-2xl border border-white/10 bg-gradient-to-br from-[#0F2E4A] to-[#00263E] p-10 lg:p-14">
-                        <div className="text-xs font-medium uppercase tracking-[0.2em] text-[#F05A26] mb-3">
-                            {t('b2b.eyebrow')}
+                    <div className="max-w-5xl mx-auto rounded-2xl border border-white/[0.08] bg-gradient-to-br from-[#0B2A45] to-[#062138] p-10 lg:p-14">
+                        <div className="max-w-2xl mb-10">
+                            <Eyebrow color="#F05A26">{t('b2b.eyebrow')}</Eyebrow>
+                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight mb-4">
+                                {t('b2b.title')}
+                            </h2>
+                            <p className="text-white/55 text-base">
+                                {t('b2b.subtitle')}
+                            </p>
                         </div>
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4 max-w-2xl">
-                            {t('b2b.title')}
-                        </h2>
-                        <p className="text-white/65 max-w-2xl mb-10">
-                            {t('b2b.subtitle')}
-                        </p>
 
                         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
                             {b2bServices.map((s) => {
                                 const Icon = s.icon;
                                 return (
-                                    <div key={s.key} className="p-5 rounded-lg bg-white/5 border border-white/10">
-                                        <div className="w-9 h-9 rounded-md bg-[#F05A26]/15 flex items-center justify-center mb-4">
-                                            <Icon className="w-4 h-4 text-[#F05A26]" />
+                                    <div key={s.key} className="p-5 rounded-lg bg-white/[0.03] border border-white/[0.06]">
+                                        <div className="w-8 h-8 rounded-md bg-[#F05A26]/10 flex items-center justify-center mb-4">
+                                            <Icon className="w-4 h-4 text-[#F05A26]" strokeWidth={2} />
                                         </div>
-                                        <h3 className="font-semibold text-sm mb-1">{t(`b2b.${s.key}.title`)}</h3>
-                                        <p className="text-xs text-white/55 leading-relaxed">{t(`b2b.${s.key}.desc`)}</p>
+                                        <h3 className="font-semibold text-sm mb-1.5 tracking-tight">{t(`b2b.${s.key}.title`)}</h3>
+                                        <p className="text-xs text-white/50 leading-relaxed">{t(`b2b.${s.key}.desc`)}</p>
                                     </div>
                                 );
                             })}
                         </div>
 
                         <Link to="/services">
-                            <Button className="bg-white text-[#00263E] hover:bg-white/90 font-medium px-6 py-5 rounded-md transition-colors">
+                            <Button className="bg-white text-[#00263E] hover:bg-white/90 font-medium px-6 py-4 rounded-md text-sm transition-colors">
                                 {t('b2b.cta')}
                                 <ArrowRight className="ml-2 w-4 h-4" />
                             </Button>
@@ -422,23 +325,54 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* FINAL CTA */}
-            <section className="py-28">
-                <div className="container mx-auto px-6">
+            {/* COMMUNITY PHOTO STRIP — moving photo cards */}
+            <section className="py-24 lg:py-28 border-b border-white/[0.06] overflow-hidden">
+                <div className="container mx-auto px-6 mb-14">
                     <div className="max-w-2xl mx-auto text-center">
-                        <h2 className="text-3xl md:text-5xl font-bold mb-5 leading-tight tracking-tight">
+                        <Eyebrow>{t('community.eyebrow')}</Eyebrow>
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold tracking-tight mb-4">{t('community.title')}</h2>
+                        <p className="text-white/55 text-base">{t('community.subtitle')}</p>
+                    </div>
+                </div>
+
+                <div className="relative">
+                    <div className="absolute left-0 top-0 bottom-0 w-40 z-10 bg-gradient-to-r from-[#00263E] to-transparent pointer-events-none" />
+                    <div className="absolute right-0 top-0 bottom-0 w-40 z-10 bg-gradient-to-l from-[#00263E] to-transparent pointer-events-none" />
+
+                    <div className="flex gap-5 animate-marquee w-max">
+                        {[...communitySlots, ...communitySlots].map((_, i) => (
+                            <div key={i} className="flex-shrink-0 w-[260px]">
+                                <div className="aspect-[4/5] rounded-xl bg-[#0B2A45] border border-white/[0.06] hover:border-white/15 transition-colors flex items-center justify-center mb-3 overflow-hidden">
+                                    <Camera className="w-9 h-9 text-white/15" strokeWidth={1.25} />
+                                </div>
+                                <div className="space-y-1.5 px-1">
+                                    <div className="h-2.5 bg-white/[0.04] rounded-sm w-2/3" />
+                                    <div className="h-2 bg-white/[0.03] rounded-sm w-1/3" />
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* FINAL CTA */}
+            <section className="py-28 lg:py-32">
+                <div className="container mx-auto px-6">
+                    <div className="max-w-xl mx-auto text-center">
+                        <Eyebrow>{t('cta.eyebrow')}</Eyebrow>
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-5 leading-[1.15] tracking-tight">
                             {t('cta.title')}
                         </h2>
-                        <p className="text-white/60 mb-10 text-lg">{t('cta.subtitle')}</p>
+                        <p className="text-white/55 mb-10 text-base">{t('cta.subtitle')}</p>
                         <div className="flex flex-col sm:flex-row gap-3 justify-center">
                             <Link to="/qa-honors-program">
-                                <Button className="bg-[#3B7DBF] hover:bg-[#2D6090] text-white font-medium px-7 py-6 rounded-md text-base transition-colors w-full">
+                                <Button className="bg-[#3B7DBF] hover:bg-[#2D6090] text-white font-medium px-7 py-5 rounded-md text-sm transition-colors w-full">
                                     {t('cta.primary')}
                                     <ArrowRight className="ml-2 w-4 h-4" />
                                 </Button>
                             </Link>
                             <Link to="/get-in-touch">
-                                <Button className="bg-transparent border border-white/20 text-white hover:bg-white/5 font-medium px-7 py-6 rounded-md text-base transition-colors w-full">
+                                <Button className="bg-transparent border border-white/15 text-white hover:bg-white/5 font-medium px-7 py-5 rounded-md text-sm transition-colors w-full">
                                     {t('cta.secondary')}
                                 </Button>
                             </Link>
