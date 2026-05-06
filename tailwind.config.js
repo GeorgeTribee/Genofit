@@ -48,15 +48,27 @@ export default {
                     "4": "hsl(var(--chart-4))",
                     "5": "hsl(var(--chart-5))",
                 },
+                // Brand-book aligned palette (source: Tamar_BrandBook_GenofIT)
+                // Use semantic tokens (brand.*) on web; legacy `sa.*` kept for back-compat
+                brand: {
+                    navy: "#00263E",   // primary surface
+                    blue: "#3B7DBF",   // services / B2B accent
+                    cyan: "#3FC4E2",   // secondary accent (sparingly)
+                    orange: "#F05A26", // academy / B2C accent
+                    purple: "#8E66AB", // social/marketing only
+                    teal: "#57C1B3",   // social/marketing only
+                    peach: "#FBBD8D",  // social/marketing only
+                    white: "#FFFFFF",
+                },
                 sa: {
-                    dark: "#10293E",
+                    dark: "#00263E",
                     light: "#FFFFFF",
-                    blue: "#3E7BBF",
-                    purple: "#8F66AC",
-                    green: "#61BEB3",
-                    cyan: "#41C5E3",
-                    orange: "#f97316"
-                }
+                    blue: "#3B7DBF",
+                    purple: "#8E66AB",
+                    green: "#57C1B3",
+                    cyan: "#3FC4E2",
+                    orange: "#F05A26",
+                },
             },
             borderRadius: {
                 lg: "var(--radius)",
@@ -64,8 +76,19 @@ export default {
                 sm: "calc(var(--radius) - 4px)",
             },
             fontFamily: {
-                sans: ['Inter', 'sans-serif'],
-            }
+                // Latin: Inter (geometric sans, matches GenofIT wordmark)
+                // Georgian: Noto Sans Georgian (free Google Font; BPG Glaho can replace via self-host later)
+                sans: ['Inter', '"Noto Sans Georgian"', 'system-ui', 'sans-serif'],
+                mono: ['"JetBrains Mono"', 'ui-monospace', 'monospace'],
+            },
+            spacing: {
+                // Blueprint 8/16/24/48/96 grid (semantic aliases over Tailwind defaults)
+                'gx-1': '8px',
+                'gx-2': '16px',
+                'gx-3': '24px',
+                'gx-4': '48px',
+                'gx-5': '96px',
+            },
         },
     },
     plugins: [require("tailwindcss-animate")],

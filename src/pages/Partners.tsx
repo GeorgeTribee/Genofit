@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { ExternalLink } from "lucide-react";
 
 const Partners = () => {
@@ -31,7 +30,7 @@ const Partners = () => {
             id: 4,
             name: "DataArt",
             logo: "/partners/tangram.jpg",
-            bgColor: "bg-gradient-to-br from-[#f5a623] via-[#3e5ba9] to-[#2bcbba]",
+            bgColor: "bg-gradient-to-br from-[#F05A26] via-[#3e5ba9] to-[#2bcbba]",
             description: "Creative Solutions",
             website: "#"
         },
@@ -39,7 +38,7 @@ const Partners = () => {
             id: 5,
             name: "Hot Card",
             logo: "/partners/handshake.jpg",
-            bgColor: "bg-[#ff6600]",
+            bgColor: "bg-[#F05A26]",
             description: "HR & Recruitment Platform",
             website: "#"
         },
@@ -135,107 +134,69 @@ const Partners = () => {
             id: 17,
             name: "Translive",
             logo: "/partners/swift.jpg",
-            bgColor: "bg-[#ff4500]",
+            bgColor: "bg-[#F05A26]",
             description: "Delivery & Logistics",
             website: "#"
         },
     ];
 
-    // Animation variants
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1
-            }
-        }
-    };
-
-    const itemVariants = {
-        hidden: { opacity: 0, y: 30 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.6,
-                ease: [0.25, 0.46, 0.45, 0.94] as const
-            }
-        }
-    };
-
     return (
-        <div className="bg-[#0A1825] min-h-screen text-white overflow-x-hidden">
+        <div className="bg-[#0F2E4A] min-h-screen text-white overflow-x-hidden">
             {/* Hero Section */}
             <section className="relative pt-32 pb-16 overflow-hidden border-b border-white/10">
                 {/* Background Effects */}
                 <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute top-1/4 -right-40 w-[600px] h-[600px] bg-[#0033ff]/10 rounded-full blur-[120px]" />
-                    <div className="absolute bottom-0 -left-40 w-[500px] h-[500px] bg-[#0088ff]/10 rounded-full blur-[100px]" />
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#0033ff]/5 rounded-full blur-[150px]" />
+                    <div className="absolute top-1/4 -right-40 w-[600px] h-[600px] bg-[#3B7DBF]/10 rounded-full blur-[120px]" />
+                    <div className="absolute bottom-0 -left-40 w-[500px] h-[500px] bg-[#3FC4E2]/10 rounded-full blur-[100px]" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#3B7DBF]/5 rounded-full blur-[150px]" />
                 </div>
 
                 <div className="container mx-auto px-6 relative z-10">
                     <div className="max-w-4xl mx-auto text-center">
                         {/* Badge */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
+                        <div
                             className="mb-6"
                         >
-                            <span className="text-sm md:text-base tracking-[0.3em] uppercase text-[#0088ff] font-semibold">
+                            <span className="text-sm md:text-base tracking-[0.3em] uppercase text-[#3FC4E2] font-semibold">
                                 Our Network
                             </span>
-                        </motion.div>
+                        </div>
 
                         {/* Main Heading */}
-                        <motion.h1
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7, delay: 0.1 }}
+                        <h1
                             className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6"
                         >
                             <span className="text-white">Our </span>
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#0088ff] to-[#0033ff]">Partners</span>
-                        </motion.h1>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#3FC4E2] to-[#3B7DBF]">Partners</span>
+                        </h1>
 
                         {/* Description */}
-                        <motion.p
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7, delay: 0.2 }}
+                        <p
                             className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto leading-relaxed"
                         >
                             Partner companies and world-leading enterprises that lead the academy to success!
-                        </motion.p>
+                        </p>
                     </div>
                 </div>
             </section>
 
             {/* Partners Grid Section */}
             <section className="container mx-auto px-6 py-20">
-                <motion.div
-                    variants={containerVariants}
-                    initial="hidden"
-                    animate="visible"
+                <div
                     className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
                 >
                     {partners.map((partner) => (
-                        <motion.a
+                        <a
                             key={partner.id}
                             href={partner.website}
                             target="_blank"
                             rel="noopener noreferrer"
-                            variants={itemVariants}
-                            whileHover={{ scale: 1.02, y: -5 }}
-                            whileTap={{ scale: 0.98 }}
                             className={`
                                 group relative overflow-hidden rounded-2xl
                                 aspect-square cursor-pointer
                                 transition-all duration-500 ease-out
-                                border border-white/10 hover:border-[#0033ff]/50
-                                shadow-xl hover:shadow-2xl hover:shadow-[#0033ff]/20
+                                border border-white/10 hover:border-[#3B7DBF]/50
+                                shadow-xl hover:shadow-2xl hover:shadow-[#3B7DBF]/20
                             `}
                         >
                             {/* Partner Logo/Image */}
@@ -250,7 +211,7 @@ const Partners = () => {
                                 <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                                     <h3 className="text-xl font-bold text-white mb-1">{partner.name}</h3>
                                     <p className="text-white/70 text-sm mb-3">{partner.description}</p>
-                                    <div className="flex items-center gap-2 text-[#0088ff] text-sm font-medium">
+                                    <div className="flex items-center gap-2 text-[#3FC4E2] text-sm font-medium">
                                         <span>Visit Website</span>
                                         <ExternalLink className="w-4 h-4" />
                                     </div>
@@ -258,10 +219,10 @@ const Partners = () => {
                             </div>
 
                             {/* Subtle Border Glow */}
-                            <div className="absolute inset-0 rounded-2xl pointer-events-none border-2 border-transparent group-hover:border-[#0033ff]/30 transition-all duration-500" />
-                        </motion.a>
+                            <div className="absolute inset-0 rounded-2xl pointer-events-none border-2 border-transparent group-hover:border-[#3B7DBF]/30 transition-all duration-500" />
+                        </a>
                     ))}
-                </motion.div>
+                </div>
             </section>
         </div>
     );

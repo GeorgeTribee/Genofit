@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 interface CourseCardProps {
@@ -17,12 +16,7 @@ interface CourseCardProps {
 
 const CourseCard = ({ id, title, instructor, index, description, isEnded = false }: CourseCardProps) => {
     const CardContent = (
-        <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
-            whileHover={!isEnded ? { y: -5 } : {}}
+        <div
             className={`group relative bg-white rounded-none overflow-hidden transition-all duration-300 border border-gray-200 ${
                 isEnded
                     ? 'opacity-60 cursor-not-allowed'
@@ -77,7 +71,7 @@ const CourseCard = ({ id, title, instructor, index, description, isEnded = false
                     {index}
                 </div>
             </div>
-        </motion.div>
+        </div>
     );
 
     if (isEnded) {

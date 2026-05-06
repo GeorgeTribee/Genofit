@@ -1,1043 +1,311 @@
 import { Button } from "@/components/ui/button";
-import { Briefcase, GraduationCap, Code, ArrowLeftRight, Gauge, Laptop, Paintbrush, Smartphone, Zap, Shield, Globe, CheckCircle, Clock, UserCheck, ArrowRight, Package, Award, Crown, BadgeCheck, DollarSign, Rocket, Headphones } from "lucide-react";
+import { ArrowRight, CheckCircle2, Wrench, Globe, GraduationCap, Code, Smartphone, Accessibility, Star } from "lucide-react";
 import CourseCard from "@/components/courses/CourseCard";
-import { motion } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { useT } from "@/i18n/LanguageContext";
 
 const Home = () => {
     const location = useLocation();
+    const { t, locale } = useT();
 
     useEffect(() => {
         if (location.hash) {
             const id = location.hash.substring(1);
             const element = document.getElementById(id);
             if (element) {
-                setTimeout(() => {
-                    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }, 100);
+                setTimeout(() => element.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
             }
         }
     }, [location]);
-
-    const characters = '01QA</>{}[]テストバグコード検証';
-    const columns = 50;
-
-    const matrixColumns = Array.from({ length: columns }, (_, i) => ({
-        id: i,
-        delay: Math.random() * 5,
-        duration: 10 + Math.random() * 10,
-        chars: Array.from({ length: 20 }, () =>
-            characters[Math.floor(Math.random() * characters.length)]
-        ),
-    }));
 
     const courses = [
         {
             id: "1",
             title: "QA Manual Pro",
             index: ".01",
-            category: "IT",
-            description: "Master advanced manual testing techniques and become a professional QA specialist with hands-on experience in test case design and execution.",
-            instructor: {
-                name: "",
-                role: "",
-                image: ""
-            }
+            category: "QA",
+            description: locale === 'ka'
+                ? "გახდი პროფესიონალი QA ინჟინერი. ისწავლე test plan-ები, bug report-ები, რეგრესია, Jira-ით სამუშაო ნაკადი."
+                : "Master manual QA testing — test plans, bug reports, regression, and a Jira-driven workflow that real teams use.",
+            instructor: { name: "", role: "", image: "" },
         },
         {
             id: "2",
             title: "QA Automation",
             index: ".02",
-            category: "IT",
-            description: "Learn to build robust automated test suites using industry-standard tools and frameworks to accelerate your testing workflow.",
-            instructor: {
-                name: "",
-                role: "",
-                image: ""
-            },
-            isEnded: true
-        }
+            category: "QA",
+            description: locale === 'ka'
+                ? "ააწყვე ავტომატური ტესტ-სუიტები. ინდუსტრიული ხელსაწყოები, ჩარჩოები და CI/CD ინტეგრაცია."
+                : "Build automated test suites with industry-standard tools, frameworks, and CI/CD integration.",
+            instructor: { name: "", role: "", image: "" },
+            isEnded: true,
+        },
+        {
+            id: "3",
+            title: "Software Testing Fundamentals",
+            index: ".03",
+            category: "QA",
+            description: locale === 'ka'
+                ? "ტესტირების საფუძვლები. ლექსიკონი, მეთოდოლოგიები, თეორია — ყველაფერი ერთ ადგილას."
+                : "Testing fundamentals: vocabulary, methodologies, and core theory — all in one foundation course.",
+            instructor: { name: "", role: "", image: "" },
+        },
+    ];
+
+    const stats = [
+        { value: "300+", labelKey: "stats.students" },
+        { value: "70%", labelKey: "stats.placement" },
+        { value: "20+", labelKey: "stats.partners" },
+        { value: "5+", labelKey: "stats.years" },
+    ];
+
+    const whyUs = [
+        { icon: CheckCircle2, key: "f1" },
+        { icon: Wrench, key: "f2" },
+        { icon: Globe, key: "f3" },
+        { icon: GraduationCap, key: "f4" },
+    ];
+
+    const b2bServices = [
+        { icon: Code, key: "s1" },
+        { icon: Smartphone, key: "s2" },
+        { icon: Accessibility, key: "s3" },
+    ];
+
+    const testimonials = [
+        {
+            name: "ნინო მ.",
+            role: "QA Engineer · Storia",
+            quote: locale === 'ka'
+                ? "4 თვეში გავიარე QA Manual Pro და უკვე საერთაშორისო კომპანიაში ვმუშაობ. პორტფოლიო-ცენტრული მიდგომა გადამწყვეტი იყო."
+                : "I finished QA Manual Pro in 4 months and already work at an international company. The portfolio-first approach made the difference.",
+        },
+        {
+            name: "გიორგი კ.",
+            role: "QA Lead · Awork",
+            quote: locale === 'ka'
+                ? "Genofit-ის გუნდი რეალურ პროექტებზე გვაშუალებდა. ეს არ არის თეორიული კურსი."
+                : "The Genofit team puts you on real projects. This is not a theoretical course.",
+        },
+        {
+            name: "თამარ ხ.",
+            role: "Manual Tester · Biznetix",
+            quote: locale === 'ka'
+                ? "ინგლისური + Jira + რეალური bug report-ები — ეს ყველაფერი ერთ პროგრამაში მქონდა."
+                : "English + Jira + real bug reports — all of it bundled into one program.",
+        },
     ];
 
     return (
-        <div className="bg-[#0A1825] min-h-screen text-white overflow-x-hidden">
-            {/* Hero Section - Banner Style */}
-            <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-                {/* Subtle Dark Background */}
-                <div className="absolute inset-0 bg-black/60" />
+        <div className="bg-[#00263E] min-h-screen text-white">
 
-                {/* Matrix Rain Animation */}
-                <div className="absolute inset-0 overflow-hidden opacity-40">
-                    <div className="relative w-full h-full flex justify-around">
-                        {matrixColumns.map((column) => (
-                            <motion.div
-                                key={column.id}
-                                className="flex flex-col text-center font-mono text-sm md:text-base"
-                                style={{
-                                    textShadow: '0 0 8px rgba(0, 136, 255, 0.8)',
-                                }}
-                                initial={{ y: '-100%' }}
-                                animate={{ y: '100%' }}
-                                transition={{
-                                    duration: column.duration,
-                                    repeat: Infinity,
-                                    ease: 'linear',
-                                    delay: column.delay,
-                                }}
-                            >
-                                {column.chars.map((char, idx) => {
-                                    const isLeading = idx === column.chars.length - 1;
-                                    const opacity = isLeading ? 1 : Math.max(0.1, 1 - (column.chars.length - idx) * 0.08);
+            {/* HERO */}
+            <section className="relative pt-36 pb-24 lg:pt-44 lg:pb-32 border-b border-white/5">
+                <div className="container mx-auto px-6">
+                    <div className="max-w-4xl mx-auto text-center">
+                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/15 bg-white/5 text-xs font-medium uppercase tracking-wider text-white/70 mb-8">
+                            <span className="w-1.5 h-1.5 rounded-full bg-[#3FC4E2]" />
+                            {t('hero.badge')}
+                        </div>
 
-                                    return (
-                                        <motion.span
-                                            key={idx}
-                                            style={{
-                                                color: isLeading ? '#0088ff' : '#0033ff',
-                                                opacity: opacity,
-                                                display: 'block',
-                                                lineHeight: '1.5',
-                                            }}
-                                            animate={{
-                                                opacity: [opacity, opacity * 0.5, opacity],
-                                            }}
-                                            transition={{
-                                                duration: 0.5,
-                                                repeat: Infinity,
-                                                delay: idx * 0.05,
-                                            }}
-                                        >
-                                            {char}
-                                        </motion.span>
-                                    );
-                                })}
-                            </motion.div>
-                        ))}
-                    </div>
-                </div>
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
+                            {t('hero.title')}
+                        </h1>
 
+                        <p className="text-base md:text-lg text-white/65 max-w-2xl mx-auto leading-relaxed mb-10">
+                            {t('hero.subtitle')}
+                        </p>
 
-                <div className="container mx-auto px-6 relative z-10">
-                    <div className="max-w-6xl mx-auto text-center">
-                        {/* Main Heading */}
-                        <motion.h1
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7, delay: 0.1 }}
-                            className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-black leading-tight mb-12"
-                        >
-                            Quality Assurance, Education, and Startup Support — In One Ecosystem.
-                        </motion.h1>
-
-                        {/* Description */}
-                        <motion.p
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7, delay: 0.2 }}
-                            className="text-sm md:text-base lg:text-lg text-white/60 max-w-3xl mx-auto mb-24 leading-relaxed"
-                        >
-                            A complete quality ecosystem for tech companies and growing products.
-                        </motion.p>
-
-                        {/* CTA Buttons */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.7, delay: 0.3 }}
-                            className="flex flex-col sm:flex-row gap-4 justify-center"
-                        >
-                            <Link to="/services">
-                                <Button className="bg-transparent border-2 border-[#0033ff] text-white font-semibold px-8 py-6 rounded-lg text-lg transition-all duration-300 hover:bg-[#0033ff]/20 hover:scale-105">
-                                    Services
-                                    <Briefcase className="ml-2 w-5 h-5" />
-                                </Button>
-                            </Link>
+                        <div className="flex flex-col sm:flex-row gap-3 justify-center">
                             <Button
                                 onClick={() => {
-                                    const coursesSection = document.getElementById('courses');
-                                    if (coursesSection) {
-                                        coursesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                                    }
+                                    const el = document.getElementById('courses');
+                                    if (el) el.scrollIntoView({ behavior: 'smooth' });
                                 }}
-                                className="bg-transparent border-2 border-white/30 text-white hover:bg-white/10 px-8 py-6 rounded-lg text-lg transition-all duration-300 hover:scale-105"
+                                className="bg-[#3B7DBF] hover:bg-[#2D6090] text-white font-medium px-7 py-6 rounded-md text-base transition-colors"
                             >
-                                Courses
-                                <GraduationCap className="ml-2 w-5 h-5" />
+                                {t('hero.cta_primary')}
+                                <ArrowRight className="ml-2 w-4 h-4" />
                             </Button>
-                        </motion.div>
-                    </div>
-                </div>
-            </section>
-
-            {/* What We Do Section */}
-            <section id="what-we-do" className="bg-[#0A1825] py-20 border-t border-white/10">
-                <div className="container mx-auto px-6">
-                    {/* Section Header */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="text-center mb-16"
-                    >
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-                            What We Do
-                        </h2>
-                        <p className="text-white/60 text-lg max-w-2xl mx-auto">
-                            Comprehensive testing solutions tailored to ensure your software exceeds quality standards
-                        </p>
-                    </motion.div>
-
-                    {/* Services Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
-                        {/* Functional Testing */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5 }}
-                            className="bg-[#1a2332] backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50 flex flex-col items-center text-center"
-                        >
-                            <div className="w-16 h-16 rounded-2xl bg-[#0033ff]/10 flex items-center justify-center mb-6">
-                                <Code className="w-8 h-8 text-[#0088ff]" />
-                            </div>
-                            <h3 className="text-lg font-bold text-white mb-4">Functional Testing</h3>
-                            <p className="text-white/60 text-sm leading-relaxed">
-                                Functional testing ensures the software behaves according to the documented requirements and specifications
-                            </p>
-                        </motion.div>
-
-                        {/* API Testing */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.1 }}
-                            className="bg-[#1a2332] backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50 flex flex-col items-center text-center"
-                        >
-                            <div className="w-16 h-16 rounded-2xl bg-[#0033ff]/10 flex items-center justify-center mb-6">
-                                <ArrowLeftRight className="w-8 h-8 text-[#0088ff]" />
-                            </div>
-                            <h3 className="text-lg font-bold text-white mb-4">API</h3>
-                            <p className="text-white/60 text-sm leading-relaxed">
-                                API testing ensures that your application programming interfaces (APIs) work seamlessly and reliably
-                            </p>
-                        </motion.div>
-
-                        {/* Performance Testing */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                            className="bg-[#1a2332] backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50 flex flex-col items-center text-center"
-                        >
-                            <div className="w-16 h-16 rounded-2xl bg-[#0033ff]/10 flex items-center justify-center mb-6">
-                                <Gauge className="w-8 h-8 text-[#0088ff]" />
-                            </div>
-                            <h3 className="text-lg font-bold text-white mb-4">Performance</h3>
-                            <p className="text-white/60 text-sm leading-relaxed">
-                                Performance testing assesses the software's speed and scalability under varying conditions to ensure optimal user experience
-                            </p>
-                        </motion.div>
-
-                        {/* Portability Testing */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.3 }}
-                            className="bg-[#1a2332] backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50 flex flex-col items-center text-center"
-                        >
-                            <div className="w-16 h-16 rounded-2xl bg-[#0033ff]/10 flex items-center justify-center mb-6">
-                                <Laptop className="w-8 h-8 text-[#0088ff]" />
-                            </div>
-                            <h3 className="text-lg font-bold text-white mb-4">Portability</h3>
-                            <p className="text-white/60 text-sm leading-relaxed">
-                                Portability testing evaluates how easily software can be adapted to different environments, platforms, or devices
-                            </p>
-                        </motion.div>
-
-                        {/* UI/UX Testing */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.4 }}
-                            className="bg-[#1a2332] backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50 flex flex-col items-center text-center"
-                        >
-                            <div className="w-16 h-16 rounded-2xl bg-[#0033ff]/10 flex items-center justify-center mb-6">
-                                <Paintbrush className="w-8 h-8 text-[#0088ff]" />
-                            </div>
-                            <h3 className="text-lg font-bold text-white mb-4">UI/UX</h3>
-                            <p className="text-white/60 text-sm leading-relaxed">
-                                UI/UX testing ensures that your application's interface is user-friendly, intuitive, and visually appealing
-                            </p>
-                        </motion.div>
-
-                        {/* Responsive Design Testing */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.5 }}
-                            className="bg-[#1a2332] backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50 flex flex-col items-center text-center"
-                        >
-                            <div className="w-16 h-16 rounded-2xl bg-[#0033ff]/10 flex items-center justify-center mb-6">
-                                <Smartphone className="w-8 h-8 text-[#0088ff]" />
-                            </div>
-                            <h3 className="text-lg font-bold text-white mb-4">Responsive Design</h3>
-                            <p className="text-white/60 text-sm leading-relaxed">
-                                Test your application across multiple devices and screen sizes to guarantee consistent functionality and appearance
-                            </p>
-                        </motion.div>
-
-                        {/* Automation Testing */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.6 }}
-                            className="bg-[#1a2332] backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50 flex flex-col items-center text-center"
-                        >
-                            <div className="w-16 h-16 rounded-2xl bg-[#0033ff]/10 flex items-center justify-center mb-6">
-                                <Zap className="w-8 h-8 text-[#0088ff]" />
-                            </div>
-                            <h3 className="text-lg font-bold text-white mb-4">Automation</h3>
-                            <p className="text-white/60 text-sm leading-relaxed">
-                                Implement automated test scripts to accelerate testing cycles and increase coverage while reducing manual effort
-                            </p>
-                        </motion.div>
-
-                        {/* Security Testing */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.7 }}
-                            className="bg-[#1a2332] backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50 flex flex-col items-center text-center"
-                        >
-                            <div className="w-16 h-16 rounded-2xl bg-[#0033ff]/10 flex items-center justify-center mb-6">
-                                <Shield className="w-8 h-8 text-[#0088ff]" />
-                            </div>
-                            <h3 className="text-lg font-bold text-white mb-4">Security Testing</h3>
-                            <p className="text-white/60 text-sm leading-relaxed">
-                                Identify vulnerabilities and protect your application from potential threats with comprehensive security assessments
-                            </p>
-                        </motion.div>
-
-                        {/* Localization Testing */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.8 }}
-                            className="bg-[#1a2332] backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50 flex flex-col items-center text-center"
-                        >
-                            <div className="w-16 h-16 rounded-2xl bg-[#0033ff]/10 flex items-center justify-center mb-6">
-                                <Globe className="w-8 h-8 text-[#0088ff]" />
-                            </div>
-                            <h3 className="text-lg font-bold text-white mb-4">Localization</h3>
-                            <p className="text-white/60 text-sm leading-relaxed">
-                                Verify that your software is properly adapted for different languages, regions, and cultural contexts
-                            </p>
-                        </motion.div>
-
-                        {/* User Acceptance Testing */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.9 }}
-                            className="bg-[#1a2332] backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50 flex flex-col items-center text-center"
-                        >
-                            <div className="w-16 h-16 rounded-2xl bg-[#0033ff]/10 flex items-center justify-center mb-6">
-                                <CheckCircle className="w-8 h-8 text-[#0088ff]" />
-                            </div>
-                            <h3 className="text-lg font-bold text-white mb-4">User Acceptance</h3>
-                            <p className="text-white/60 text-sm leading-relaxed">
-                                Validate that your software meets business requirements and is ready for deployment through real-world user testing
-                            </p>
-                        </motion.div>
-
-                        {/* Change-related Testing */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 1.0 }}
-                            className="bg-[#1a2332] backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50 flex flex-col items-center text-center"
-                        >
-                            <div className="w-16 h-16 rounded-2xl bg-[#0033ff]/10 flex items-center justify-center mb-6">
-                                <Code className="w-8 h-8 text-[#0088ff]" />
-                            </div>
-                            <h3 className="text-lg font-bold text-white mb-4">Change-related</h3>
-                            <p className="text-white/60 text-sm leading-relaxed">
-                                Ensure modifications, updates, and fixes don't introduce new defects through comprehensive regression and smoke testing
-                            </p>
-                        </motion.div>
-
-                        {/* Non-functional Testing */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 1.1 }}
-                            className="bg-[#1a2332] backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50 flex flex-col items-center text-center"
-                        >
-                            <div className="w-16 h-16 rounded-2xl bg-[#0033ff]/10 flex items-center justify-center mb-6">
-                                <Briefcase className="w-8 h-8 text-[#0088ff]" />
-                            </div>
-                            <h3 className="text-lg font-bold text-white mb-4">Non-functional</h3>
-                            <p className="text-white/60 text-sm leading-relaxed">
-                                Evaluate system characteristics like performance, reliability, usability, and maintainability to ensure quality beyond basic functionality
-                            </p>
-                        </motion.div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Process Section */}
-            <section id="process" className="bg-[#0A1825] py-20 border-t border-white/10">
-                <div className="container mx-auto px-6">
-                    {/* Section Header */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="text-center mb-16"
-                    >
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-                            This is How We Deliver It
-                        </h2>
-                        <p className="text-white/60 text-lg max-w-2xl mx-auto">
-                            Our proven step-by-step process ensures quality delivery from consultation to continuous support
-                        </p>
-                    </motion.div>
-
-                    {/* Process Steps - Vertical Timeline */}
-                    <div className="max-w-4xl mx-auto relative">
-                        {/* Vertical Line */}
-                        <div className="absolute left-1/2 top-0 bottom-0 w-0.5 bg-white/10 transform -translate-x-1/2 hidden md:block"></div>
-
-                        <div className="space-y-12">
-                            {/* Step 1 - Left */}
-                            <motion.div
-                                initial={{ opacity: 0, x: -30 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5 }}
-                                className="relative flex flex-col md:flex-row items-center gap-8"
-                            >
-                                <div className="md:w-1/2 md:pr-12 md:text-right">
-                                    <div className="bg-[#1a2332] border border-white/10 rounded-2xl p-6 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50">
-                                        <h3 className="text-lg font-bold text-white mb-2">Consultation & Understanding</h3>
-                                        <p className="text-white/60 text-sm leading-relaxed">
-                                            We begin by understanding your project requirements, goals, and unique challenges to tailor our approach.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#0033ff] border-4 border-[#10293E] flex items-center justify-center z-10">
-                                    <span className="text-white font-bold text-xl">1</span>
-                                </div>
-                                <div className="md:w-1/2"></div>
-                            </motion.div>
-
-                            {/* Step 2 - Right */}
-                            <motion.div
-                                initial={{ opacity: 0, x: 30 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: 0.1 }}
-                                className="relative flex flex-col md:flex-row items-center gap-8"
-                            >
-                                <div className="md:w-1/2"></div>
-                                <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#0033ff] border-4 border-[#10293E] flex items-center justify-center z-10">
-                                    <span className="text-white font-bold text-xl">2</span>
-                                </div>
-                                <div className="md:w-1/2 md:pl-12">
-                                    <div className="bg-[#1a2332] border border-white/10 rounded-2xl p-6 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50">
-                                        <h3 className="text-lg font-bold text-white mb-2">Onboarding Process</h3>
-                                        <p className="text-white/60 text-sm leading-relaxed">
-                                            Seamless integration with your team and systems, ensuring smooth collaboration from day one.
-                                        </p>
-                                    </div>
-                                </div>
-                            </motion.div>
-
-                            {/* Step 3 - Left */}
-                            <motion.div
-                                initial={{ opacity: 0, x: -30 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: 0.2 }}
-                                className="relative flex flex-col md:flex-row items-center gap-8"
-                            >
-                                <div className="md:w-1/2 md:pr-12 md:text-right">
-                                    <div className="bg-[#1a2332] border border-white/10 rounded-2xl p-6 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50">
-                                        <h3 className="text-lg font-bold text-white mb-2">Planning & Strategy</h3>
-                                        <p className="text-white/60 text-sm leading-relaxed">
-                                            Develop a comprehensive testing strategy aligned with your timeline, resources, and quality objectives.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#0033ff] border-4 border-[#10293E] flex items-center justify-center z-10">
-                                    <span className="text-white font-bold text-xl">3</span>
-                                </div>
-                                <div className="md:w-1/2"></div>
-                            </motion.div>
-
-                            {/* Step 4 - Right */}
-                            <motion.div
-                                initial={{ opacity: 0, x: 30 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: 0.3 }}
-                                className="relative flex flex-col md:flex-row items-center gap-8"
-                            >
-                                <div className="md:w-1/2"></div>
-                                <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#0033ff] border-4 border-[#10293E] flex items-center justify-center z-10">
-                                    <span className="text-white font-bold text-xl">4</span>
-                                </div>
-                                <div className="md:w-1/2 md:pl-12">
-                                    <div className="bg-[#1a2332] border border-white/10 rounded-2xl p-6 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50">
-                                        <h3 className="text-lg font-bold text-white mb-2">Quality Assurance Testing</h3>
-                                        <p className="text-white/60 text-sm leading-relaxed">
-                                            Execute comprehensive testing using industry best practices and cutting-edge tools to ensure quality.
-                                        </p>
-                                    </div>
-                                </div>
-                            </motion.div>
-
-                            {/* Step 5 - Left */}
-                            <motion.div
-                                initial={{ opacity: 0, x: -30 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: 0.4 }}
-                                className="relative flex flex-col md:flex-row items-center gap-8"
-                            >
-                                <div className="md:w-1/2 md:pr-12 md:text-right">
-                                    <div className="bg-[#1a2332] border border-white/10 rounded-2xl p-6 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50">
-                                        <h3 className="text-lg font-bold text-white mb-2">Reporting & Feedback</h3>
-                                        <p className="text-white/60 text-sm leading-relaxed">
-                                            Deliver detailed reports with actionable insights and maintain transparent communication throughout.
-                                        </p>
-                                    </div>
-                                </div>
-                                <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#0033ff] border-4 border-[#10293E] flex items-center justify-center z-10">
-                                    <span className="text-white font-bold text-xl">5</span>
-                                </div>
-                                <div className="md:w-1/2"></div>
-                            </motion.div>
-
-                            {/* Step 6 - Right */}
-                            <motion.div
-                                initial={{ opacity: 0, x: 30 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.5, delay: 0.5 }}
-                                className="relative flex flex-col md:flex-row items-center gap-8"
-                            >
-                                <div className="md:w-1/2"></div>
-                                <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#0033ff] border-4 border-[#10293E] flex items-center justify-center z-10">
-                                    <span className="text-white font-bold text-xl">6</span>
-                                </div>
-                                <div className="md:w-1/2 md:pl-12">
-                                    <div className="bg-[#1a2332] border border-white/10 rounded-2xl p-6 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50">
-                                        <h3 className="text-lg font-bold text-white mb-2">Continuous Support</h3>
-                                        <p className="text-white/60 text-sm leading-relaxed">
-                                            Ongoing assistance and maintenance to ensure your software maintains peak performance and quality.
-                                        </p>
-                                    </div>
-                                </div>
-                            </motion.div>
+                            <Link to="/services">
+                                <Button className="bg-transparent border border-white/20 text-white hover:bg-white/5 font-medium px-7 py-6 rounded-md text-base transition-colors w-full">
+                                    {t('hero.cta_secondary')}
+                                </Button>
+                            </Link>
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Our Testing Services Section */}
-            <section className="bg-[#0A1825] py-20 border-t border-white/10">
+            {/* STATS STRIP */}
+            <section className="py-16 border-b border-white/5">
                 <div className="container mx-auto px-6">
-                    {/* Section Header */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="text-center mb-16"
-                    >
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-                            Our Testing Services
-                        </h2>
-                        <p className="text-white/60 text-lg max-w-2xl mx-auto">
-                            Professional testing services available around the clock
-                        </p>
-                    </motion.div>
-
-                    {/* Services Boxes */}
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-                        {/* 24 Hours Testing */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5 }}
-                            className="bg-gradient-to-br from-[#1a2f4d] to-[#0f1a2e] border border-white/10 rounded-3xl p-8 hover:border-[#0033ff]/50 transition-all duration-300"
-                        >
-                            {/* Header with Icon */}
-                            <div className="flex items-center gap-4 mb-6">
-                                <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center">
-                                    <Clock className="w-8 h-8 text-white" />
-                                </div>
-                                <h3 className="text-2xl font-bold text-white">24 Hour Testing</h3>
+                    <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                        {stats.map((s) => (
+                            <div key={s.labelKey} className="text-center">
+                                <div className="text-3xl md:text-4xl font-bold text-white mb-2">{s.value}</div>
+                                <div className="text-xs md:text-sm text-white/50 uppercase tracking-wider">{t(s.labelKey)}</div>
                             </div>
-
-                            {/* Divider */}
-                            <div className="w-full h-px bg-white/10 mb-6"></div>
-
-                            {/* Description */}
-                            <p className="text-white/70 text-sm leading-relaxed mb-8">
-                                A preliminary testing phase that verifies the basic functionality of a new build or application to ensure it's stable enough for more in-depth testing. Our expedited testing service provides rapid feedback on critical issues, allowing your team to address problems quickly and maintain development momentum.
-                            </p>
-
-                            {/* View Details Button */}
-                            <Link to="/services#24-hour-testing">
-                                <Button className="bg-[#0033ff] hover:bg-[#0029cc] text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 flex items-center gap-2">
-                                    View Details
-                                    <ArrowRight className="w-5 h-5" />
-                                </Button>
-                            </Link>
-                        </motion.div>
-
-                        {/* Closed Beta Testing */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.1 }}
-                            className="bg-gradient-to-br from-[#1a2f4d] to-[#0f1a2e] border border-white/10 rounded-3xl p-8 hover:border-[#0033ff]/50 transition-all duration-300"
-                        >
-                            {/* Header with Icon */}
-                            <div className="flex items-center gap-4 mb-6">
-                                <div className="w-16 h-16 rounded-full bg-white/10 flex items-center justify-center">
-                                    <UserCheck className="w-8 h-8 text-white" />
-                                </div>
-                                <h3 className="text-2xl font-bold text-white">Closed Beta Testing</h3>
-                            </div>
-
-                            {/* Divider */}
-                            <div className="w-full h-px bg-white/10 mb-6"></div>
-
-                            {/* Description */}
-                            <p className="text-white/70 text-sm leading-relaxed mb-8">
-                                Verifying that the application's features and functionalities work correctly according to the defined requirements. Our closed beta testing involves carefully selected testers who will rigorously evaluate your software in a controlled environment, providing detailed feedback before your product reaches the wider public.
-                            </p>
-
-                            {/* View Details Button */}
-                            <Link to="/services#closed-beta-testing">
-                                <Button className="bg-[#0033ff] hover:bg-[#0029cc] text-white font-semibold px-6 py-3 rounded-lg transition-all duration-300 flex items-center gap-2">
-                                    View Details
-                                    <ArrowRight className="w-5 h-5" />
-                                </Button>
-                            </Link>
-                        </motion.div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Subscription Packages Section */}
-            <section id="packages" className="bg-[#0A1825] py-20 border-t border-white/10">
-                <div className="container mx-auto px-6">
-                    {/* Section Header */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="text-center mb-16"
-                    >
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-                            Subscription Packages
-                        </h2>
-                        <p className="text-white/60 text-lg max-w-2xl mx-auto">
-                            Choose the perfect plan for your testing needs
-                        </p>
-                    </motion.div>
-
-                    {/* Pricing Cards */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-                        {/* Basic Plan */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5 }}
-                            className="bg-[#1a2332] border border-white/10 rounded-3xl p-8 hover:border-[#0033ff]/50 transition-all duration-300 flex flex-col"
-                        >
-                            <div className="flex-grow">
-                                {/* Icon */}
-                                <div className="w-16 h-16 rounded-full bg-[#0033ff]/10 flex items-center justify-center mb-4">
-                                    <Package className="w-8 h-8 text-[#0088ff]" />
-                                </div>
-
-                                <h3 className="text-2xl font-bold text-white mb-2">Basic</h3>
-                                <div className="w-12 h-1 bg-[#0033ff] mb-6"></div>
-
-                                <ul className="space-y-4 mb-8">
-                                    <li className="flex items-start gap-3">
-                                        <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
-                                        <span className="text-white/80 text-sm">Functional Testing</span>
-                                    </li>
-                                    <li className="flex items-start gap-3">
-                                        <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
-                                        <span className="text-white/80 text-sm">Non Functional Testing</span>
-                                    </li>
-                                    <li className="flex items-start gap-3">
-                                        <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
-                                        <span className="text-white/80 text-sm">Change-related testing</span>
-                                    </li>
-                                    <li className="flex items-start gap-3">
-                                        <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
-                                        <span className="text-white/80 text-sm">Responsive Design</span>
-                                    </li>
-                                    <li className="flex items-start gap-3">
-                                        <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
-                                        <span className="text-white/80 text-sm">UI/UX</span>
-                                    </li>
-                                    <li className="flex items-start gap-3">
-                                        <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
-                                        <span className="text-white/80 text-sm">Portability</span>
-                                    </li>
-                                    <li className="flex items-start gap-3">
-                                        <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
-                                        <span className="text-white/80 text-sm">Localization</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <Link to="/get-in-touch">
-                                <Button className="w-full bg-transparent border-2 border-[#0033ff] text-white hover:bg-[#0033ff]/20 py-6 rounded-lg transition-all duration-300 mt-auto flex items-center justify-center gap-2">
-                                    Get Started
-                                    <ArrowRight className="w-5 h-5" />
-                                </Button>
-                            </Link>
-                        </motion.div>
-
-                        {/* Premium Plan */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.1 }}
-                            className="bg-[#1a2332] border border-white/10 rounded-3xl p-8 hover:border-[#0033ff]/50 transition-all duration-300 flex flex-col"
-                        >
-                            <div className="flex-grow">
-                                {/* Icon */}
-                                <div className="w-16 h-16 rounded-full bg-[#0033ff]/10 flex items-center justify-center mb-4">
-                                    <Award className="w-8 h-8 text-[#0088ff]" />
-                                </div>
-
-                                <h3 className="text-2xl font-bold text-white mb-2">Premium</h3>
-                                <div className="w-12 h-1 bg-[#0033ff] mb-6"></div>
-
-                                <ul className="space-y-4 mb-8">
-                                    <li className="flex items-start gap-3">
-                                        <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
-                                        <span className="text-white/80 text-sm font-semibold">Everything in Basic</span>
-                                    </li>
-                                    <li className="flex items-start gap-3">
-                                        <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
-                                        <span className="text-white/80 text-sm">API</span>
-                                    </li>
-                                    <li className="flex items-start gap-3">
-                                        <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
-                                        <span className="text-white/80 text-sm">Performance</span>
-                                    </li>
-                                    <li className="flex items-start gap-3">
-                                        <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
-                                        <span className="text-white/80 text-sm">User Acceptance Testing</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <Link to="/get-in-touch">
-                                <Button className="w-full bg-transparent border-2 border-[#0033ff] text-white hover:bg-[#0033ff]/20 py-6 rounded-lg transition-all duration-300 mt-auto flex items-center justify-center gap-2">
-                                    Get Started
-                                    <ArrowRight className="w-5 h-5" />
-                                </Button>
-                            </Link>
-                        </motion.div>
-
-                        {/* VIP Plan */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                            className="bg-[#1a2332] border border-white/10 rounded-3xl p-8 hover:border-[#0033ff]/50 transition-all duration-300 flex flex-col"
-                        >
-                            <div className="flex-grow">
-                                {/* Icon */}
-                                <div className="w-16 h-16 rounded-full bg-[#0033ff]/10 flex items-center justify-center mb-4">
-                                    <Crown className="w-8 h-8 text-[#0088ff]" />
-                                </div>
-
-                                <h3 className="text-2xl font-bold text-white mb-2">VIP</h3>
-                                <div className="w-12 h-1 bg-[#0033ff] mb-6"></div>
-
-                                <ul className="space-y-4 mb-8">
-                                    <li className="flex items-start gap-3">
-                                        <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
-                                        <span className="text-white/80 text-sm font-semibold">Everything in Premium</span>
-                                    </li>
-                                    <li className="flex items-start gap-3">
-                                        <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
-                                        <span className="text-white/80 text-sm">Automation</span>
-                                    </li>
-                                    <li className="flex items-start gap-3">
-                                        <CheckCircle className="w-5 h-5 text-[#0088ff] flex-shrink-0 mt-0.5" />
-                                        <span className="text-white/80 text-sm">Security Testing</span>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <Link to="/get-in-touch">
-                                <Button className="w-full bg-transparent border-2 border-[#0033ff] text-white hover:bg-[#0033ff]/20 py-6 rounded-lg transition-all duration-300 mt-auto flex items-center justify-center gap-2">
-                                    Get Started
-                                    <ArrowRight className="w-5 h-5" />
-                                </Button>
-                            </Link>
-                        </motion.div>
-                    </div>
-                </div>
-            </section>
-
-            {/* What Sets Us Apart Section */}
-            <section id="why-us" className="bg-[#0A1825] py-20 border-t border-white/10">
-                <div className="container mx-auto px-6">
-                    {/* Section Header */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="text-center mb-16"
-                    >
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-                            What Sets Us Apart?
-                        </h2>
-                        <p className="text-white/60 text-lg max-w-2xl mx-auto">
-                            Our commitment to excellence in every aspect of software testing
-                        </p>
-                    </motion.div>
-
-                    {/* Features Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                        {/* Quality */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5 }}
-                            className="bg-[#1a2332] border border-white/10 rounded-2xl p-8 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50 text-center"
-                        >
-                            <div className="w-16 h-16 rounded-full bg-[#0033ff]/10 flex items-center justify-center mx-auto mb-6">
-                                <BadgeCheck className="w-8 h-8 text-[#0088ff]" />
-                            </div>
-                            <h3 className="text-xl font-bold text-white mb-3">Quality</h3>
-                            <p className="text-white/60 text-sm leading-relaxed">
-                                Uncompromising quality standards with rigorous testing methodologies to ensure your software exceeds expectations
-                            </p>
-                        </motion.div>
-
-                        {/* Pricing */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.1 }}
-                            className="bg-[#1a2332] border border-white/10 rounded-2xl p-8 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50 text-center"
-                        >
-                            <div className="w-16 h-16 rounded-full bg-[#0033ff]/10 flex items-center justify-center mx-auto mb-6">
-                                <DollarSign className="w-8 h-8 text-[#0088ff]" />
-                            </div>
-                            <h3 className="text-xl font-bold text-white mb-3">Pricing</h3>
-                            <p className="text-white/60 text-sm leading-relaxed">
-                                Competitive and transparent pricing models designed to deliver exceptional value without compromising quality
-                            </p>
-                        </motion.div>
-
-                        {/* Speed */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                            className="bg-[#1a2332] border border-white/10 rounded-2xl p-8 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50 text-center"
-                        >
-                            <div className="w-16 h-16 rounded-full bg-[#0033ff]/10 flex items-center justify-center mx-auto mb-6">
-                                <Rocket className="w-8 h-8 text-[#0088ff]" />
-                            </div>
-                            <h3 className="text-xl font-bold text-white mb-3">Speed</h3>
-                            <p className="text-white/60 text-sm leading-relaxed">
-                                Rapid turnaround times with efficient testing processes that keep your development cycle on track
-                            </p>
-                        </motion.div>
-
-                        {/* Continuous Support */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.3 }}
-                            className="bg-[#1a2332] border border-white/10 rounded-2xl p-8 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50 text-center"
-                        >
-                            <div className="w-16 h-16 rounded-full bg-[#0033ff]/10 flex items-center justify-center mx-auto mb-6">
-                                <Headphones className="w-8 h-8 text-[#0088ff]" />
-                            </div>
-                            <h3 className="text-xl font-bold text-white mb-3">Continuous Support</h3>
-                            <p className="text-white/60 text-sm leading-relaxed">
-                                24/7 dedicated support team ready to assist you at every stage of your testing journey
-                            </p>
-                        </motion.div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Courses Section */}
-            <section id="courses" className="bg-[#0A1825] py-20 border-t border-white/10">
-                <div className="container mx-auto px-6">
-                    {/* Section Header for Courses */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="text-center mb-12"
-                    >
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-                            Popular Courses
-                        </h2>
-                        <p className="text-white/60 text-lg max-w-2xl mx-auto">
-                            Discover our most popular courses taught by industry experts
-                        </p>
-                    </motion.div>
-
-                    {/* Course Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {courses.map((course) => (
-                            <CourseCard key={course.id} {...course} />
                         ))}
                     </div>
                 </div>
             </section>
 
-            {/* Our Reputation Section */}
-            <section className="bg-[#0A1825] py-20 border-t border-white/10">
+            {/* FEATURED COURSES */}
+            <section id="courses" className="py-24 border-b border-white/5">
                 <div className="container mx-auto px-6">
-                    {/* Section Header */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="text-center mb-16"
-                    >
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4 text-white">
-                            Our Reputation
-                        </h2>
-                        <p className="text-white/80 text-xl md:text-2xl max-w-4xl mx-auto font-semibold">
-                            The Most Trusted Software Testing Group from Georgia with a Global Reach
-                        </p>
-                    </motion.div>
+                    <div className="text-center max-w-2xl mx-auto mb-14">
+                        <div className="text-xs font-medium uppercase tracking-[0.2em] text-[#3FC4E2] mb-3">
+                            {t('nav.courses')}
+                        </div>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('courses.title')}</h2>
+                        <p className="text-white/60">{t('courses.subtitle')}</p>
+                    </div>
 
-                    {/* Stats Grid */}
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-                        {/* Year Launched */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5 }}
-                            className="bg-[#1a2332] border border-white/10 rounded-2xl p-8 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50 text-center"
-                        >
-                            <h3 className="text-5xl md:text-6xl font-bold text-[#0088ff] mb-4">2024</h3>
-                            <p className="text-white/70 text-lg">Launched in</p>
-                        </motion.div>
-
-                        {/* Countries */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.1 }}
-                            className="bg-[#1a2332] border border-white/10 rounded-2xl p-8 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50 text-center"
-                        >
-                            <h3 className="text-5xl md:text-6xl font-bold text-[#0088ff] mb-4">8+</h3>
-                            <p className="text-white/70 text-lg">Countries operating in</p>
-                        </motion.div>
-
-                        {/* Projects */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.2 }}
-                            className="bg-[#1a2332] border border-white/10 rounded-2xl p-8 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50 text-center"
-                        >
-                            <h3 className="text-5xl md:text-6xl font-bold text-[#0088ff] mb-4">250+</h3>
-                            <p className="text-white/70 text-lg">Projects</p>
-                        </motion.div>
-
-                        {/* Client Retention */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: 0.3 }}
-                            className="bg-[#1a2332] border border-white/10 rounded-2xl p-8 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50 text-center"
-                        >
-                            <h3 className="text-5xl md:text-6xl font-bold text-[#0088ff] mb-4">99+</h3>
-                            <p className="text-white/70 text-lg">Client retention rate</p>
-                        </motion.div>
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        {courses.map((c) => (
+                            <CourseCard key={c.id} {...c} />
+                        ))}
                     </div>
                 </div>
             </section>
 
-            {/* CTA Section */}
-            <section className="bg-[#0A1825] py-20 border-t border-white/10">
+            {/* WHY US */}
+            <section className="py-24 border-b border-white/5">
                 <div className="container mx-auto px-6">
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                        className="text-center max-w-4xl mx-auto"
-                    >
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-8 text-white">
-                            Ready to Transform Your Software Quality?
-                        </h2>
-                        <p className="text-white/70 text-lg mb-10 max-w-2xl mx-auto">
-                            Let's discuss how our expert testing services can elevate your software to the next level
-                        </p>
-                        <Link to="/get-in-touch">
-                            <Button className="bg-[#0033ff] hover:bg-[#0029cc] text-white font-semibold px-10 py-6 rounded-lg text-lg transition-all duration-300 hover:scale-105 shadow-lg inline-flex items-center gap-2 mx-auto">
-                                Contact Us Now
-                                <ArrowRight className="w-5 h-5" />
-                            </Button>
-                        </Link>
-                    </motion.div>
+                    <div className="text-center max-w-2xl mx-auto mb-14">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('whyus.title')}</h2>
+                        <p className="text-white/60">{t('whyus.subtitle')}</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+                        {whyUs.map((f) => {
+                            const Icon = f.icon;
+                            return (
+                                <div key={f.key} className="p-6 rounded-lg border border-white/10 bg-white/[0.02] hover:bg-white/[0.04] transition-colors">
+                                    <div className="w-10 h-10 rounded-md bg-[#3B7DBF]/15 flex items-center justify-center mb-5">
+                                        <Icon className="w-5 h-5 text-[#3FC4E2]" />
+                                    </div>
+                                    <h3 className="text-lg font-semibold mb-2">{t(`whyus.${f.key}.title`)}</h3>
+                                    <p className="text-sm text-white/55 leading-relaxed">{t(`whyus.${f.key}.desc`)}</p>
+                                </div>
+                            );
+                        })}
+                    </div>
                 </div>
             </section>
 
-            {/* Horizontal Divider */}
-            <div className="container mx-auto px-6">
-                <div className="border-t border-white/10"></div>
-            </div>
+            {/* TESTIMONIALS */}
+            <section className="py-24 border-b border-white/5">
+                <div className="container mx-auto px-6">
+                    <div className="text-center max-w-2xl mx-auto mb-14">
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('testimonials.title')}</h2>
+                        <p className="text-white/60">{t('testimonials.subtitle')}</p>
+                    </div>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                        {testimonials.map((tm, i) => (
+                            <div key={i} className="p-6 rounded-lg border border-white/10 bg-white/[0.02]">
+                                <div className="flex gap-1 mb-4">
+                                    {[...Array(5)].map((_, idx) => (
+                                        <Star key={idx} className="w-4 h-4 fill-[#F05A26] text-[#F05A26]" />
+                                    ))}
+                                </div>
+                                <p className="text-sm text-white/75 leading-relaxed mb-6">"{tm.quote}"</p>
+                                <div className="pt-4 border-t border-white/10">
+                                    <div className="font-semibold text-sm">{tm.name}</div>
+                                    <div className="text-xs text-white/50 mt-1">{tm.role}</div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* PARTNERS */}
+            <section className="py-24 border-b border-white/5">
+                <div className="container mx-auto px-6">
+                    <div className="text-center max-w-2xl mx-auto mb-12">
+                        <div className="text-xs font-medium uppercase tracking-[0.2em] text-white/40 mb-3">
+                            {t('partners.title')}
+                        </div>
+                        <p className="text-white/60 text-sm">{t('partners.subtitle')}</p>
+                    </div>
+
+                    <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-60">
+                        {['Storia', 'Awork', 'Biznetix', 'Gorgia', 'Genof_IT', 'Partners'].map((name) => (
+                            <div key={name} className="text-white/40 font-medium tracking-wider text-lg">
+                                {name}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* B2B SERVICES TEASER */}
+            <section className="py-24 border-b border-white/5">
+                <div className="container mx-auto px-6">
+                    <div className="max-w-5xl mx-auto rounded-2xl border border-white/10 bg-gradient-to-br from-[#0F2E4A] to-[#00263E] p-10 lg:p-14">
+                        <div className="text-xs font-medium uppercase tracking-[0.2em] text-[#F05A26] mb-3">
+                            {t('b2b.eyebrow')}
+                        </div>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4 max-w-2xl">
+                            {t('b2b.title')}
+                        </h2>
+                        <p className="text-white/65 max-w-2xl mb-10">
+                            {t('b2b.subtitle')}
+                        </p>
+
+                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
+                            {b2bServices.map((s) => {
+                                const Icon = s.icon;
+                                return (
+                                    <div key={s.key} className="p-5 rounded-lg bg-white/5 border border-white/10">
+                                        <div className="w-9 h-9 rounded-md bg-[#F05A26]/15 flex items-center justify-center mb-4">
+                                            <Icon className="w-4 h-4 text-[#F05A26]" />
+                                        </div>
+                                        <h3 className="font-semibold text-sm mb-1">{t(`b2b.${s.key}.title`)}</h3>
+                                        <p className="text-xs text-white/55 leading-relaxed">{t(`b2b.${s.key}.desc`)}</p>
+                                    </div>
+                                );
+                            })}
+                        </div>
+
+                        <Link to="/services">
+                            <Button className="bg-white text-[#00263E] hover:bg-white/90 font-medium px-6 py-5 rounded-md transition-colors">
+                                {t('b2b.cta')}
+                                <ArrowRight className="ml-2 w-4 h-4" />
+                            </Button>
+                        </Link>
+                    </div>
+                </div>
+            </section>
+
+            {/* FINAL CTA */}
+            <section className="py-28">
+                <div className="container mx-auto px-6">
+                    <div className="max-w-2xl mx-auto text-center">
+                        <h2 className="text-3xl md:text-5xl font-bold mb-5 leading-tight tracking-tight">
+                            {t('cta.title')}
+                        </h2>
+                        <p className="text-white/60 mb-10 text-lg">{t('cta.subtitle')}</p>
+                        <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                            <Link to="/qa-honors-program">
+                                <Button className="bg-[#3B7DBF] hover:bg-[#2D6090] text-white font-medium px-7 py-6 rounded-md text-base transition-colors w-full">
+                                    {t('cta.primary')}
+                                    <ArrowRight className="ml-2 w-4 h-4" />
+                                </Button>
+                            </Link>
+                            <Link to="/get-in-touch">
+                                <Button className="bg-transparent border border-white/20 text-white hover:bg-white/5 font-medium px-7 py-6 rounded-md text-base transition-colors w-full">
+                                    {t('cta.secondary')}
+                                </Button>
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </div>
     );
 };
