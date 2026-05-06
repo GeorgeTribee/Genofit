@@ -1,13 +1,14 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, CheckCircle2, Wrench, Globe, GraduationCap, Code, Smartphone, Accessibility, Star } from "lucide-react";
+import { ArrowRight, CheckCircle2, Wrench, Globe, GraduationCap, Code, Smartphone, Accessibility, Star, ChevronLeft, ChevronRight } from "lucide-react";
 import CourseCard from "@/components/courses/CourseCard";
 import { Link, useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useT } from "@/i18n/LanguageContext";
 
 const Home = () => {
     const location = useLocation();
     const { t, locale } = useT();
+    const [graduateIndex, setGraduateIndex] = useState(0);
 
     useEffect(() => {
         if (location.hash) {
@@ -73,66 +74,124 @@ const Home = () => {
         { icon: Accessibility, key: "s3" },
     ];
 
-    const testimonials = [
+    // Successful graduates — TODO: replace with real photos & stories from user
+    const graduates = [
         {
-            name: "ნინო მ.",
-            role: "QA Engineer · Storia",
-            quote: locale === 'ka'
-                ? "4 თვეში გავიარე QA Manual Pro და უკვე საერთაშორისო კომპანიაში ვმუშაობ. პორტფოლიო-ცენტრული მიდგომა გადამწყვეტი იყო."
-                : "I finished QA Manual Pro in 4 months and already work at an international company. The portfolio-first approach made the difference.",
+            initial: 'ნ',
+            name: locale === 'ka' ? 'ნინო მელაძე' : 'Nino Meladze',
+            role: 'QA Engineer · Storia',
+            course: 'QA Manual Pro',
+            story: locale === 'ka'
+                ? '4 თვეში გავიარე QA Manual Pro და უკვე საერთაშორისო კომპანიაში ვმუშაობ. პორტფოლიო-ცენტრული მიდგომა გადამწყვეტი იყო — დასაქმდი არა "ცარიელი CV-ით", არამედ რეალური bug report-ებით და test plan-ებით.'
+                : 'I finished QA Manual Pro in 4 months and already work at an international company. The portfolio-first approach was the difference — I got hired not with an empty CV, but with real bug reports and test plans.',
         },
         {
-            name: "გიორგი კ.",
-            role: "QA Lead · Awork",
-            quote: locale === 'ka'
-                ? "Genofit-ის გუნდი რეალურ პროექტებზე გვაშუალებდა. ეს არ არის თეორიული კურსი."
-                : "The Genofit team puts you on real projects. This is not a theoretical course.",
+            initial: 'გ',
+            name: locale === 'ka' ? 'გიორგი კობახიძე' : 'Giorgi Kobakhidze',
+            role: 'QA Lead · Awork',
+            course: 'QA Manual Pro + Automation',
+            story: locale === 'ka'
+                ? 'Genofit-ის გუნდი რეალურ პროექტებზე გვაშუალებდა. ეს არ არის თეორიული კურსი — პირდაპირ live ბაგებზე ვიწყებთ მუშაობას. წელიწადში QA Lead გავხდი.'
+                : 'The Genofit team puts you on real projects. This is not a theoretical course — you work with live bugs from day one. I became a QA Lead within a year.',
         },
         {
-            name: "თამარ ხ.",
-            role: "Manual Tester · Biznetix",
-            quote: locale === 'ka'
-                ? "ინგლისური + Jira + რეალური bug report-ები — ეს ყველაფერი ერთ პროგრამაში მქონდა."
-                : "English + Jira + real bug reports — all of it bundled into one program.",
+            initial: 'თ',
+            name: locale === 'ka' ? 'თამარ ხატიაშვილი' : 'Tamar Khatiashvili',
+            role: 'Manual Tester · Biznetix',
+            course: 'QA Manual Pro',
+            story: locale === 'ka'
+                ? 'ინგლისური + Jira + რეალური bug report-ები — ეს ყველაფერი ერთ პროგრამაში მქონდა. სოც.მედია მენეჯერიდან QA-ზე გადავედი.'
+                : 'English + Jira + real bug reports — all in one program. I switched from social media manager to QA professional.',
         },
     ];
+
+    // Lecturers — TODO: replace with real photos & bios from user
+    const lecturers = [
+        {
+            initial: 'A',
+            nameKa: 'ალექსანდრე ნ.',
+            nameEn: 'Alexander N.',
+            role: 'Senior QA · NY Startups',
+            specialty: locale === 'ka' ? 'მანუალური + მობილური' : 'Manual + Mobile',
+        },
+        {
+            initial: 'M',
+            nameKa: 'მარიამ ლ.',
+            nameEn: 'Mariam L.',
+            role: 'QA Lead · International Tech',
+            specialty: locale === 'ka' ? 'ავტომატიზაცია + CI/CD' : 'Automation + CI/CD',
+        },
+        {
+            initial: 'D',
+            nameKa: 'დავით ც.',
+            nameEn: 'David Ts.',
+            role: 'Accessibility QA · EU Startups',
+            specialty: locale === 'ka' ? 'WCAG + Inclusive design' : 'WCAG + Inclusive design',
+        },
+        {
+            initial: 'L',
+            nameKa: 'ლევან ბ.',
+            nameEn: 'Levan B.',
+            role: 'Test Architect · Fortune 500',
+            specialty: locale === 'ka' ? 'სტრატეგია + Test Architecture' : 'Strategy + Test Architecture',
+        },
+    ];
+
+    const partners = ['Storia', 'Awork', 'Biznetix', 'Gorgia', 'Genof_IT', 'International Tech', 'NY Startups', 'EU Partners'];
+
+    const goPrev = () => setGraduateIndex((i) => (i - 1 + graduates.length) % graduates.length);
+    const goNext = () => setGraduateIndex((i) => (i + 1) % graduates.length);
+    const currentGrad = graduates[graduateIndex];
 
     return (
         <div className="bg-[#00263E] min-h-screen text-white">
 
-            {/* HERO */}
-            <section className="relative pt-36 pb-24 lg:pt-44 lg:pb-32 border-b border-white/5">
+            {/* HERO — cover photo on top, text below */}
+            <section className="relative pt-24 pb-16 lg:pt-28 border-b border-white/5 overflow-hidden">
                 <div className="container mx-auto px-6">
-                    <div className="max-w-4xl mx-auto text-center">
-                        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/15 bg-white/5 text-xs font-medium uppercase tracking-wider text-white/70 mb-8">
-                            <span className="w-1.5 h-1.5 rounded-full bg-[#3FC4E2]" />
-                            {t('hero.badge')}
+                    <div className="max-w-6xl mx-auto">
+
+                        {/* Cover image — full-width banner at top */}
+                        <div className="rounded-2xl overflow-hidden border border-white/10 shadow-2xl shadow-black/40 mb-12">
+                            <img
+                                src="/hero-cover.jpg"
+                                alt="GenofIT — Software Testing · Services · Academy"
+                                className="w-full h-auto block"
+                            />
                         </div>
 
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight mb-6">
-                            {t('hero.title')}
-                        </h1>
+                        {/* Text below cover */}
+                        <div className="text-center max-w-3xl mx-auto">
+                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/15 bg-white/5 text-xs font-medium uppercase tracking-wider text-white/70 mb-6">
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#3FC4E2]" />
+                                {t('hero.badge')}
+                            </div>
 
-                        <p className="text-base md:text-lg text-white/65 max-w-2xl mx-auto leading-relaxed mb-10">
-                            {t('hero.subtitle')}
-                        </p>
+                            <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-[1.15] tracking-tight mb-5">
+                                {t('hero.title')}
+                            </h1>
 
-                        <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                            <Button
-                                onClick={() => {
-                                    const el = document.getElementById('courses');
-                                    if (el) el.scrollIntoView({ behavior: 'smooth' });
-                                }}
-                                className="bg-[#3B7DBF] hover:bg-[#2D6090] text-white font-medium px-7 py-6 rounded-md text-base transition-colors"
-                            >
-                                {t('hero.cta_primary')}
-                                <ArrowRight className="ml-2 w-4 h-4" />
-                            </Button>
-                            <Link to="/services">
-                                <Button className="bg-transparent border border-white/20 text-white hover:bg-white/5 font-medium px-7 py-6 rounded-md text-base transition-colors w-full">
-                                    {t('hero.cta_secondary')}
+                            <p className="text-base md:text-lg text-white/65 leading-relaxed mb-8">
+                                {t('hero.subtitle')}
+                            </p>
+
+                            <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                                <Button
+                                    onClick={() => {
+                                        const el = document.getElementById('courses');
+                                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                                    }}
+                                    className="bg-[#3B7DBF] hover:bg-[#2D6090] text-white font-medium px-7 py-6 rounded-md text-base transition-colors"
+                                >
+                                    {t('hero.cta_primary')}
+                                    <ArrowRight className="ml-2 w-4 h-4" />
                                 </Button>
-                            </Link>
+                                <Link to="/services">
+                                    <Button className="bg-transparent border border-white/20 text-white hover:bg-white/5 font-medium px-7 py-6 rounded-md text-base transition-colors w-full">
+                                        {t('hero.cta_secondary')}
+                                    </Button>
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -196,26 +255,102 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* TESTIMONIALS */}
+            {/* GRADUATES SUCCESS STORIES — featured carousel */}
             <section className="py-24 border-b border-white/5">
                 <div className="container mx-auto px-6">
                     <div className="text-center max-w-2xl mx-auto mb-14">
-                        <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('testimonials.title')}</h2>
-                        <p className="text-white/60">{t('testimonials.subtitle')}</p>
+                        <div className="text-xs font-medium uppercase tracking-[0.2em] text-[#F05A26] mb-3">
+                            {t('graduates.eyebrow')}
+                        </div>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('graduates.title')}</h2>
+                        <p className="text-white/60">{t('graduates.subtitle')}</p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-                        {testimonials.map((tm, i) => (
-                            <div key={i} className="p-6 rounded-lg border border-white/10 bg-white/[0.02]">
+                    <div className="max-w-5xl mx-auto">
+                        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-gradient-to-br from-[#0F2E4A] to-[#00263E] border border-white/10 rounded-2xl p-8 lg:p-12">
+                            {/* Photo placeholder */}
+                            <div className="lg:col-span-4 flex justify-center">
+                                <div className="w-48 h-48 lg:w-56 lg:h-56 rounded-full bg-gradient-to-br from-[#3B7DBF] to-[#3FC4E2] flex items-center justify-center text-white font-bold text-7xl shadow-2xl shadow-black/30">
+                                    {currentGrad.initial}
+                                </div>
+                            </div>
+
+                            {/* Story */}
+                            <div className="lg:col-span-8">
                                 <div className="flex gap-1 mb-4">
                                     {[...Array(5)].map((_, idx) => (
                                         <Star key={idx} className="w-4 h-4 fill-[#F05A26] text-[#F05A26]" />
                                     ))}
                                 </div>
-                                <p className="text-sm text-white/75 leading-relaxed mb-6">"{tm.quote}"</p>
-                                <div className="pt-4 border-t border-white/10">
-                                    <div className="font-semibold text-sm">{tm.name}</div>
-                                    <div className="text-xs text-white/50 mt-1">{tm.role}</div>
+                                <p className="text-base lg:text-lg text-white/80 leading-relaxed mb-6 italic">
+                                    "{currentGrad.story}"
+                                </p>
+                                <div className="border-t border-white/10 pt-5">
+                                    <div className="font-bold text-lg">{currentGrad.name}</div>
+                                    <div className="text-sm text-white/60 mt-1">{currentGrad.role}</div>
+                                    <div className="inline-block mt-2 px-2 py-1 rounded text-xs bg-[#3B7DBF]/15 text-[#3FC4E2]">
+                                        {currentGrad.course}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Carousel controls */}
+                        <div className="flex items-center justify-center gap-4 mt-8">
+                            <button
+                                onClick={goPrev}
+                                aria-label="Previous graduate"
+                                className="w-10 h-10 rounded-full border border-white/15 hover:border-white/30 hover:bg-white/5 transition-colors flex items-center justify-center"
+                            >
+                                <ChevronLeft className="w-5 h-5" />
+                            </button>
+                            <div className="flex gap-2">
+                                {graduates.map((_, i) => (
+                                    <button
+                                        key={i}
+                                        onClick={() => setGraduateIndex(i)}
+                                        aria-label={`Go to graduate ${i + 1}`}
+                                        className={`w-2 h-2 rounded-full transition-all ${
+                                            i === graduateIndex ? 'bg-[#F05A26] w-6' : 'bg-white/20 hover:bg-white/40'
+                                        }`}
+                                    />
+                                ))}
+                            </div>
+                            <button
+                                onClick={goNext}
+                                aria-label="Next graduate"
+                                className="w-10 h-10 rounded-full border border-white/15 hover:border-white/30 hover:bg-white/5 transition-colors flex items-center justify-center"
+                            >
+                                <ChevronRight className="w-5 h-5" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            {/* LECTURERS */}
+            <section className="py-24 border-b border-white/5">
+                <div className="container mx-auto px-6">
+                    <div className="text-center max-w-2xl mx-auto mb-14">
+                        <div className="text-xs font-medium uppercase tracking-[0.2em] text-[#3FC4E2] mb-3">
+                            {t('lecturers.eyebrow')}
+                        </div>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-4">{t('lecturers.title')}</h2>
+                        <p className="text-white/60">{t('lecturers.subtitle')}</p>
+                    </div>
+
+                    <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+                        {lecturers.map((l, i) => (
+                            <div key={i} className="text-center group">
+                                <div className="aspect-square rounded-2xl bg-gradient-to-br from-[#0F2E4A] to-[#00263E] border border-white/10 group-hover:border-[#3FC4E2]/30 transition-colors flex items-center justify-center mb-4 overflow-hidden">
+                                    <div className="text-6xl lg:text-7xl font-bold bg-gradient-to-br from-[#3B7DBF] to-[#3FC4E2] bg-clip-text text-transparent">
+                                        {l.initial}
+                                    </div>
+                                </div>
+                                <div className="font-semibold text-base">{locale === 'ka' ? l.nameKa : l.nameEn}</div>
+                                <div className="text-xs text-white/50 mt-1">{l.role}</div>
+                                <div className="inline-block mt-2 px-2 py-0.5 rounded text-[10px] bg-white/5 text-white/60 uppercase tracking-wider">
+                                    {l.specialty}
                                 </div>
                             </div>
                         ))}
@@ -223,19 +358,24 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* PARTNERS */}
-            <section className="py-24 border-b border-white/5">
-                <div className="container mx-auto px-6">
-                    <div className="text-center max-w-2xl mx-auto mb-12">
+            {/* PARTNERS — auto-scrolling marquee */}
+            <section className="py-20 border-b border-white/5 overflow-hidden">
+                <div className="container mx-auto px-6 mb-10">
+                    <div className="text-center max-w-2xl mx-auto">
                         <div className="text-xs font-medium uppercase tracking-[0.2em] text-white/40 mb-3">
                             {t('partners.title')}
                         </div>
                         <p className="text-white/60 text-sm">{t('partners.subtitle')}</p>
                     </div>
+                </div>
 
-                    <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-60">
-                        {['Storia', 'Awork', 'Biznetix', 'Gorgia', 'Genof_IT', 'Partners'].map((name) => (
-                            <div key={name} className="text-white/40 font-medium tracking-wider text-lg">
+                <div className="relative">
+                    <div className="absolute left-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-r from-[#00263E] to-transparent pointer-events-none" />
+                    <div className="absolute right-0 top-0 bottom-0 w-32 z-10 bg-gradient-to-l from-[#00263E] to-transparent pointer-events-none" />
+
+                    <div className="flex gap-16 animate-marquee-slow w-max items-center">
+                        {[...partners, ...partners].map((name, i) => (
+                            <div key={i} className="flex-shrink-0 text-white/35 hover:text-white/70 transition-colors font-medium tracking-wider text-xl whitespace-nowrap">
                                 {name}
                             </div>
                         ))}

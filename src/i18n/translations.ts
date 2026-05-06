@@ -64,6 +64,18 @@ const en: Dict = {
     'testimonials.title': 'Graduates Working Globally',
     'testimonials.subtitle': '70% of our graduates work at leading tech companies.',
 
+    // Graduates Section (success stories)
+    'graduates.eyebrow': 'Success Stories',
+    'graduates.title': 'Join Our Successful Graduates',
+    'graduates.subtitle': 'Real students, real careers. Watch them grow into international roles.',
+    'graduates.read_story': 'Read story',
+
+    // Lecturers Section
+    'lecturers.eyebrow': 'Our Team',
+    'lecturers.title': 'Learn from Industry Practitioners',
+    'lecturers.subtitle': 'QA leaders from US/EU companies, teaching what they actually do every day.',
+    'lecturers.placeholder_role': 'Senior QA Engineer',
+
     // Partners
     'partners.title': 'Trusted by Teams Worldwide',
     'partners.subtitle': 'Companies our graduates work for and we partner with.',
@@ -155,6 +167,18 @@ const ka: Dict = {
     // Testimonials
     'testimonials.title': 'კურსდამთავრებულები გლობალურად მუშაობენ',
     'testimonials.subtitle': 'ჩვენი კურსდამთავრებულების 70% წამყვან ტექნოლოგიურ კომპანიებში მუშაობს.',
+
+    // Graduates Section (success stories)
+    'graduates.eyebrow': 'წარმატების ისტორიები',
+    'graduates.title': 'შემოუერთდი ჩვენს წარმატებულ კურსდამთავრებულებს',
+    'graduates.subtitle': 'რეალური სტუდენტები, რეალური კარიერები. ნახე როგორ გადაიზარდნენ ისინი საერთაშორისო პოზიციებში.',
+    'graduates.read_story': 'ისტორიის ნახვა',
+
+    // Lecturers Section
+    'lecturers.eyebrow': 'ჩვენი გუნდი',
+    'lecturers.title': 'ისწავლე ინდუსტრიის პრაქტიკოსებისგან',
+    'lecturers.subtitle': 'QA ლიდერები აშშ/ევროპის კომპანიებიდან — გასწავლიან იმას, რასაც ყოველდღე აკეთებენ.',
+    'lecturers.placeholder_role': 'სენიორ QA ინჟინერი',
 
     // Partners
     'partners.title': 'გვენდობიან მსოფლიოს გუნდები',

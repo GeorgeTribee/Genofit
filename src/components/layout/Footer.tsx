@@ -11,7 +11,7 @@ const Footer = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
                     {/* Brand + Social */}
                     <div>
-                        <img src="/logo.png" alt="GenofIT" className="h-9 w-auto object-contain mb-5" />
+                        <img src="/genofit-logo.png" alt="GenofIT" className="h-10 w-auto object-contain mb-5" />
                         <p className="text-sm text-gray-300 mb-2 leading-relaxed">
                             {t('footer.description')}
                         </p>

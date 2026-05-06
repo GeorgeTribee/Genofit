@@ -47,7 +47,7 @@ const Header = () => {
             <div className="container mx-auto px-6">
                 <div className="flex items-center justify-between h-20">
                     <Link to="/" className="flex items-center gap-2">
-                        <img src="/logo.png" alt="GenofIT" className="h-8 w-auto object-contain" />
+                        <img src="/genofit-logo.png" alt="GenofIT" className="h-12 w-auto object-contain" />
                     </Link>
 
                     {/* Desktop Navigation */}
