@@ -18,21 +18,21 @@ const en: Dict = {
     'nav.cta': 'Get in Touch',
 
     // Hero
-    'hero.badge': 'QA · New York',
-    'hero.title': 'QA Services and Career Academy.',
-    'hero.subtitle': 'A New York studio for software quality. Learn, build a portfolio, get hired.',
+    'hero.badge': 'QA Career Academy',
+    'hero.title': 'Your QA career starts here!',
+    'hero.subtitle': '',
     'hero.cta_primary': 'Browse Courses',
     'hero.cta_secondary': 'Services',
 
     // Featured Courses
     'courses.eyebrow': 'Courses',
     'courses.title': 'Practice‑first programs',
-    'courses.subtitle': 'Real tools. Portfolio outcomes. International standards.',
+    'courses.subtitle': '',
 
     // Why Us
     'whyus.eyebrow': 'Approach',
     'whyus.title': 'Why GenofIT',
-    'whyus.subtitle': 'Built by people who do QA every day.',
+    'whyus.subtitle': '',
     'whyus.f1.title': 'Practice over theory',
     'whyus.f1.desc': 'Real bug reports and test plans from day one.',
     'whyus.f2.title': 'Industry tools',
@@ -44,21 +44,27 @@ const en: Dict = {
 
     // Graduates Section
     'graduates.eyebrow': 'Stories',
-    'graduates.title': 'Graduates',
-    'graduates.subtitle': 'Real students. Real careers.',
+    'graduates.title': 'Join our successful graduates',
+    'graduates.subtitle': '',
     'graduates.placeholder': 'Story coming soon.',
 
     // Lecturers Section
     'lecturers.eyebrow': 'Team',
-    'lecturers.title': 'Lecturers',
+    'lecturers.title': 'Learn from QA experts',
     'lecturers.subtitle': 'QA practitioners from international companies.',
     'lecturers.placeholder_name': 'Profile coming soon.',
     'lecturers.placeholder_role': 'Lecturer',
 
     // Partners
     'partners.eyebrow': 'Partners',
-    'partners.title': 'Companies we work with',
+    'partners.title': 'Our partner companies',
     'partners.subtitle': 'Where our graduates work and our partners ship.',
+
+    // Partnerships (announcement cards)
+    'partnerships.eyebrow': 'Partnerships',
+    'partnerships.title': 'Companies we collaborate with',
+    'partnerships.subtitle': 'New friendships, joint programs, and shared opportunities.',
+    'partnerships.read_more': 'Read more',
 
     // Community Photo Strip
     'community.eyebrow': 'Community',
@@ -108,21 +114,21 @@ const ka: Dict = {
     'nav.cta': 'დაგვიკავშირდი',
 
     // Hero
-    'hero.badge': 'QA · ნიუ-იორკი',
-    'hero.title': 'QA სერვისები და კარიერული აკადემია.',
-    'hero.subtitle': 'ნიუ-იორკული QA სტუდია. ისწავლე, ააწყვე პორტფოლიო, დასაქმდი.',
+    'hero.badge': 'QA Career Academy',
+    'hero.title': 'შენი QA კარიერა იწყება აქ!',
+    'hero.subtitle': '',
     'hero.cta_primary': 'კურსების ნახვა',
     'hero.cta_secondary': 'სერვისები',
 
     // Featured Courses
     'courses.eyebrow': 'კურსები',
     'courses.title': 'პრაქტიკული პროგრამები',
-    'courses.subtitle': 'რეალური ხელსაწყოები. პორტფოლიო შედეგად.',
+    'courses.subtitle': '',
 
     // Why Us
     'whyus.eyebrow': 'მიდგომა',
     'whyus.title': 'რატომ GenofIT',
-    'whyus.subtitle': 'შექმნილი იმათ მიერ, ვინც ყოველდღე აკეთებს QA-ს.',
+    'whyus.subtitle': '',
     'whyus.f1.title': 'პრაქტიკა, არა თეორია',
     'whyus.f1.desc': 'რეალური ბაგ რეპორტები და ტესტ გეგმები პირველივე დღიდან.',
     'whyus.f2.title': 'ინდუსტრიული ხელსაწყოები',
@@ -134,21 +140,27 @@ const ka: Dict = {
 
     // Graduates Section
     'graduates.eyebrow': 'ისტორიები',
-    'graduates.title': 'კურსდამთავრებულები',
-    'graduates.subtitle': 'რეალური სტუდენტები. რეალური კარიერები.',
+    'graduates.title': 'შემოუერთდი წარმატებულ კურსდამთავრებულებს',
+    'graduates.subtitle': '',
     'graduates.placeholder': 'ისტორია მალე დაემატება.',
 
     // Lecturers Section
     'lecturers.eyebrow': 'გუნდი',
-    'lecturers.title': 'ლექტორები',
+    'lecturers.title': 'ისწავლე QA-ს ექსპერტებთან',
     'lecturers.subtitle': 'QA პრაქტიკოსები საერთაშორისო კომპანიებიდან.',
     'lecturers.placeholder_name': 'პროფილი მალე დაემატება.',
     'lecturers.placeholder_role': 'ლექტორი',
 
     // Partners
     'partners.eyebrow': 'პარტნიორები',
-    'partners.title': 'კომპანიები ჩვენთან',
+    'partners.title': 'ჩვენი პარტნიორი კომპანიები',
     'partners.subtitle': 'სადაც ჩვენი კურსდამთავრებულები მუშაობენ.',
+
+    // Partnerships (announcement cards)
+    'partnerships.eyebrow': 'პარტნიორობა',
+    'partnerships.title': 'კომპანიები, ვისთანაც ვთანამშრომლობთ',
+    'partnerships.subtitle': 'ახალი მეგობრობები, ერთობლივი პროგრამები და გაზიარებული შესაძლებლობები.',
+    'partnerships.read_more': 'გაიგე მეტი',
 
     // Community Photo Strip
     'community.eyebrow': 'საზოგადოება',

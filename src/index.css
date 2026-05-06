@@ -95,4 +95,28 @@
   .animate-marquee-slow:hover {
     animation-play-state: paused;
   }
+
+  /* Vertical marquees — used for partnerships photo wall (two columns, opposite directions) */
+  @keyframes marquee-up {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-50%); }
+  }
+
+  @keyframes marquee-down {
+    from { transform: translateY(-50%); }
+    to   { transform: translateY(0); }
+  }
+
+  .animate-marquee-up {
+    animation: marquee-up 40s linear infinite;
+  }
+
+  .animate-marquee-down {
+    animation: marquee-down 40s linear infinite;
+  }
+
+  .marquee-paused .animate-marquee-up,
+  .marquee-paused .animate-marquee-down {
+    animation-play-state: paused;
+  }
 }
