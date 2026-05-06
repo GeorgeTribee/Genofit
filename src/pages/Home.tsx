@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
-import { ArrowRight, CheckCircle2, Wrench, Globe, GraduationCap, Code, Smartphone, Accessibility, ChevronLeft, ChevronRight, User, Camera, Linkedin } from "lucide-react";
+import { ArrowRight, CheckCircle2, Wrench, Globe, GraduationCap, Code, Smartphone, Accessibility, ChevronLeft, ChevronRight, Camera, Linkedin } from "lucide-react";
 import CourseCard from "@/components/courses/CourseCard";
 import { Link, useLocation } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
@@ -61,7 +61,7 @@ const Home = () => {
     }, []);
 
     const useMarqueeScroll = (
-        ref: React.RefObject<HTMLDivElement>,
+        ref: React.RefObject<HTMLDivElement | null>,
         paused: boolean,
         speed = 35,
     ) => {
@@ -90,7 +90,7 @@ const Home = () => {
     useMarqueeScroll(partnersScrollRef, partnersPaused, 30);
     useMarqueeScroll(communityScrollRef, communityPaused, 25);
 
-    const scrollByAmount = (ref: React.RefObject<HTMLDivElement>, dir: 1 | -1, amount = 280) => {
+    const scrollByAmount = (ref: React.RefObject<HTMLDivElement | null>, dir: 1 | -1, amount = 280) => {
         ref.current?.scrollBy({ left: dir * amount, behavior: 'smooth' });
     };
     const scrollGraduates = (dir: 1 | -1) => scrollByAmount(graduatesScrollRef, dir);
