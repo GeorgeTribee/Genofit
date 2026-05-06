@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+/* GenofIT — fonts
+ * Latin:    Inter (geometric sans matching the GenofIT wordmark)
+ * Georgian: Noto Sans Georgian (free; swap to BPG Glaho via self-host once licensed)
+ * Mono:     JetBrains Mono (technical labels per Strategic Blueprint)
+ */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+Georgian:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,80 +11,42 @@
 
 @layer base {
   :root {
-    --background: 207 59% 15%;
-    /* #10293E - Main brand color */
-    --foreground: 0 0% 100%;
-    /* #FFFFFF */
+    /* Brand book aligned — primary surface = #00263E */
+    --background: 207 100% 12%;        /* #00263E */
+    --foreground: 0 0% 100%;           /* #FFFFFF */
 
-    --card: 207 59% 18%;
-    /* Slightly lighter card background */
+    --card: 208 80% 17%;               /* #0F2E4A — subtle elevation on navy */
     --card-foreground: 0 0% 100%;
 
-    --popover: 207 59% 15%;
+    --popover: 207 100% 12%;
     --popover-foreground: 0 0% 100%;
 
-    --primary: 207 59% 15%;
+    --primary: 207 100% 12%;           /* navy */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 212 51% 50%;
-    /* #3E7BBF */
+    --secondary: 211 52% 49%;          /* #3B7DBF — services blue */
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 210 30% 70%;              /* readable muted on dark */
+    --muted-foreground: 210 25% 80%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 14 86% 55%;              /* #F05A26 — academy orange */
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 0 0% 100%;               /* used with /10 opacity */
+    --input: 0 0% 100%;
+    --ring: 211 52% 49%;
 
-    --radius: 0.5rem;
+    --radius: 0.5rem;                  /* 8px per Blueprint */
 
-    --chart-1: 12 76% 61%;
-    --chart-2: 173 58% 39%;
-    --chart-3: 197 37% 24%;
-    --chart-4: 43 74% 66%;
-    --chart-5: 27 87% 67%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
+    --chart-1: 211 52% 49%;            /* brand.blue */
+    --chart-2: 173 42% 55%;            /* brand.teal */
+    --chart-3: 14 86% 55%;             /* brand.orange */
+    --chart-4: 281 27% 54%;            /* brand.purple */
+    --chart-5: 192 75% 56%;            /* brand.cyan */
   }
 }
 
@@ -88,24 +55,68 @@
     @apply border-border;
   }
 
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
   body {
     @apply bg-background text-foreground;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Inter', 'Noto Sans Georgian', system-ui, sans-serif;
+    font-feature-settings: 'cv11', 'ss01', 'ss03';
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    letter-spacing: -0.02em;           /* Blueprint headline tracking */
+  }
+
+  code, kbd, pre, samp {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
   }
 }
 
 @layer utilities {
-  @keyframes gradient {
-    0%, 100% {
-      background-position: 0% 50%;
-    }
-    50% {
-      background-position: 100% 50%;
-    }
+  /* Horizontal marquee — used for partner logos and testimonials carousel */
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); }
   }
 
-  .animate-gradient {
-    background-size: 200% 200%;
-    animation: gradient 15s ease infinite;
+  .animate-marquee {
+    animation: marquee 40s linear infinite;
+  }
+
+  .animate-marquee-slow {
+    animation: marquee 60s linear infinite;
+  }
+
+  .animate-marquee:hover,
+  .animate-marquee-slow:hover {
+    animation-play-state: paused;
+  }
+
+  /* Vertical marquees — used for partnerships photo wall (two columns, opposite directions) */
+  @keyframes marquee-up {
+    from { transform: translateY(0); }
+    to   { transform: translateY(-50%); }
+  }
+
+  @keyframes marquee-down {
+    from { transform: translateY(-50%); }
+    to   { transform: translateY(0); }
+  }
+
+  .animate-marquee-up {
+    animation: marquee-up 40s linear infinite;
+  }
+
+  .animate-marquee-down {
+    animation: marquee-down 40s linear infinite;
+  }
+
+  .marquee-paused .animate-marquee-up,
+  .marquee-paused .animate-marquee-down {
+    animation-play-state: paused;
   }
 }

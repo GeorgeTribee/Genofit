@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { HelpCircle, Clock, Globe, UserCheck, Bug, ArrowRight } from "lucide-react";
 import { useEffect } from "react";
 import { useLocation, Link } from "react-router-dom";
@@ -30,18 +29,15 @@ const Services = () => {
     }));
 
     return (
-        <div className="min-h-screen bg-[#0A1825] px-6 pt-32 pb-20">
+        <div className="min-h-screen bg-[#0F2E4A] px-6 pt-32 pb-20">
             <div className="container mx-auto max-w-7xl">
                 {/* Centered Header Section */}
                 <div className="text-center max-w-4xl mx-auto">
                 {/* Premium Services Header */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
+                <div
                     className="mb-6"
                 >
-                    <p className="text-[#0088ff] text-sm font-semibold tracking-wider uppercase mb-2">
+                    <p className="text-[#3FC4E2] text-sm font-semibold tracking-wider uppercase mb-2">
                         Premium Services
                     </p>
                     <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
@@ -50,22 +46,19 @@ const Services = () => {
                     <p className="text-white/60 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto">
                         Comprehensive quality assurance solutions designed to ensure your software performs flawlessly in any environment
                     </p>
-                </motion.div>
+                </div>
 
                 {/* Buttons */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.2 }}
+                <div
                     className="flex flex-col sm:flex-row gap-4 justify-center mt-12"
                 >
-                    <button className="px-8 py-4 bg-[#0033ff] text-white font-semibold rounded-lg hover:bg-[#0044ff] transition-all duration-300 hover:scale-105">
+                    <button className="px-8 py-4 bg-[#3B7DBF] text-white font-semibold rounded-lg hover:bg-[#3B7DBF] transition-all duration-300 hover:scale-105">
                         24-hour testing
                     </button>
-                    <button className="px-8 py-4 bg-[#1a2332] text-white font-semibold rounded-lg border border-white/10 hover:bg-[#1f2937] hover:border-[#0033ff]/50 transition-all duration-300 hover:scale-105">
+                    <button className="px-8 py-4 bg-[#1a2332] text-white font-semibold rounded-lg border border-white/10 hover:bg-[#1f2937] hover:border-[#3B7DBF]/50 transition-all duration-300 hover:scale-105">
                         closed beta testing
                     </button>
-                </motion.div>
+                </div>
                 </div>
 
                 {/* Horizontal Divider */}
@@ -78,37 +71,28 @@ const Services = () => {
                     {/* Left Column - Content */}
                     <div>
                         {/* 24 Hour Testing Header with Blue Underline */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.4 }}
+                        <div
                             className="mb-8"
                         >
                             <h2 className="text-4xl md:text-5xl font-bold text-white mb-3">
                                 24 Hour Testing
                             </h2>
-                            <div className="w-24 h-1 bg-[#0088ff]"></div>
-                        </motion.div>
+                            <div className="w-24 h-1 bg-[#3FC4E2]"></div>
+                        </div>
 
                         {/* Description */}
-                        <motion.p
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.6 }}
+                        <p
                             className="text-white/70 text-lg leading-relaxed mb-8"
                         >
                             Our 24-hour testing service provides comprehensive quality assurance within a true 24-hour window. This efficiency is achieved through our global network of skilled testers, distributed across multiple time zones, ensuring consistent and thorough testing every hour of the day.
-                        </motion.p>
+                        </p>
 
                         {/* When Might You Need This Service Box */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.8 }}
-                            className="bg-[#1a2332] border border-[#0088ff]/30 rounded-2xl p-8"
+                        <div
+                            className="bg-[#1a2332] border border-[#3FC4E2]/30 rounded-2xl p-8"
                         >
                             <div className="flex items-center gap-3 mb-6">
-                                <HelpCircle className="w-6 h-6 text-[#0088ff]" />
+                                <HelpCircle className="w-6 h-6 text-[#3FC4E2]" />
                                 <h3 className="text-xl font-bold text-white">
                                     When Might You Need This Service?
                                 </h3>
@@ -124,27 +108,21 @@ const Services = () => {
                                     For urgent fixes that require immediate attention to maintain functionality and user satisfaction.
                                 </li>
                             </ul>
-                        </motion.div>
+                        </div>
 
                         {/* Key Benefits Heading */}
-                        <motion.h3
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.9 }}
+                        <h3
                             className="mt-12 mb-6 text-2xl font-bold text-white"
                         >
                             Key Benefits
-                        </motion.h3>
+                        </h3>
 
                         {/* 4 Key Benefits */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 1.0 }}
+                        <div
                             className="grid grid-cols-1 sm:grid-cols-2 gap-6"
                         >
                             {/* Quick Results */}
-                            <div className="bg-transparent border border-white/10 rounded-xl p-6 hover:border-[#0088ff]/30 transition-all duration-300">
+                            <div className="bg-transparent border border-white/10 rounded-xl p-6 hover:border-[#3FC4E2]/30 transition-all duration-300">
                                 <h4 className="text-lg font-bold text-white mb-3">Quick Results</h4>
                                 <p className="text-white/60 text-sm leading-relaxed">
                                     Receive a detailed quality report within 24 hours, enabling swift decision-making.
@@ -152,7 +130,7 @@ const Services = () => {
                             </div>
 
                             {/* Enhanced Stability */}
-                            <div className="bg-transparent border border-white/10 rounded-xl p-6 hover:border-[#0088ff]/30 transition-all duration-300">
+                            <div className="bg-transparent border border-white/10 rounded-xl p-6 hover:border-[#3FC4E2]/30 transition-all duration-300">
                                 <h4 className="text-lg font-bold text-white mb-3">Enhanced Stability</h4>
                                 <p className="text-white/60 text-sm leading-relaxed">
                                     Get an immediate response to emerging issues, minimizing potential downtime.
@@ -160,7 +138,7 @@ const Services = () => {
                             </div>
 
                             {/* Increased Satisfaction */}
-                            <div className="bg-transparent border border-white/10 rounded-xl p-6 hover:border-[#0088ff]/30 transition-all duration-300">
+                            <div className="bg-transparent border border-white/10 rounded-xl p-6 hover:border-[#3FC4E2]/30 transition-all duration-300">
                                 <h4 className="text-lg font-bold text-white mb-3">Increased Satisfaction</h4>
                                 <p className="text-white/60 text-sm leading-relaxed">
                                     Quick issue resolution builds customer trust and loyalty.
@@ -168,50 +146,36 @@ const Services = () => {
                             </div>
 
                             {/* 24/7 Critical Support */}
-                            <div className="bg-transparent border border-white/10 rounded-xl p-6 hover:border-[#0088ff]/30 transition-all duration-300">
+                            <div className="bg-transparent border border-white/10 rounded-xl p-6 hover:border-[#3FC4E2]/30 transition-all duration-300">
                                 <h4 className="text-lg font-bold text-white mb-3">24/7 Critical Support</h4>
                                 <p className="text-white/60 text-sm leading-relaxed">
                                     Our continuous testing team ensures uninterrupted quality assurance during critical times.
                                 </p>
                             </div>
-                        </motion.div>
+                        </div>
 
                         {/* Closing Text */}
-                        <motion.p
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 1.1 }}
+                        <p
                             className="mt-8 text-white/70 text-base leading-relaxed"
                         >
                             This service is ideal for organizations that need fast, reliable testing to maintain high standards and keep projects on track.
-                        </motion.p>
+                        </p>
                     </div>
 
                     {/* Right Column - Matrix Animation */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6, delay: 0.5 }}
+                    <div
                         className="hidden lg:block h-full relative"
                     >
-                        <div className="w-full h-full bg-gradient-to-br from-[#1a2332] to-[#0A1825] rounded-2xl relative overflow-hidden">
+                        <div className="w-full h-full bg-gradient-to-br from-[#1a2332] to-[#0F2E4A] rounded-2xl relative overflow-hidden">
                             {/* Matrix Rain Animation */}
                             <div className="absolute inset-0 overflow-hidden opacity-50">
                                 <div className="relative w-full h-full flex justify-around">
                                     {matrixColumns.map((column) => (
-                                        <motion.div
+                                        <div
                                             key={column.id}
                                             className="flex flex-col text-center font-mono text-sm"
                                             style={{
-                                                textShadow: '0 0 8px rgba(0, 136, 255, 0.8)',
-                                            }}
-                                            initial={{ y: '-100%' }}
-                                            animate={{ y: '100%' }}
-                                            transition={{
-                                                duration: column.duration,
-                                                repeat: Infinity,
-                                                ease: 'linear',
-                                                delay: column.delay,
+                                                textShadow: '0 0 8px rgba(63, 196, 226, 0.8)',
                                             }}
                                         >
                                             {column.chars.map((char, idx) => {
@@ -219,84 +183,70 @@ const Services = () => {
                                                 const opacity = isLeading ? 1 : Math.max(0.1, 1 - (column.chars.length - idx) * 0.08);
 
                                                 return (
-                                                    <motion.span
+                                                    <span
                                                         key={idx}
                                                         style={{
-                                                            color: isLeading ? '#0088ff' : '#0033ff',
+                                                            color: isLeading ? '#3FC4E2' : '#3B7DBF',
                                                             opacity: opacity,
                                                             display: 'block',
                                                             lineHeight: '1.5',
                                                         }}
-                                                        animate={{
-                                                            opacity: [opacity, opacity * 0.5, opacity],
-                                                        }}
-                                                        transition={{
-                                                            duration: 0.5,
-                                                            repeat: Infinity,
-                                                            delay: idx * 0.05,
-                                                        }}
                                                     >
                                                         {char}
-                                                    </motion.span>
+                                                    </span>
                                                 );
                                             })}
-                                        </motion.div>
+                                        </div>
                                     ))}
                                 </div>
                             </div>
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
 
                 {/* Statistics Boxes - Full Width */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 1.2 }}
+                <div
                     className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-6"
                 >
                     {/* 24 Hour Turnaround */}
-                    <div className="bg-[#1a2332] border border-white/10 rounded-2xl p-8 text-center hover:border-[#0088ff]/30 transition-all duration-300">
+                    <div className="bg-[#1a2332] border border-white/10 rounded-2xl p-8 text-center hover:border-[#3FC4E2]/30 transition-all duration-300">
                         <div className="flex justify-center mb-4">
-                            <Clock className="w-12 h-12 text-[#0088ff]" />
+                            <Clock className="w-12 h-12 text-[#3FC4E2]" />
                         </div>
                         <div className="text-5xl font-bold text-white mb-3">24</div>
                         <div className="text-white/60 text-sm">Hour Turnaround</div>
                     </div>
 
                     {/* 8 Global Locations */}
-                    <div className="bg-[#1a2332] border border-white/10 rounded-2xl p-8 text-center hover:border-[#0088ff]/30 transition-all duration-300">
+                    <div className="bg-[#1a2332] border border-white/10 rounded-2xl p-8 text-center hover:border-[#3FC4E2]/30 transition-all duration-300">
                         <div className="flex justify-center mb-4">
-                            <Globe className="w-12 h-12 text-[#0088ff]" />
+                            <Globe className="w-12 h-12 text-[#3FC4E2]" />
                         </div>
                         <div className="text-5xl font-bold text-white mb-3">8</div>
                         <div className="text-white/60 text-sm">Global Locations</div>
                     </div>
 
                     {/* 50 QA Experts */}
-                    <div className="bg-[#1a2332] border border-white/10 rounded-2xl p-8 text-center hover:border-[#0088ff]/30 transition-all duration-300">
+                    <div className="bg-[#1a2332] border border-white/10 rounded-2xl p-8 text-center hover:border-[#3FC4E2]/30 transition-all duration-300">
                         <div className="flex justify-center mb-4">
-                            <UserCheck className="w-12 h-12 text-[#0088ff]" />
+                            <UserCheck className="w-12 h-12 text-[#3FC4E2]" />
                         </div>
                         <div className="text-5xl font-bold text-white mb-3">50</div>
                         <div className="text-white/60 text-sm">QA Experts</div>
                     </div>
 
                     {/* 98 Issue Detection Rate */}
-                    <div className="bg-[#1a2332] border border-white/10 rounded-2xl p-8 text-center hover:border-[#0088ff]/30 transition-all duration-300">
+                    <div className="bg-[#1a2332] border border-white/10 rounded-2xl p-8 text-center hover:border-[#3FC4E2]/30 transition-all duration-300">
                         <div className="flex justify-center mb-4">
-                            <Bug className="w-12 h-12 text-[#0088ff]" />
+                            <Bug className="w-12 h-12 text-[#3FC4E2]" />
                         </div>
                         <div className="text-5xl font-bold text-white mb-3">98</div>
                         <div className="text-white/60 text-sm">Issue Detection Rate</div>
                     </div>
-                </motion.div>
+                </div>
 
                 {/* Call to Action Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 1.4 }}
+                <div
                     className="mt-20 text-center max-w-3xl mx-auto"
                 >
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
@@ -306,12 +256,12 @@ const Services = () => {
                         Our global team of expert testers works around the clock to provide you with comprehensive quality assurance when you need it most.
                     </p>
                     <Link to="/get-in-touch">
-                        <button className="px-10 py-4 bg-[#0033ff] text-white font-semibold rounded-lg hover:bg-[#0044ff] transition-all duration-300 hover:scale-105 flex items-center gap-2 mx-auto">
+                        <button className="px-10 py-4 bg-[#3B7DBF] text-white font-semibold rounded-lg hover:bg-[#3B7DBF] transition-all duration-300 hover:scale-105 flex items-center gap-2 mx-auto">
                             Get Started Today
                             <ArrowRight className="w-5 h-5" />
                         </button>
                     </Link>
-                </motion.div>
+                </div>
 
                 {/* Horizontal Divider */}
                 <div className="my-20">
@@ -321,30 +271,19 @@ const Services = () => {
                 {/* Closed Beta Testing Section - Two Column Layout (Reversed) */}
                 <div id="closed-beta-testing" className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start text-left">
                     {/* Left Column - Matrix Animation */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -30 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6, delay: 0.5 }}
+                    <div
                         className="hidden lg:block h-full relative"
                     >
-                        <div className="w-full h-full bg-gradient-to-br from-[#1a2332] to-[#0A1825] rounded-2xl relative overflow-hidden">
+                        <div className="w-full h-full bg-gradient-to-br from-[#1a2332] to-[#0F2E4A] rounded-2xl relative overflow-hidden">
                             {/* Matrix Rain Animation */}
                             <div className="absolute inset-0 overflow-hidden opacity-50">
                                 <div className="relative w-full h-full flex justify-around">
                                     {matrixColumns.map((column) => (
-                                        <motion.div
+                                        <div
                                             key={column.id}
                                             className="flex flex-col text-center font-mono text-sm"
                                             style={{
-                                                textShadow: '0 0 8px rgba(0, 136, 255, 0.8)',
-                                            }}
-                                            initial={{ y: '-100%' }}
-                                            animate={{ y: '100%' }}
-                                            transition={{
-                                                duration: column.duration,
-                                                repeat: Infinity,
-                                                ease: 'linear',
-                                                delay: column.delay,
+                                                textShadow: '0 0 8px rgba(63, 196, 226, 0.8)',
                                             }}
                                         >
                                             {column.chars.map((char, idx) => {
@@ -352,97 +291,71 @@ const Services = () => {
                                                 const opacity = isLeading ? 1 : Math.max(0.1, 1 - (column.chars.length - idx) * 0.08);
 
                                                 return (
-                                                    <motion.span
+                                                    <span
                                                         key={idx}
                                                         style={{
-                                                            color: isLeading ? '#0088ff' : '#0033ff',
+                                                            color: isLeading ? '#3FC4E2' : '#3B7DBF',
                                                             opacity: opacity,
                                                             display: 'block',
                                                             lineHeight: '1.5',
                                                         }}
-                                                        animate={{
-                                                            opacity: [opacity, opacity * 0.5, opacity],
-                                                        }}
-                                                        transition={{
-                                                            duration: 0.5,
-                                                            repeat: Infinity,
-                                                            delay: idx * 0.05,
-                                                        }}
                                                     >
                                                         {char}
-                                                    </motion.span>
+                                                    </span>
                                                 );
                                             })}
-                                        </motion.div>
+                                        </div>
                                     ))}
                                 </div>
                             </div>
                         </div>
-                    </motion.div>
+                    </div>
 
                     {/* Right Column - Content */}
                     <div>
                         {/* Closed Beta Testing Header with Blue Underline */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.4 }}
+                        <div
                             className="mb-8"
                         >
                             <h2 className="text-4xl md:text-5xl font-bold text-white mb-3">
                                 Closed Beta Testing
                             </h2>
-                            <div className="w-24 h-1 bg-[#0088ff]"></div>
-                        </motion.div>
+                            <div className="w-24 h-1 bg-[#3FC4E2]"></div>
+                        </div>
 
                         {/* Subtitle */}
-                        <motion.p
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.5 }}
+                        <p
                             className="text-white/60 text-lg mb-6"
                         >
                             Refine your product with feedback from selected users before official launch.
-                        </motion.p>
+                        </p>
 
                         {/* Description */}
-                        <motion.p
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.6 }}
+                        <p
                             className="text-white/70 text-lg leading-relaxed mb-6"
                         >
                             Closed Beta Testing engages a select group of users to test the platform and provide valuable feedback. This phase is essential for refining the product, allowing us to optimize functionality, design, and user experience before the official launch.
-                        </motion.p>
+                        </p>
 
-                        <motion.p
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.7 }}
+                        <p
                             className="text-white/70 text-lg leading-relaxed mb-8"
                         >
                             During this stage, we assess the platform's performance and usability across various devices, browsers, and global markets, ensuring it meets diverse user needs and operates smoothly in different environments.
-                        </motion.p>
+                        </p>
 
                         {/* Key Benefits Heading */}
-                        <motion.h3
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.8 }}
+                        <h3
                             className="mt-12 mb-6 text-2xl font-bold text-white"
                         >
                             Key Benefits
-                        </motion.h3>
+                        </h3>
 
                         {/* 3 Key Benefits */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 0.9 }}
+                        <div
                             className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8"
                         >
                             {/* User Feedback */}
-                            <div className="bg-transparent border border-white/10 rounded-xl p-6 hover:border-[#0088ff]/30 transition-all duration-300">
+                            <div className="bg-transparent border border-white/10 rounded-xl p-6 hover:border-[#3FC4E2]/30 transition-all duration-300">
                                 <h4 className="text-lg font-bold text-white mb-3">User Feedback</h4>
                                 <p className="text-white/60 text-sm leading-relaxed">
                                     Real insights from users drive meaningful improvements.
@@ -450,7 +363,7 @@ const Services = () => {
                             </div>
 
                             {/* Functionality & Usability */}
-                            <div className="bg-transparent border border-white/10 rounded-xl p-6 hover:border-[#0088ff]/30 transition-all duration-300">
+                            <div className="bg-transparent border border-white/10 rounded-xl p-6 hover:border-[#3FC4E2]/30 transition-all duration-300">
                                 <h4 className="text-lg font-bold text-white mb-3">Functionality & Usability</h4>
                                 <p className="text-white/60 text-sm leading-relaxed">
                                     Assures smooth performance across multiple devices and browsers.
@@ -458,34 +371,28 @@ const Services = () => {
                             </div>
 
                             {/* Global Market Testing */}
-                            <div className="bg-transparent border border-white/10 rounded-xl p-6 hover:border-[#0088ff]/30 transition-all duration-300">
+                            <div className="bg-transparent border border-white/10 rounded-xl p-6 hover:border-[#3FC4E2]/30 transition-all duration-300">
                                 <h4 className="text-lg font-bold text-white mb-3">Global Market Testing</h4>
                                 <p className="text-white/60 text-sm leading-relaxed">
                                     Validates compatibility and performance across regions for global readiness.
                                 </p>
                             </div>
-                        </motion.div>
+                        </div>
 
                         {/* Process Timeline Box */}
-                        <motion.div
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6, delay: 1.0 }}
+                        <div
                             className="bg-[#1a2332] border border-white/10 rounded-2xl p-8"
                         >
                             <h3 className="text-xl font-bold text-white mb-4">Process Timeline</h3>
                             <p className="text-white/70 text-base leading-relaxed">
                                 The process typically spans 5-7 business days, providing a quick and efficient turnaround to support a timely release. This approach allows us to address potential issues early and make necessary adjustments for a smooth, high-quality launch.
                             </p>
-                        </motion.div>
+                        </div>
                     </div>
                 </div>
 
                 {/* Beta Testing Process Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 1.2 }}
+                <div
                     className="mt-20 text-center max-w-3xl mx-auto mb-16"
                 >
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -494,7 +401,7 @@ const Services = () => {
                     <p className="text-white/70 text-lg leading-relaxed">
                         Our structured approach ensures thorough testing and valuable feedback
                     </p>
-                </motion.div>
+                </div>
 
                 {/* Process Steps - Vertical Timeline */}
                 <div className="max-w-4xl mx-auto relative">
@@ -503,109 +410,94 @@ const Services = () => {
 
                     <div className="space-y-12">
                         {/* Step 1 - Right */}
-                        <motion.div
-                            initial={{ opacity: 0, x: 30 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5, delay: 1.4 }}
+                        <div
                             className="relative flex flex-col md:flex-row items-center gap-8"
                         >
                             <div className="md:w-1/2"></div>
-                            <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#0033ff] border-4 border-[#0A1825] flex items-center justify-center z-10">
+                            <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#3B7DBF] border-4 border-[#0F2E4A] flex items-center justify-center z-10">
                             </div>
                             <div className="md:w-1/2">
-                                <div className="bg-[#1a2332] border border-white/10 rounded-2xl p-6 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50">
-                                    <p className="text-[#0088ff] text-sm font-semibold mb-2">Day 1</p>
+                                <div className="bg-[#1a2332] border border-white/10 rounded-2xl p-6 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#3B7DBF]/50">
+                                    <p className="text-[#3FC4E2] text-sm font-semibold mb-2">Day 1</p>
                                     <h3 className="text-lg font-bold text-white mb-2">Planning & Setup</h3>
                                     <p className="text-white/60 text-sm leading-relaxed">
                                         We define testing objectives, select participants, and set up the testing environment.
                                     </p>
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
 
                         {/* Step 2 - Left */}
-                        <motion.div
-                            initial={{ opacity: 0, x: -30 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5, delay: 1.5 }}
+                        <div
                             className="relative flex flex-col md:flex-row items-center gap-8"
                         >
                             <div className="md:w-1/2 md:text-right">
-                                <div className="bg-[#1a2332] border border-white/10 rounded-2xl p-6 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50">
-                                    <p className="text-[#0088ff] text-sm font-semibold mb-2">Day 2-3</p>
+                                <div className="bg-[#1a2332] border border-white/10 rounded-2xl p-6 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#3B7DBF]/50">
+                                    <p className="text-[#3FC4E2] text-sm font-semibold mb-2">Day 2-3</p>
                                     <h3 className="text-lg font-bold text-white mb-2">User Onboarding</h3>
                                     <p className="text-white/60 text-sm leading-relaxed">
                                         Participants are invited and provided access to the platform with clear testing instructions.
                                     </p>
                                 </div>
                             </div>
-                            <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#0033ff] border-4 border-[#0A1825] flex items-center justify-center z-10">
+                            <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#3B7DBF] border-4 border-[#0F2E4A] flex items-center justify-center z-10">
                             </div>
                             <div className="md:w-1/2"></div>
-                        </motion.div>
+                        </div>
 
                         {/* Step 3 - Right */}
-                        <motion.div
-                            initial={{ opacity: 0, x: 30 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5, delay: 1.6 }}
+                        <div
                             className="relative flex flex-col md:flex-row items-center gap-8"
                         >
                             <div className="md:w-1/2"></div>
-                            <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#0033ff] border-4 border-[#0A1825] flex items-center justify-center z-10">
+                            <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#3B7DBF] border-4 border-[#0F2E4A] flex items-center justify-center z-10">
                             </div>
                             <div className="md:w-1/2">
-                                <div className="bg-[#1a2332] border border-white/10 rounded-2xl p-6 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50">
-                                    <p className="text-[#0088ff] text-sm font-semibold mb-2">Day 3-5</p>
+                                <div className="bg-[#1a2332] border border-white/10 rounded-2xl p-6 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#3B7DBF]/50">
+                                    <p className="text-[#3FC4E2] text-sm font-semibold mb-2">Day 3-5</p>
                                     <h3 className="text-lg font-bold text-white mb-2">Active Testing</h3>
                                     <p className="text-white/60 text-sm leading-relaxed">
                                         Users interact with the platform, performing tasks and providing real-time feedback.
                                     </p>
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
 
                         {/* Step 4 - Left */}
-                        <motion.div
-                            initial={{ opacity: 0, x: -30 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5, delay: 1.7 }}
+                        <div
                             className="relative flex flex-col md:flex-row items-center gap-8"
                         >
                             <div className="md:w-1/2 md:text-right">
-                                <div className="bg-[#1a2332] border border-white/10 rounded-2xl p-6 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50">
-                                    <p className="text-[#0088ff] text-sm font-semibold mb-2">Day 6</p>
+                                <div className="bg-[#1a2332] border border-white/10 rounded-2xl p-6 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#3B7DBF]/50">
+                                    <p className="text-[#3FC4E2] text-sm font-semibold mb-2">Day 6</p>
                                     <h3 className="text-lg font-bold text-white mb-2">Data Collection</h3>
                                     <p className="text-white/60 text-sm leading-relaxed">
                                         We gather and organize all feedback, bug reports, and performance metrics.
                                     </p>
                                 </div>
                             </div>
-                            <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#0033ff] border-4 border-[#0A1825] flex items-center justify-center z-10">
+                            <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#3B7DBF] border-4 border-[#0F2E4A] flex items-center justify-center z-10">
                             </div>
                             <div className="md:w-1/2"></div>
-                        </motion.div>
+                        </div>
 
                         {/* Step 5 - Right */}
-                        <motion.div
-                            initial={{ opacity: 0, x: 30 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.5, delay: 1.8 }}
+                        <div
                             className="relative flex flex-col md:flex-row items-center gap-8"
                         >
                             <div className="md:w-1/2"></div>
-                            <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#0033ff] border-4 border-[#0A1825] flex items-center justify-center z-10">
+                            <div className="flex-shrink-0 w-14 h-14 rounded-full bg-[#3B7DBF] border-4 border-[#0F2E4A] flex items-center justify-center z-10">
                             </div>
                             <div className="md:w-1/2">
-                                <div className="bg-[#1a2332] border border-white/10 rounded-2xl p-6 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#0033ff]/50">
-                                    <p className="text-[#0088ff] text-sm font-semibold mb-2">Day 7</p>
+                                <div className="bg-[#1a2332] border border-white/10 rounded-2xl p-6 hover:bg-[#1f2937] transition-all duration-300 hover:border-[#3B7DBF]/50">
+                                    <p className="text-[#3FC4E2] text-sm font-semibold mb-2">Day 7</p>
                                     <h3 className="text-lg font-bold text-white mb-2">Analysis & Reporting</h3>
                                     <p className="text-white/60 text-sm leading-relaxed">
                                         A comprehensive report is compiled with insights, recommendations, and action items.
                                     </p>
                                 </div>
                             </div>
-                        </motion.div>
+                        </div>
                     </div>
                 </div>
 
@@ -615,10 +507,7 @@ const Services = () => {
                 </div>
 
                 {/* Final Call to Action Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 1.9 }}
+                <div
                     className="mt-12 text-center max-w-3xl mx-auto"
                 >
                     <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
@@ -629,16 +518,16 @@ const Services = () => {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link to="/get-in-touch">
-                            <button className="px-10 py-4 bg-[#0033ff] text-white font-semibold rounded-lg hover:bg-[#0044ff] transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2">
+                            <button className="px-10 py-4 bg-[#3B7DBF] text-white font-semibold rounded-lg hover:bg-[#3B7DBF] transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2">
                                 Contact Us Now
                                 <ArrowRight className="w-5 h-5" />
                             </button>
                         </Link>
-                        <button className="px-10 py-4 bg-[#1a2332] text-white font-semibold rounded-lg border border-white/10 hover:bg-[#1f2937] hover:border-[#0033ff]/50 transition-all duration-300 hover:scale-105">
+                        <button className="px-10 py-4 bg-[#1a2332] text-white font-semibold rounded-lg border border-white/10 hover:bg-[#1f2937] hover:border-[#3B7DBF]/50 transition-all duration-300 hover:scale-105">
                             View Package
                         </button>
                     </div>
-                </motion.div>
+                </div>
             </div>
         </div>
     );

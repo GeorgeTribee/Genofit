@@ -1,27 +1,20 @@
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { XCircle, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function PurchaseCancelled() {
   return (
-    <div className="bg-[#0A1825] min-h-screen text-white">
+    <div className="bg-[#0F2E4A] min-h-screen text-white">
       <div className="container mx-auto px-6 py-20">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+        <div
           className="max-w-2xl mx-auto text-center"
         >
           {/* Cancel Icon */}
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+          <div
             className="inline-flex items-center justify-center w-24 h-24 rounded-full bg-orange-500/10 mb-8"
           >
             <XCircle className="w-12 h-12 text-orange-500" />
-          </motion.div>
+          </div>
 
           {/* Heading */}
           <h1 className="text-4xl md:text-5xl font-bold mb-4">
@@ -46,7 +39,7 @@ export default function PurchaseCancelled() {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link to="/#courses">
-              <Button className="bg-[#0033ff] hover:bg-[#0044ff] text-white font-semibold px-8 py-6 rounded-lg transition-all duration-300 hover:scale-105 flex items-center gap-2">
+              <Button className="bg-[#3B7DBF] hover:bg-[#3B7DBF] text-white font-semibold px-8 py-6 rounded-lg transition-all duration-300 hover:scale-105 flex items-center gap-2">
                 <ArrowLeft className="w-5 h-5" />
                 View Courses
               </Button>
@@ -58,7 +51,7 @@ export default function PurchaseCancelled() {
               </Button>
             </Link>
           </div>
-        </motion.div>
+        </div>
       </div>
     </div>
   );

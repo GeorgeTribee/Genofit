@@ -113,7 +113,7 @@ export function EmailModal({
                   placeholder="John"
                   value={firstName}
                   onChange={(e) => { setFirstName(e.target.value); setFirstNameError(''); }}
-                  className="mt-1 bg-[#0f1a2e] border-white/10 text-white"
+                  className="mt-1 bg-[#0F2E4A] border-white/10 text-white"
                   required
                 />
                 {firstNameError && (
@@ -130,7 +130,7 @@ export function EmailModal({
                   placeholder="Doe"
                   value={lastName}
                   onChange={(e) => { setLastName(e.target.value); setLastNameError(''); }}
-                  className="mt-1 bg-[#0f1a2e] border-white/10 text-white"
+                  className="mt-1 bg-[#0F2E4A] border-white/10 text-white"
                   required
                 />
                 {lastNameError && (
@@ -149,7 +149,7 @@ export function EmailModal({
                 placeholder="your.email@example.com"
                 value={email}
                 onChange={(e) => { setEmail(e.target.value); setEmailError(''); }}
-                className="mt-1 bg-[#0f1a2e] border-white/10 text-white"
+                className="mt-1 bg-[#0F2E4A] border-white/10 text-white"
                 required
               />
               {emailError && (
@@ -167,7 +167,7 @@ export function EmailModal({
                 placeholder="+1 555 000 0000"
                 value={phone}
                 onChange={(e) => { setPhone(e.target.value); setPhoneError(''); }}
-                className="mt-1 bg-[#0f1a2e] border-white/10 text-white"
+                className="mt-1 bg-[#0F2E4A] border-white/10 text-white"
                 required
               />
               {phoneError && (
@@ -189,7 +189,7 @@ export function EmailModal({
                   placeholder="100"
                   value={amount}
                   onChange={(e) => { setAmount(e.target.value); setAmountError(''); }}
-                  className="pl-7 bg-[#0f1a2e] border-white/10 text-white"
+                  className="pl-7 bg-[#0F2E4A] border-white/10 text-white"
                   required
                 />
               </div>
@@ -217,7 +217,7 @@ export function EmailModal({
             <Button
               type="submit"
               disabled={isLoading}
-              className="bg-[#0033ff] hover:bg-[#0044ff]"
+              className="bg-[#3B7DBF] hover:bg-[#3B7DBF]"
             >
               {isLoading ? 'Processing...' : 'Continue to Payment'}
             </Button>
