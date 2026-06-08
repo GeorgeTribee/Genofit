@@ -21,6 +21,10 @@ export interface CourseCardData {
   title: string;
   description: string;
   accent: AccentColor;
+  categoryTop: string;
+  categoryBottom: string;
+  badge: string;
+  badgeColor: string;
   comingSoon?: boolean;
 }
 
@@ -28,30 +32,42 @@ export const courseCards: CourseCardData[] = [
   {
     slug: 'qa-manual-pro',
     title: 'QA Manual Pro',
-    description:
-      'A four-month flagship for career-switchers and complete beginners. You finish having run the full QA cycle end-to-end.',
+    description: 'Advanced QA training on real applications, with the workflows used by international teams.',
     accent: 'teal',
+    categoryTop: 'FLAGSHIP',
+    categoryBottom: 'CORE PROGRAM',
+    badge: 'ACTIVE ENROLLMENT',
+    badgeColor: '#22C55E',
   },
   {
     slug: 'web-test-automation',
     title: 'Web Test Automation',
-    description:
-      'Automation training for working QA engineers. Java, Selenium, Playwright, API testing, and CI/CD.',
+    description: 'Engineering-grade test automation for QA professionals working on real codebases.',
     accent: 'blue',
+    categoryTop: 'AUTOMATION',
+    categoryBottom: 'INTERMEDIATE',
+    badge: 'STARTING SOON',
+    badgeColor: '#F97316',
   },
   {
     slug: 'mobile-qa',
     title: 'Mobile QA Engineering',
-    description:
-      'A two-month specialization in iOS and Android testing. Taught by a senior SDET working in international product teams.',
+    description: 'A focused track for QA engineers who want to specialize in iOS and Android testing.',
     accent: 'purple',
+    categoryTop: 'SPECIALIZATION',
+    categoryBottom: 'MOBILE QA',
+    badge: 'NEW TRACK',
+    badgeColor: '#8B5CF6',
   },
   {
     slug: 'qa-english',
     title: 'QA English for Tech',
-    description:
-      'English for QA engineers preparing for international roles. Technical terminology, documentation, and interview practice.',
+    description: 'English communication for QA engineers ready to work with global teams and U.S. clients.',
     accent: 'emerald',
+    categoryTop: 'COMMUNICATION',
+    categoryBottom: 'GLOBAL CAREER',
+    badge: 'FOUNDATION',
+    badgeColor: '#EAB308',
     comingSoon: true,
   },
 ];

@@ -44,7 +44,7 @@ const Header = () => {
         { name: "Why Us", href: "/#why-us" },
         { name: "Academy", href: "/courses" },
         { name: "About Us", href: "/#about" },
-        { name: "QA Honors Program", href: "/qa-honors-program", badge: true },
+        // { name: "QA Honors Program", href: "/qa-honors-program", badge: true },
     ];
 
     return (

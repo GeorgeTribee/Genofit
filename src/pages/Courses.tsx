@@ -1,16 +1,14 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { courseCards, accentGradients, accentBaseColors, type CourseCardData } from "@/data/coursesData";
+import { courseCards, accentBaseColors, type CourseCardData } from "@/data/coursesData";
 
 // ─── Design tokens ────────────────────────────────────────────────────────────
 
 const BG = '#0A0F1E';
-const CARD_BG = '#111827';
 const TEXT_SECONDARY = '#94A3B8';
 const TEXT_MUTED = '#64748B';
 const TEAL = '#14B8A6';
 const TEAL_DARK = '#0F9488';
-const BORDER_CARD = 'rgba(255,255,255,0.12)';
 
 const serif: React.CSSProperties = { fontFamily: '"Playfair Display", serif' };
 const mono: React.CSSProperties = { fontFamily: '"JetBrains Mono", monospace' };
@@ -20,7 +18,6 @@ const sansSemi: React.CSSProperties = { fontFamily: '"Inter", sans-serif', fontW
 // ─── Academy Course Card ──────────────────────────────────────────────────────
 
 const AcademyCourseCard = ({ course }: { course: CourseCardData }) => {
-  const gradient = accentGradients[course.accent];
   const accentColor = accentBaseColors[course.accent];
 
   const inner = (
@@ -29,13 +26,14 @@ const AcademyCourseCard = ({ course }: { course: CourseCardData }) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-40px' }}
       transition={{ duration: 0.45, ease: 'easeOut' }}
-      whileHover={{ y: -2 }}
+      whileHover={{ y: -3 }}
       style={{
-        backgroundColor: CARD_BG,
-        border: `1px solid ${BORDER_CARD}`,
-        borderRadius: '16px',
-        boxShadow: '0 4px 24px rgba(0,0,0,0.3)',
-        padding: '32px',
+        backgroundColor: '#0D1424',
+        border: '1px solid rgba(255,255,255,0.08)',
+        borderLeft: `4px solid ${accentColor}`,
+        borderRadius: '12px',
+        boxShadow: '0 4px 24px rgba(0,0,0,0.35)',
+        padding: '24px',
         position: 'relative',
         overflow: 'hidden',
         height: '100%',
@@ -46,40 +44,45 @@ const AcademyCourseCard = ({ course }: { course: CourseCardData }) => {
       }}
       onMouseEnter={(e) => {
         if (course.comingSoon) return;
-        (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(255,255,255,0.25)';
-        (e.currentTarget as HTMLDivElement).style.boxShadow = '0 8px 40px rgba(0,0,0,0.5)';
+        (e.currentTarget as HTMLDivElement).style.boxShadow = '0 10px 40px rgba(0,0,0,0.55)';
+        (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(255,255,255,0.18)';
+        (e.currentTarget as HTMLDivElement).style.borderLeftColor = accentColor;
       }}
       onMouseLeave={(e) => {
-        (e.currentTarget as HTMLDivElement).style.borderColor = BORDER_CARD;
-        (e.currentTarget as HTMLDivElement).style.boxShadow = '0 4px 24px rgba(0,0,0,0.3)';
+        (e.currentTarget as HTMLDivElement).style.boxShadow = '0 4px 24px rgba(0,0,0,0.35)';
+        (e.currentTarget as HTMLDivElement).style.borderColor = 'rgba(255,255,255,0.08)';
+        (e.currentTarget as HTMLDivElement).style.borderLeftColor = accentColor;
       }}
     >
-      {/* Gradient top border */}
-      <div
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          height: '3px',
-          background: gradient,
-          borderRadius: '16px 16px 0 0',
-        }}
-      />
-
-      {/* Accent dot */}
-      <div className="flex items-center gap-2 mb-5">
-        <span style={{ color: accentColor, fontSize: '8px' }}>●</span>
+      {/* Top row: category labels + badge */}
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '20px' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '2px' }}>
+          <span style={{ ...mono, fontSize: '10px', letterSpacing: '0.1em', color: TEXT_MUTED, textTransform: 'uppercase' }}>
+            {course.categoryTop}
+          </span>
+          <span style={{ ...mono, fontSize: '10px', letterSpacing: '0.1em', color: TEXT_MUTED, textTransform: 'uppercase' }}>
+            {course.categoryBottom}
+          </span>
+        </div>
         <span
           style={{
             ...mono,
-            fontSize: '11px',
-            letterSpacing: '0.12em',
-            color: accentColor,
+            fontSize: '9px',
+            letterSpacing: '0.08em',
             textTransform: 'uppercase',
+            color: course.badgeColor,
+            backgroundColor: `${course.badgeColor}18`,
+            border: `1px solid ${course.badgeColor}40`,
+            borderRadius: '20px',
+            padding: '3px 10px',
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '5px',
+            whiteSpace: 'nowrap',
           }}
         >
-          {course.comingSoon ? 'Coming soon' : 'Now enrolling'}
+          <span style={{ fontSize: '7px' }}>●</span>
+          {course.badge}
         </span>
       </div>
 
@@ -88,10 +91,10 @@ const AcademyCourseCard = ({ course }: { course: CourseCardData }) => {
         style={{
           ...serif,
           fontSize: '22px',
-          fontWeight: 600,
-          color: '#FFFFFF',
-          marginBottom: '12px',
-          lineHeight: 1.3,
+          fontWeight: 700,
+          color: accentColor,
+          marginBottom: '14px',
+          lineHeight: 1.25,
         }}
       >
         {course.title}
@@ -101,41 +104,29 @@ const AcademyCourseCard = ({ course }: { course: CourseCardData }) => {
       <p
         style={{
           ...sansLight,
-          fontSize: '15px',
+          fontSize: '14px',
           color: TEXT_SECONDARY,
           lineHeight: 1.65,
           flex: 1,
-          marginBottom: '24px',
+          marginBottom: '28px',
         }}
       >
         {course.description}
       </p>
 
       {/* CTA */}
-      {course.comingSoon ? (
-        <span
-          style={{
-            ...{ fontFamily: '"Inter", sans-serif', fontWeight: 600 },
-            fontSize: '14px',
-            color: TEXT_MUTED,
-          }}
-        >
-          Details announced soon
-        </span>
-      ) : (
-        <span
-          style={{
-            ...sansSemi,
-            fontSize: '14px',
-            color: TEAL,
-            display: 'inline-flex',
-            alignItems: 'center',
-            gap: '6px',
-          }}
-        >
-          View Course →
-        </span>
-      )}
+      <span
+        style={{
+          ...sansSemi,
+          fontSize: '13px',
+          color: course.comingSoon ? TEXT_MUTED : '#FFFFFF',
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: '6px',
+        }}
+      >
+        {course.comingSoon ? 'Details announced soon' : 'Explore Program →'}
+      </span>
     </motion.div>
   );
 
@@ -246,7 +237,7 @@ const Courses = () => {
       {/* ── Course Cards Grid ── */}
       <section style={{ paddingBottom: '100px' }}>
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {courseCards.map((course) => (
               <AcademyCourseCard key={course.slug} course={course} />
             ))}
