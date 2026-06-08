@@ -6,7 +6,7 @@ import { courseCards, accentBaseColors, type CourseCardData } from "@/data/cours
 
 const BG = '#0A0F1E';
 const TEXT_SECONDARY = '#94A3B8';
-const TEXT_MUTED = '#64748B';
+const TEXT_MUTED = '#8896A8';
 const TEAL = '#14B8A6';
 const TEAL_DARK = '#0F9488';
 

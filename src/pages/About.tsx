@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 const BG = '#0A0F1E';
 const CARD_BG = '#111827';
 const TEXT_SECONDARY = '#94A3B8';
-const TEXT_MUTED = '#64748B';
+const TEXT_MUTED = '#8896A8';
 const TEAL = '#14B8A6';
 const BORDER = 'rgba(255,255,255,0.08)';
 
